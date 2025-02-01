@@ -1,0 +1,156 @@
+
+* {
+  box-sizing: border-box;
+}
+
+
+.menu-layout,
+.app-container {
+  
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Gesamte Seitenhöhe */
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.top-bar {
+  height: 60px;
+  padding: 5px 15px;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo,
+.logoHome {
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.logo img,
+.logoHome img {
+  display: block;
+}
+
+.titel h1 {
+  font-size: 24px;
+}
+
+.ig-link img {
+  width: 30px;
+  height: 30px;
+}
+
+.menu-content {
+  image-rendering: optimizeSpeed;
+  max-width: 100vw;
+  margin-top: 120px; /* 🔥 Abstand zum Header */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 10;
+}
+
+.menu-content h2 {
+  
+  
+  color: rgb(255, 255, 255);
+  margin-bottom: 20px;
+}
+
+.menu-title {
+  padding: 10px 20px;
+  margin: 0px 0;
+  color: #ffffff; /* Weißer Text */
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 70px;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(3px); /* Glasiger Effekt durch Unschärfe */
+  -webkit-backdrop-filter: blur(10px); /* Unterstützung für Safari */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Weißer, halbtransparenter Rand */
+  text-align: center;
+  max-width: 90%;
+}
+
+/* Home-Button Styles */
+.logoHome {
+  display: fixed; 
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .top-bar {
+    height: 60px; /* Kleinerer Header */
+    padding: 5px 15px;
+    z-index: 20;
+  }
+
+  .top-bar h1 {
+    font-size: 24px; /* Verkleinere den Titel */
+  }
+
+  .menu-content {
+    width: 95%;
+    margin-top: 90px; /* Weniger Abstand zum Header */
+    padding-bottom: 80px; /* Platz für den fixierten Home-Button */
+  }
+
+  .menu-content h2 {
+    font-size: 24px; /* Kleinere Überschrift */
+  }
+
+  .item {
+    width: 80%;
+    height: auto; /* Anstelle von 20% */
+    font-size: 18px;
+    padding: 10px;
+    margin: 10px 0; /* Vertikaler Abstand */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logoHome {
+    display: block; /* Anzeigen auf mobilen Geräten */
+    position: fixed; /* Fixiert den Button */
+    bottom: 20px; /* Abstand vom unteren Rand */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000; /* Über anderen Elementen anzeigen */
+    background-color: rgba(
+      255,
+      255,
+      255,
+      0
+    ); /* Optional: Hintergrundfarbe für bessere Sichtbarkeit */
+    padding: 10px;
+    border-radius: 50%; /* Runde Form */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Optional: Schatten */
+  }
+
+  .logoHome img {
+    width: 50px; /* Größe des Logos */
+    height: 50px;
+  }
+}
+.kebs{
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+.titel{
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+.master{
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
