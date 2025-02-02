@@ -9,7 +9,9 @@ export interface SubMenuItem {
 
 export const grillOptions = [
     { label: "Adanakebab 8,90€", value: "adanakebab", img: "/assets/adanakebab.webp", },
-    
+    { label: "Adanakebab 8,90€", value: "adanakebab", img: "/assets/adanakebab.webp", },
+    { label: "Adanakebab 8,90€", value: "adanakebab", img: "/assets/adanakebab.webp", },
+
     { label: "Adanateller 11,90€", value: "adanateller", img: "/assets/adanateller.webp" },
     { label: "Gemischte Platte 24,90€", value: "gemischtePlatte", img: "/assets/adanakebab.webp", },
     { label: "Master Lamm-Spieß 12,90€", value: "koeftespies", img: "/assets/koeftespieß.webp" },
