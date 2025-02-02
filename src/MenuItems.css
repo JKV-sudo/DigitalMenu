@@ -1,4 +1,10 @@
 /* Standard-Stil für alle Menü-Items */
+* p {
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  user-select: none;
+}
 .menu-item {
   background: rgba(0, 0, 0, 0.466); /* Glasige Transparenz */
   backdrop-filter: blur(3px); /* Weiches Verschwimmen des Hintergrunds */

@@ -1,12 +1,15 @@
-
 * {
   box-sizing: border-box;
 }
-
+* p,h1,h2 {
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
 .menu-layout,
 .app-container {
-  
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* Gesamte Seitenhöhe */
@@ -30,6 +33,7 @@
   display: inline-block;
   cursor: pointer;
   text-decoration: none;
+  z-index: 11;
 }
 
 .logo img,
@@ -58,8 +62,6 @@
 }
 
 .menu-content h2 {
-  
-  
   color: rgb(255, 255, 255);
   margin-bottom: 20px;
 }
@@ -71,12 +73,7 @@
   font-size: 2rem;
   font-weight: bold;
   border-radius: 70px;
-  background: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); 
+  background: rgba(0, 0, 0, 0.5);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(3px); /* Glasiger Effekt durch Unschärfe */
   -webkit-backdrop-filter: blur(10px); /* Unterstützung für Safari */
@@ -87,7 +84,7 @@
 
 /* Home-Button Styles */
 .logoHome {
-  display: fixed; 
+  display: fixed;
 }
 
 /* Mobile Styles */
@@ -145,12 +142,12 @@
     height: 50px;
   }
 }
-.kebs{
+.kebs {
   font-size: clamp(1.5rem, 4vw, 2.5rem);
 }
-.titel{
+.titel {
   font-size: clamp(1.5rem, 4vw, 2.5rem);
 }
-.master{
+.master {
   font-size: clamp(1.5rem, 4vw, 2.5rem);
 }

@@ -4,6 +4,12 @@
   padding: 0;
   box-sizing: border-box; /* No padding */
 }
+* p {
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  user-select: none;
+}
 .app-container {
   min-height: 100vh;
   width: 100vw;
@@ -188,6 +194,6 @@ h1 {
 header {
   font-size: xx-large;
 }
-.kebs{
+.kebs {
   font-size: clamp(1.5rem, 4vw, 2.5rem);
 }
