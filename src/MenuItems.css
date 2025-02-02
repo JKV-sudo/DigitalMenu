@@ -22,12 +22,7 @@
 
 /* Hover-Effekt für bessere Sichtbarkeit */
 .menu-item:hover {
-  background: rgba(
-    80,
-    79,
-    79,
-    0.404
-  ); /* Etwas weniger Transparenz beim Hover */
+  background: rgba(80, 79, 79, 0.404); /* Etwas weniger Transparenz beim Hover */
   border-color: rgba(255, 255, 255, 0.808); /* Stärkerer Rand beim Hover */
   transform: scale(1.05); /* Leichte Vergrößerung */
 }
@@ -40,6 +35,7 @@
 /* 🍔 Burger-Menü: Roter Rand */
 .burger-menu .menu-item {
   border-color: rgb(255, 6, 6);
+  
 }
 
 /* 🥙 Kebab-Menü: Grüner Rand */
@@ -71,8 +67,15 @@
 
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Drei Spalten */
+  grid-template-columns: repeat( 3, 1fr); /* Genau 4 Items pro Zeile */
   gap: 20px; /* Abstand zwischen den Items */
   padding: 20px;
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
+}
+
+@media  (max-width: 768px) {
+  .menu-grid {
+    grid-template-columns: repeat( 2, 1fr); /* 2 Items pro Zeile */
+  }
+  
 }
