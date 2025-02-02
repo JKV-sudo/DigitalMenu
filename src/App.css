@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box; /* No padding */
+  
 }
 * p {
   -webkit-user-select: none;
@@ -171,6 +172,12 @@ h1 {
     width: 80%;
     padding: 12px;
     font-size: 16px;
+  }
+  .app-container {
+    padding: 0 20px;
+  }
+  .firstboxtext {
+     margin-top: 20px;
   }
 }
 .logoHome {
