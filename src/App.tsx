@@ -14,6 +14,7 @@ import AnimatedMenu from "./AnimatedMenu";
 import GrillPage from "./GrillPage";
 import BurgerPage from "./BurgerPage";
 import KebabPage from "./KebabPage";
+import JKV from "./jkv";
 
 interface MenuOption {
   label: string;
@@ -110,10 +111,15 @@ function MainMenu() {
         <img src="/assets/Logo.png" alt="Zurück zur Startseite" />
       </Link>
       <div className="qr">
-        <a>
-          <img src="/assets/LOGO_QR.png"></img>
-        </a>
-      </div>
+  <Link to="/jkv">
+    <img
+      src="/assets/Logo_1_JKV.png"
+      width={150}
+      height={100}
+      alt="JKV SoftwareSolutions"
+    />
+  </Link>
+</div>
 
       <div className="body-container">
         <main className="content">
@@ -151,6 +157,7 @@ export default function AppRouter() {
         <Route path="/burger" element={<BurgerPage />} />
         <Route path="/kebab" element={<KebabPage />} />
         <Route path="*" element={<MainMenu />} />
+        <Route path="/jkv" element={<JKV />} />
       </Routes>
     </Router>
   );
