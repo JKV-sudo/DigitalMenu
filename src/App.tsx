@@ -86,7 +86,8 @@ function MainMenu() {
         </Link>
         <div className="titel">
           <h1>
-            <span className="master">Master</span> <span className="kebs">Döner</span>
+            <span className="master">Master</span>{" "}
+            <span className="kebs">Döner</span>
           </h1>
         </div>
         <a
@@ -108,6 +109,11 @@ function MainMenu() {
       >
         <img src="/assets/Logo.png" alt="Zurück zur Startseite" />
       </Link>
+      <div className="qr">
+        <a>
+          <img src="/assets/LOGO_QR.png"></img>
+        </a>
+      </div>
 
       <div className="body-container">
         <main className="content">
@@ -116,7 +122,7 @@ function MainMenu() {
 
         <div className="mainbox">
           <AnimatedMenu
-            key={animationKey} // Füge den key hinzu, um neu zu mounten und Animation zurückzusetzen
+            key={animationKey}
             options={currentOptions}
             onSelect={handleMenuSelect}
           />

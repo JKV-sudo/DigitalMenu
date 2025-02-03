@@ -57,6 +57,9 @@
 .menu-item:hover p {
   text-shadow: 3px 3px 10px rgb(56, 56, 56); /* Starker weißer Glow */
 }
+.menu-item.menu-item:click{
+  transform: scale(1.8);
+}
 
 .menu-item img {
   max-width: 100%;
