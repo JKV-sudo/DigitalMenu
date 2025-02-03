@@ -36,7 +36,7 @@ export default function JKV() {
         <main className="content">
           {/* Glut-Animation */}
           <GlutAnimation />
-          <img src="\assets\QR_working.png" alt="qr code" />
+          <img src="\assets\QR_working.png" alt="qr code" className="qr_r"/>
         </main>
       </div>
 
