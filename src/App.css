@@ -178,7 +178,14 @@ h1 {
   .firstboxtext {
     margin-top: 20px;
   }
+  .qr {
+    scale: 0.5;
+    left: 1;
+    bottom: 1;
+    padding: 0 0 0 0;
+  }
 }
+
 .logoHome {
   position: fixed;
   bottom: 20px; /* Abstand vom unteren Rand */
