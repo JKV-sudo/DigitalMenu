@@ -32,6 +32,12 @@ h1 {
   width: 100%;
   height: 48px;
   background-color: #000000;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+
   color: white;
   padding: 10px 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -78,7 +84,6 @@ h1 {
   display: flex;
   margin: 0;
   padding: 0;
-  
 }
 .logo {
   margin-top: 10px;
@@ -181,18 +186,19 @@ h1 {
   }
   .qr {
     scale: 0.4;
-    left: 1;
-    bottom: 1;
+    left: 1px;
+    bottom: 1px;
     padding: 0 0 0 0;
+    display: flex;
   }
 }
 
 .logoHome {
   position: fixed;
-  bottom: 20px; /* Abstand vom unteren Rand */
+  bottom: 20px;
   left: 50%;
-  transform: translateX(-50%); /* Zentriert das Logo horizontal */
-  z-index: 10; /* Stellt sicher, dass es über anderen Elementen liegt */
+  transform: translateX(-50%);
+  z-index: 10;
 }
 
 .logoHome img {
@@ -215,18 +221,12 @@ header {
   image-rendering: optimizeSpeed;
   z-index: 1000;
   position: fixed;
-  bottom: 10px; /* Positionieren Sie das Element am unteren Rand des Bildschirms */
-  left: 10px; /* Positionieren Sie das Element am rechten Rand des Bildschirms */
-  display: flex; /* Stellen Sie sicher, dass das Element sichtbar ist */
-  align-items: center; /* Zentrieren Sie den Inhalt vertikal */
-  justify-content: center; /* Zentrieren Sie den Inhalt horizontal */
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0
-  ); /* Optional: Hintergrundfarbe hinzufügen */
-
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0);
   opacity: 0.3;
 }
 .qr:hover {
