@@ -149,8 +149,6 @@ function MainMenu() {
   );
 }
 
-// 2) Die App-Komponente, in der wir den Router definieren
-//    und unsere Seiten (Routen) angeben.
 export default function App() {
   return (
     <Router>

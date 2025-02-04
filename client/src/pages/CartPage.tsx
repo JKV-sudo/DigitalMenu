@@ -1,28 +1,37 @@
 // client/src/pages/CartPage.tsx
-
 import React from "react";
-// Hier der richtige Pfad zu deinem Context:
 import { useCart } from "../context/cartContext";
+
+// Importiere die CSS
+import "./CartPage.css";
 
 export default function CartPage() {
   const { cartItems, removeFromCart, total } = useCart();
 
   return (
-    <div>
+    <div className="cart-container">
       <h1>Warenkorb</h1>
       {cartItems.length === 0 ? (
-        <p>Der Warenkorb ist leer.</p>
+        <p className="empty-cart">Der Warenkorb ist leer.</p>
       ) : (
-        <ul>
+        <ul className="cart-items">
           {cartItems.map((item) => (
             <li key={item.id}>
-              {item.name} — {item.price} €
-              <button onClick={() => removeFromCart(item.id)}>Entfernen</button>
+              <div className="item-info">
+                <span className="item-name">{item.name}</span>
+                <span className="item-price">{item.price} €</span>
+              </div>
+              <button
+                className="remove-btn"
+                onClick={() => removeFromCart(item.id)}
+              >
+                Entfernen
+              </button>
             </li>
           ))}
         </ul>
       )}
-      <p>Gesamt: {total} €</p>
+      <p className="cart-total">Gesamt: {total} €</p>
     </div>
   );
 }
