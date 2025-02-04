@@ -1,19 +1,20 @@
-// MainMenu.jsx
 import React, { useState } from "react";
 import {
   BrowserRouter as Router,
-  Route,
   Routes,
+  Route,
   useNavigate,
   useLocation,
   Link,
 } from "react-router-dom";
+
 import "./App.css";
 import GlutAnimation from "./GlutAnimation";
 import AnimatedMenu from "./AnimatedMenu";
-import GrillPage from "./GrillPage";
-import BurgerPage from "./BurgerPage";
-import KebabPage from "./KebabPage";
+import GrillPage from "./pages/GrillPage"; // Correct import path
+import BurgerPage from "./pages/BurgerPage"; // Correct import path
+import KebabPage from "./pages/KebabPage"; // Correct import path
+import CartPage from "./pages/CartPage";
 import JKV from "./jkv";
 
 interface MenuOption {
@@ -23,6 +24,7 @@ interface MenuOption {
   img: string;
 }
 
+// Hauptmenü-Optionen:
 const mainMenuOptions: MenuOption[] = [
   {
     label: "Grill-Gerichte",
@@ -44,11 +46,9 @@ const mainMenuOptions: MenuOption[] = [
   },
 ];
 
+// 1) Die MainMenu-Komponente (wie gehabt):
 function MainMenu() {
-  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
-  const [currentOptions, setCurrentOptions] =
-    useState<MenuOption[]>(mainMenuOptions);
-  const [animationKey, setAnimationKey] = useState(0); // Neuer Zustand für das Zurücksetzen der Animation
+  const [animationKey, setAnimationKey] = useState(0);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -67,11 +67,11 @@ function MainMenu() {
   const handleLogoClick = (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) => {
+    // Wenn wir bereits auf der Startseite sind, Animation zurücksetzen:
     if (location.pathname === "/") {
-      e.preventDefault(); // Verhindert die normale Navigation
-      setAnimationKey((prevKey) => prevKey + 1); // Erhöhe den Schlüssel, um AnimatedMenu neu zu mounten
+      e.preventDefault();
+      setAnimationKey((prevKey) => prevKey + 1);
     }
-    // Andernfalls funktioniert der Link wie gewohnt
   };
 
   return (
@@ -110,16 +110,17 @@ function MainMenu() {
       >
         <img src="/assets/Logo.png" alt="Zurück zur Startseite" />
       </Link>
+
       <div className="qr">
-  <Link to="/jkv">
-    <img
-      src="/assets/Logo_1_JKV.png"
-      width={150}
-      height={100}
-      alt="JKV SoftwareSolutions"
-    />
-  </Link>
-</div>
+        <Link to="/jkv">
+          <img
+            src="/assets/Logo_1_JKV.png"
+            width={150}
+            height={100}
+            alt="JKV SoftwareSolutions"
+          />
+        </Link>
+      </div>
 
       <div className="body-container">
         <main className="content">
@@ -129,7 +130,7 @@ function MainMenu() {
         <div className="mainbox">
           <AnimatedMenu
             key={animationKey}
-            options={currentOptions}
+            options={mainMenuOptions}
             onSelect={handleMenuSelect}
           />
         </div>
@@ -148,7 +149,9 @@ function MainMenu() {
   );
 }
 
-export default function AppRouter() {
+// 2) Die App-Komponente, in der wir den Router definieren
+//    und unsere Seiten (Routen) angeben.
+export default function App() {
   return (
     <Router>
       <Routes>
@@ -156,8 +159,10 @@ export default function AppRouter() {
         <Route path="/grill" element={<GrillPage />} />
         <Route path="/burger" element={<BurgerPage />} />
         <Route path="/kebab" element={<KebabPage />} />
-        <Route path="*" element={<MainMenu />} />
+        <Route path="/cart" element={<CartPage />} />
         <Route path="/jkv" element={<JKV />} />
+        {/* Fallback */}
+        <Route path="*" element={<MainMenu />} />
       </Routes>
     </Router>
   );

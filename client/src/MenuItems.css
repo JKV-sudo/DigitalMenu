@@ -1,0 +1,86 @@
+/* Standard-Stil für alle Menü-Items */
+* p {
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.menu-item {
+  background: rgba(0, 0, 0, 0.466); /* Glasige Transparenz */
+  backdrop-filter: blur(3px); /* Weiches Verschwimmen des Hintergrunds */
+  -webkit-backdrop-filter: blur(10px); /* Safari-Fix */
+  border: 2px solid rgba(255, 255, 255, 0.5); /* Solider, heller Rand */
+  border-radius: 15px; /* Abgerundete Ecken */
+  padding: 15px;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 16px 16px 19px rgba(0, 0, 0, 0.9);
+}
+
+/* Hover-Effekt für bessere Sichtbarkeit */
+.menu-item:hover {
+  background: rgba(80, 79, 79, 0.404); /* Etwas weniger Transparenz beim Hover */
+  border-color: rgba(255, 255, 255, 0.808); /* Stärkerer Rand beim Hover */
+  transform: scale(1.05); /* Leichte Vergrößerung */
+}
+
+/* 🔥 Grill-Menü: Dunkler Rand */
+.grill-menu .menu-item {
+  border-color: rgba(253, 249, 13, 0.9);
+}
+
+/* 🍔 Burger-Menü: Roter Rand */
+.burger-menu .menu-item {
+  border-color: rgb(255, 6, 6);
+  
+}
+
+/* 🥙 Kebab-Menü: Grüner Rand */
+.kebab-menu .menu-item {
+  border-color: rgba(0, 247, 21, 0.692);
+}
+.menu-item p {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.3); /* Abdunkelung für besseren Kontrast */
+  padding: 5px 10px;
+  border-radius: 8px;
+  display: inline-block;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Leichter Schatten für Kontrast */
+}
+
+.menu-item:hover p {
+  text-shadow: 3px 3px 10px rgb(56, 56, 56); /* Starker weißer Glow */
+}
+.menu-item.menu-item:click{
+  transform: scale(1.8);
+}
+
+.menu-item img {
+  max-width: 100%;
+  max-height: 150px; /* Beschränke die maximale Höhe */
+  object-fit: cover; /* Bild skalieren und zuschneiden, um den Container zu füllen */
+  border-radius: 10px; /* Abgerundete Ecken für die Bilder */
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat( 3, 1fr); /* Genau 4 Items pro Zeile */
+  gap: 20px; /* Abstand zwischen den Items */
+  padding: 20px;
+  /*margin-bottom: 20px;*/
+}
+
+@media  (max-width: 768px) {
+  .menu-grid {
+    grid-template-columns: repeat( 2, 1fr); /* 2 Items pro Zeile */
+    margin-left: auto;
+    zoom: 80%;
+  }
+  
+}
