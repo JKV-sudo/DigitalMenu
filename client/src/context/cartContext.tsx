@@ -37,16 +37,20 @@ interface CartProviderProps {
 
 export function CartProvider({ children }: CartProviderProps) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [total, setTotal] = useState(0);
 
   function addToCart(item: CartItem) {
     setCartItems((prevItems) => [...prevItems, item]);
+    setTotal((prevTotal) => prevTotal + item.price);
   }
 
   function removeFromCart(itemId: number) {
     setCartItems((prevItems) => prevItems.filter((i) => i.id !== itemId));
+    const itemToRemove = cartItems.find((item) => item.id === itemId);
+    if (itemToRemove) {
+      setTotal((prevTotal) => prevTotal - itemToRemove.price);
+    }
   }
-
-  const total = cartItems.reduce((acc, item) => acc + item.price, 0);
 
   const value: CartContextValue = {
     cartItems,

@@ -1,16 +1,31 @@
-/* CartPage.css */
-
-/* Das übergeordnete Container-Element für den Warenkorb */
+.top-bar {
+  height: 60px;
+  padding: 5px 15px;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Ensure it takes full width */
+  background-color: rgba(0, 0, 0, 0.5); /* Add background color if needed */
+  position: fixed;
+}
+.ig-link img {
+  width: 30px;
+  height: 30px;
+}
 .cart-container {
   position: relative;
   max-width: 600px;
-  margin: 8rem auto;
+  margin: 6rem auto;
   padding: 1rem;
-  background-color: #222121a4;
+  background-color: #000000a4;
   border-radius: 25px;
   z-index: 3000;
-  min-height: 40vh;
-  box-shadow: 25px 25px 5px rgba(0, 0, 0, 0.9);  
+  min-height: 30vh;
+  box-shadow: 25px 25px 5px rgba(0, 0, 0, 0.9);
+  border: #c0392b;
+  border-style: solid;
+  z-index: 50000;
 }
 
 .cart-container h1 {
@@ -20,6 +35,8 @@
   color: #ffffff;
   z-index: 3000;
   position: relative;
+  background-color: #33333383;
+  border-radius: 10px;
 }
 
 .empty-cart {
@@ -79,9 +96,11 @@
   font-size: 1.2rem;
   color: #ffffff;
   font-weight: 600;
+  background-color: #33333383;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
 }
-.glut{
+.glut {
   z-index: 5;
   position: fixed;
-  
 }

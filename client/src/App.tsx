@@ -11,9 +11,9 @@ import "./App.css";
 import { CartProvider } from "./context/cartContext";
 import GlutAnimation from "./GlutAnimation";
 import AnimatedMenu from "./AnimatedMenu";
-import GrillPage from "./pages/GrillPage"; // Correct import path
-import BurgerPage from "./pages/BurgerPage"; // Correct import path
-import KebabPage from "./pages/KebabPage"; // Correct import path
+import GrillPage from "./pages/GrillPage"; 
+import BurgerPage from "./pages/BurgerPage"; 
+import KebabPage from "./pages/KebabPage"; 
 import CartPage from "./pages/CartPage";
 import JKV from "./jkv";
 

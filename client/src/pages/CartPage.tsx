@@ -3,38 +3,74 @@ import React from "react";
 import { useCart } from "../context/cartContext";
 import GlutAnimation from "../GlutAnimation";
 import "./CartPage.css";
+import { Link } from "react-router-dom";
 
 export default function CartPage() {
-  const { cartItems, removeFromCart, total } = useCart();
+  const { cartItems, removeFromCart, total, addToCart } = useCart();
 
-  console.log("CartPage gerendert!");
+  const addItemManually = () => {
+    const newItem = {
+      id: "manual-item",
+      name: "Manuell hinzugefügter Artikel",
+      price: 10.0,
+    };
+    addToCart(newItem);
+  };
+
   return (
-    <div className="cart-container">
-      <div className="glut">
-        <GlutAnimation />
+    <>
+      <header className="top-bar">
+        <Link to="/" className="logo" aria-label="Zurück zur Startseite">
+          <img src="/assets/Logo.png" width={50} height={50} alt="Logo" />
+        </Link>
+        <div className="titel">
+          <h1>
+            <span className="master">Master</span>
+            <span className="kebs"> Döner</span>
+          </h1>
+        </div>
+        <a
+          href="https://www.instagram.com/master_doener1/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="ig-link"
+        >
+          <img src="/assets/ig.png" alt="Instagram" className="ig-icon" />
+        </a>
+      </header>
+      <div className="cart-container">
+        <div>
+          <Link to="/" className="logoHome" aria-label="Zurück zur Startseite">
+            <img src="/assets/Logo2.png" alt="Zurück zur Startseite" />
+          </Link>
+        </div>
+        <div className="glut">
+          <GlutAnimation />
+        </div>
+        <h1>Warenkorb</h1>
+        <button onClick={addItemManually}>Artikel manuell hinzufügen</button>
+        {cartItems.length === 0 ? (
+          <p className="empty-cart">Der Warenkorb ist leer.</p>
+        ) : (
+          <ul className="cart-items">
+            {cartItems.map((item) => (
+              <li key={item.id}>
+                <div className="item-info">
+                  <span className="item-name">{item.name}</span>
+                  <span className="item-price">{item.price} €</span>
+                </div>
+                <button
+                  className="remove-btn"
+                  onClick={() => removeFromCart(item.id)}
+                >
+                  Entfernen
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+        <p className="cart-total">Gesamt: {total} €</p>
       </div>
-      <h1>Warenkorb</h1>
-      {cartItems.length === 0 ? (
-        <p className="empty-cart">Der Warenkorb ist leer.</p>
-      ) : (
-        <ul className="cart-items">
-          {cartItems.map((item) => (
-            <li key={item.id}>
-              <div className="item-info">
-                <span className="item-name">{item.name}</span>
-                <span className="item-price">{item.price} €</span>
-              </div>
-              <button
-                className="remove-btn"
-                onClick={() => removeFromCart(item.id)}
-              >
-                Entfernen
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
-      <p className="cart-total">Gesamt: {total} €</p>
-    </div>
+    </>
   );
 }
