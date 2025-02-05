@@ -8,8 +8,7 @@ router.post('/', (req, res) => {
   
   console.log('Neue Bestellung erhalten:', items, total);
 
-  // Hier könntest du die Bestellung in einer DB speichern
-  // oder eine Bestätigungs-E-Mail verschicken etc.
+
 
   return res.status(201).json({ message: 'Bestellung erfolgreich!', items, total });
 });

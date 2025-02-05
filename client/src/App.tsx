@@ -7,8 +7,8 @@ import {
   useLocation,
   Link,
 } from "react-router-dom";
-
 import "./App.css";
+import { CartProvider } from "./context/cartContext";
 import GlutAnimation from "./GlutAnimation";
 import AnimatedMenu from "./AnimatedMenu";
 import GrillPage from "./pages/GrillPage"; // Correct import path
@@ -151,17 +151,18 @@ function MainMenu() {
 
 export default function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<MainMenu />} />
-        <Route path="/grill" element={<GrillPage />} />
-        <Route path="/burger" element={<BurgerPage />} />
-        <Route path="/kebab" element={<KebabPage />} />
-        <Route path="/cart" element={<CartPage />} />
-        <Route path="/jkv" element={<JKV />} />
-        {/* Fallback */}
-        <Route path="*" element={<MainMenu />} />
-      </Routes>
-    </Router>
+    <CartProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<MainMenu />} />
+          <Route path="/grill" element={<GrillPage />} />
+          <Route path="/burger" element={<BurgerPage />} />
+          <Route path="/kebab" element={<KebabPage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/jkv" element={<JKV />} />
+          <Route path="*" element={<MainMenu />} />
+        </Routes>
+      </Router>
+    </CartProvider>
   );
 }

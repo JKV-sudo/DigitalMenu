@@ -2,12 +2,12 @@
 import React from "react";
 import { useCart } from "../context/cartContext";
 
-// Importiere die CSS
 import "./CartPage.css";
 
 export default function CartPage() {
   const { cartItems, removeFromCart, total } = useCart();
 
+  console.log("CartPage gerendert!");
   return (
     <div className="cart-container">
       <h1>Warenkorb</h1>
