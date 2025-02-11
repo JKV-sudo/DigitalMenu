@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // 👈 Navigation importieren
-import MenuLayout from "../MenuLayout"; // Correct import path
+import MenuLayout from "../MenuLayout";
 import { kebabOptions } from "../menuData";
 import "../MenuItems.css";
 
@@ -15,6 +15,10 @@ export default function KebabPage() {
     return () => clearTimeout(timeout); // 🚀 Verhindert Speicherlecks
   }, [navigate]);
 
+  useEffect(() => {
+    console.log(kebabOptions); // Debugging: Log kebabOptions to verify data
+  }, []);
+
   return (
     <MenuLayout backgroundImage="/assets/kebab-bg.webp">
       <h2 className="menu-title">🥙 Döner-Spezialitäten 🥙</h2>
@@ -23,6 +27,7 @@ export default function KebabPage() {
           <div key={item.value} className="menu-item">
             <img src={item.img} alt={item.label} />
             <p>{item.label}</p>
+            <p>{item.price.toFixed(2)} €</p>{" "}
           </div>
         ))}
       </div>

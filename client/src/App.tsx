@@ -75,6 +75,7 @@ function MainMenu() {
   };
 
   return (
+    <CartProvider>
     <div className="app-container">
       <header className="top-bar">
         <Link
@@ -146,6 +147,7 @@ function MainMenu() {
         <img src="/assets/Logo2.png" alt="Zurück zur Startseite" />
       </Link>
     </div>
+    </CartProvider>
   );
 }
 

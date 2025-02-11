@@ -7,15 +7,6 @@ import { Link } from "react-router-dom";
 export default function CartPage() {
   const { cartItems, removeFromCart, total, addToCart } = useCart();
 
-  const addItemManually = () => {
-    const newItem = {
-      id: "manual-item",
-      name: "Manuell hinzugefügter Artikel",
-      price: 10.0,
-    };
-    addToCart(newItem);
-  };
-
   return (
     <>
       <header className="top-bar">
@@ -47,7 +38,7 @@ export default function CartPage() {
           <GlutAnimation />
         </div>
         <h1>Warenkorb</h1>
-        <button onClick={addItemManually}>Artikel manuell hinzufügen</button>
+
         {cartItems.length === 0 ? (
           <p className="empty-cart">Der Warenkorb ist leer.</p>
         ) : (

@@ -26,6 +26,7 @@ export default function GrillPage() {
           <div key={item.value} className="menu-item">
             <img src={item.img} alt={item.label} />
             <p>{item.label}</p>
+            <p>{item.price.toFixed(2)} €</p>{" "}
           </div>
         ))}
       </div>

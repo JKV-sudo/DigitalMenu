@@ -1,63 +1,95 @@
-// client/src/context/cartContext.tsx
+import React, { createContext, useState, useContext } from "react";
 
-import React, { createContext, useContext, useState, ReactNode } from "react";
-
-// Beispiel-Interface für ein Cart-Item
-interface CartItem {
+// 1. Produkt-Interface (kannst du anpassen, falls du andere Felder brauchst)
+export interface Product {
   id: number;
   name: string;
   price: number;
-  // Optional weitere Felder, z. B. ingredients?: string[];
+  quantity?: number; // Optional, falls du Menge speicherst
 }
 
-// Kontext-Wert: Welche Daten/Funktionen sollen im Warenkorb verfügbar sein?
+// 2. Interface für den Context-Wert:
+//    Hier fügen wir 'total' für die Gesamtsumme hinzu.
 interface CartContextValue {
-  cartItems: CartItem[];
-  addToCart: (item: CartItem) => void;
-  removeFromCart: (id: number) => void;
-  total: number;
+  cartItems: Product[];
+  addToCart: (product: Product) => void;
+  removeFromCart: (productId: number) => void;
+  updateQuantity: (productId: number, quantity: number) => void;
+  total: number; // <--- NEU: 'total' als number
 }
 
-// createContext erhält hier den Typ. Mit "| null" erlaubst du den leeren Initialzustand:
-const CartContext = createContext<CartContextValue | null>(null);
+// 3. Context erzeugen. Mit Default-Werten, damit TS nicht meckert.
+export const CartContext = createContext<CartContextValue>({
+  cartItems: [],
+  addToCart: () => {},
+  removeFromCart: () => {},
+  updateQuantity: () => {},
+  total: 0,
+});
 
-// Custom Hook, damit du auf den Kontext zugreifen kannst:
-export function useCart(): CartContextValue {
-  const context = useContext(CartContext);
-  if (!context) {
-    throw new Error("useCart must be used inside a CartProvider.");
-  }
-  return context;
-}
+// 4. Optional: benutzerdefinierter Hook für Zugriff auf den Context.
+export const useCart = () => {
+  return useContext(CartContext);
+};
 
-// CartProvider umschließt die App und stellt die Werte bereit
-interface CartProviderProps {
-  children: ReactNode; // Was innerhalb des Providers gerendert wird
-}
+// 5. Provider-Komponente (um deinen State global verfügbar zu machen).
+//    Hier berechnen wir auch 'total' und geben ihn im Provider weiter.
+export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  const [cartItems, setCartItems] = useState<Product[]>([]);
 
-export function CartProvider({ children }: CartProviderProps) {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
-  const [total, setTotal] = useState(0);
-
-  function addToCart(item: CartItem) {
-    setCartItems((prevItems) => [...prevItems, item]);
-    setTotal((prevTotal) => prevTotal + item.price);
-  }
-
-  function removeFromCart(itemId: number) {
-    setCartItems((prevItems) => prevItems.filter((i) => i.id !== itemId));
-    const itemToRemove = cartItems.find((item) => item.id === itemId);
-    if (itemToRemove) {
-      setTotal((prevTotal) => prevTotal - itemToRemove.price);
-    }
-  }
-
-  const value: CartContextValue = {
-    cartItems,
-    addToCart,
-    removeFromCart,
-    total,
+  // Produkt hinzufügen
+  const addToCart = (product: Product) => {
+    setCartItems((prevItems) => {
+      const existingItem = prevItems.find((item) => item.id === product.id);
+      if (existingItem) {
+        // Produkt bereits im Warenkorb -> Menge erhöhen
+        return prevItems.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: (item.quantity ?? 1) + 1 }
+            : item
+        );
+      }
+      // Neues Produkt hinzufügen (mit quantity = 1, wenn nicht vorhanden)
+      return [...prevItems, { ...product, quantity: product.quantity ?? 1 }];
+    });
   };
 
-  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
-}
+  // Produkt entfernen
+  const removeFromCart = (productId: number) => {
+    setCartItems((prevItems) =>
+      prevItems.filter((item) => item.id !== productId)
+    );
+  };
+
+  // Menge aktualisieren
+  const updateQuantity = (productId: number, quantity: number) => {
+    setCartItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === productId ? { ...item, quantity } : item
+      )
+    );
+  };
+
+  // 6. Gesamtsumme (total) berechnen
+  //    Beispiel: Preis * Menge für alle Items addieren
+  const total = cartItems.reduce((acc, item) => {
+    const quantity = item.quantity ?? 1;
+    return acc + item.price * quantity;
+  }, 0);
+
+  return (
+    <CartContext.Provider
+      value={{
+        cartItems,
+        addToCart,
+        removeFromCart,
+        updateQuantity,
+        total, 
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
+};

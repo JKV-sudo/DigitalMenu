@@ -4,7 +4,8 @@ import MenuLayout from "../MenuLayout";
 import { burgerOptions } from "../menuData";
 import "../MenuItems.css";
 
-export default function BurgerPage() { // Changed from GrillPage to BurgerPage
+export default function BurgerPage() {
+  // Changed from GrillPage to BurgerPage
   const navigate = useNavigate(); // ✅ Router-Hook für Navigation
 
   useEffect(() => {
@@ -24,6 +25,7 @@ export default function BurgerPage() { // Changed from GrillPage to BurgerPage
           <div key={item.value} className="menu-item">
             <img src={item.img} alt={item.label} />
             <p>{item.label}</p>
+            <p>{item.price.toFixed(2)} €</p>{" "}
           </div>
         ))}
       </div>
