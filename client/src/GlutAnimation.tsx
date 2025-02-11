@@ -1,5 +1,3 @@
-// src/GlutAnimation.tsx
-
 import React, { useEffect, useRef } from "react";
 
 // Interface für AshParticle (optional, aber nützlich)
@@ -114,8 +112,8 @@ const GlutAnimation: React.FC = () => {
 
       const rotationFactor = Math.cos(this.rotationZ);
       const red = 255 - Math.abs(rotationFactor) * 80;
-      const green = 100 + Math.abs(rotationFactor) * 80;
-      const blue = 50 + Math.abs(rotationFactor) * 30;
+      const green = 1 + Math.abs(rotationFactor) * 80 ;
+      const blue = 1 + Math.abs(rotationFactor) * 30;
 
       ctx.beginPath();
       ctx.ellipse(0, 0, this.sizeX, this.sizeY, 0, 0, Math.PI * 2);

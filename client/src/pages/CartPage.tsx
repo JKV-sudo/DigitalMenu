@@ -1,4 +1,3 @@
-// client/src/pages/CartPage.tsx
 import React from "react";
 import { useCart } from "../context/cartContext";
 import GlutAnimation from "../GlutAnimation";
