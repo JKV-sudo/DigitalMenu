@@ -5,7 +5,7 @@ import "./CartPage.css";
 import { Link } from "react-router-dom";
 
 export default function CartPage() {
-  const { cartItems, removeFromCart, total, addToCart } = useCart();
+  const { cartItems, removeFromCart, total } = useCart();
 
   return (
     <>
@@ -44,10 +44,19 @@ export default function CartPage() {
         ) : (
           <ul className="cart-items">
             {cartItems.map((item) => (
-              <li key={item.id}>
+              <li key={`${item.id}-${item.name}`}>
                 <div className="item-info">
                   <span className="item-name">{item.name}</span>
                   <span className="item-price">{item.price} €</span>
+                  {item.ingredients && item.ingredients.length > 0 && (
+                    <ul className="item-ingredients">
+                      {item.ingredients.map((ingredient, index) => (
+                        <li key={index} className="ingredient">
+                          {ingredient}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
                 <button
                   className="remove-btn"
@@ -59,7 +68,7 @@ export default function CartPage() {
             ))}
           </ul>
         )}
-        <p className="cart-total">Gesamt: {total} €</p>
+        <p className="cart-total">Gesamt: {total.toFixed(2)} €</p>
       </div>
     </>
   );

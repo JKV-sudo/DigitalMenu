@@ -22,6 +22,7 @@
   border-radius: 25px;
   z-index: 3000;
   min-height: 30vh;
+  max-height: 100vh;
   box-shadow: 25px 25px 5px rgba(0, 0, 0, 0.9);
   border: #c0392b;
   border-style: solid;
@@ -33,7 +34,7 @@
   text-align: center;
   font-size: 1.8rem;
   color: #ffffff;
-  z-index: 3000;
+  z-index: 30;
   position: relative;
   background-color: #33333383;
   border-radius: 10px;
@@ -49,6 +50,10 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  max-height: calc(6 * 8rem); /* Adjust the height based on item height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  z-index: 30;
+  position: relative;
 }
 
 .cart-items li {
@@ -70,14 +75,16 @@
 .item-name {
   font-weight: 600;
   margin-bottom: 0.25rem;
+  color: red;
 }
 
 .item-price {
   color: #666;
+
 }
 
 .remove-btn {
-  background-color: #e74c3c;
+  background-color: #e71d06;
   border: none;
   border-radius: 4px;
   color: #fff;
@@ -91,16 +98,18 @@
 }
 
 .cart-total {
-  margin-top: 35.5rem;
+  
   text-align: right;
   font-size: 1.2rem;
   color: #ffffff;
   font-weight: 600;
-  background-color: #33333383;
+  background-color: #4b494983;
   border-radius: 10px;
   padding: 0.5rem 1rem;
+
 }
 .glut {
   z-index: 1;
   position: fixed;
 }
+.logoHome{z-index: 1000;}

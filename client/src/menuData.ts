@@ -2,37 +2,153 @@ export interface SubMenuItem {
   label: string;
   value: string;
   img: string;
-  price: number; 
+  price: number;
+  ingredients?: string[]; // Optional ingredients array
 }
 
-export const grillOptions = [
-  { label: "Adanakebab ", value: "adanakebab", img: "/assets/adanakebab.webp", price: 8.9 },
-  { label: "Adanateller ", value: "adanateller", img: "/assets/adanateller.webp", price: 11.9 },
-  { label: "Gemischte Platte ", value: "gemischtePlatte", img: "/assets/adanakebab.webp", price: 24.9 },
-  { label: "Master Lamm-Spieß ", value: "koeftespies", img: "/assets/koeftespieß.webp", price: 12.9 },
-  { label: "Master Königsplatte ", value: "masterKönig", img: "/assets/adanakebab.webp", price: 39.9 },
+export const grillOptions: SubMenuItem[] = [
+  {
+    label: "Adanakebab",
+    value: "adanakebab",
+    img: "/assets/adanakebab.webp",
+    price: 8.9,
+    ingredients: ["Salad", "Tomatoes", "Onions", "Sauce"]
+  },
+  {
+    label: "Adanateller",
+    value: "adanateller",
+    img: "/assets/adanateller.webp",
+    price: 11.9,
+    ingredients: ["Rice", "Grilled Vegetables", "Yogurt"]
+  },
+  {
+    label: "Gemischte Platte",
+    value: "gemischtePlatte",
+    img: "/assets/adanakebab.webp",
+    price: 24.9,
+    ingredients: ["Chicken", "Beef", "Lamb", "Salad"]
+  },
+  {
+    label: "Master Lamm-Spieß",
+    value: "koeftespies",
+    img: "/assets/koeftespieß.webp",
+    price: 12.9,
+    ingredients: ["Lamb", "Peppers", "Onions", "Garlic Sauce"]
+  },
+  {
+    label: "Master Königsplatte",
+    value: "masterKönig",
+    img: "/assets/adanakebab.webp",
+    price: 39.9,
+    ingredients: ["Chicken", "Beef", "Lamb", "Rice", "Salad"]
+  },
+  {
+    value: "grillItem2",
+    label: "Grill Item 2",
+    img: "/assets/grill-item-2.jpg",
+    price: 6.99,
+    ingredients: ["Lettuce", "Cheese", "Pickles", "Ketchup"]
+  },
 ];
 
-export const burgerOptions = [
-  { label: "Smashburger O.G. ", value: "smashburger", img: "/assets/smashburger.webp", price: 7.9 },
-  { label: "smashburger O.G. Menü ", value: "smashburger_menu", img: "/assets/smashburger.webp", price: 15 },
-  { label: "Double Smash ", value: "doubleSmash", img: "/assets/smashburger.webp", price: 10.5 },
-  { label: "Double smash Menü ", value: "doubleSmashMenu", img: "/assets/smashburger.webp", price: 15 },
+export const burgerOptions: SubMenuItem[] = [
+  {
+    label: "Smashburger O.G.",
+    value: "smashburger",
+    img: "/assets/smashburger.webp",
+    price: 7.9,
+    ingredients: ["Beef Patty", "Cheese", "Lettuce", "Tomato", "Onion"]
+  },
+  {
+    label: "Smashburger O.G. Menü",
+    value: "smashburger_menu",
+    img: "/assets/smashburger.webp",
+    price: 15,
+    ingredients: ["Beef Patty", "Cheese", "Lettuce", "Tomato", "Onion", "Fries", "Drink"]
+  },
+  {
+    label: "Double Smash",
+    value: "doubleSmash",
+    img: "/assets/smashburger.webp",
+    price: 10.5,
+    ingredients: ["Double Beef Patty", "Double Cheese", "Lettuce", "Tomato", "Onion"]
+  },
+  {
+    label: "Double Smash Menü",
+    value: "doubleSmashMenu",
+    img: "/assets/smashburger.webp",
+    price: 15,
+    ingredients: ["Double Beef Patty", "Double Cheese", "Lettuce", "Tomato", "Onion", "Fries", "Drink"]
+  },
 ];
 
-export const kebabOptions = [
-  { label: "Döner ", value: "doener", img: "/assets/kebab.webp", price: 6.5 },
-  { label: "Chicken Bowl  ", value: "doener-teller", img: "/assets/kebab.webp", price: 10.5 },
-  { label: "Chicken Dürüm ", value: "duerum", img: "/assets/kebab.webp", price: 7.5 },
-  { label: "Masterdöner ", value:"masterDoener", img:"/assets/kebab.webp", price: 8.9},
-  { label: "Masterdürüm ", value:"masterDuerum", img:"/assets/kebab.webp", price: 9.9},
-  { label: "Master Bowl ", value:"masterBowl", img:"/assets/kebab.webp", price: 15},
+export const kebabOptions: SubMenuItem[] = [
+  {
+    label: "Döner",
+    value: "doener",
+    img: "/assets/kebab.webp",
+    price: 6.5,
+    ingredients: ["Lamb", "Tomatoes", "Onions", "Lettuce", "Yogurt Sauce"]
+  },
+  {
+    label: "Chicken Bowl",
+    value: "doener-teller",
+    img: "/assets/kebab.webp",
+    price: 10.5,
+    ingredients: ["Chicken", "Rice", "Grilled Vegetables", "Yogurt Sauce"]
+  },
+  {
+    label: "Chicken Dürüm",
+    value: "duerum",
+    img: "/assets/kebab.webp",
+    price: 7.5,
+    ingredients: ["Chicken", "Tomatoes", "Onions", "Lettuce", "Garlic Sauce"]
+  },
+  {
+    label: "Masterdöner",
+    value: "masterDoener",
+    img: "/assets/kebab.webp",
+    price: 8.9,
+    ingredients: ["Lamb", "Tomatoes", "Onions", "Lettuce", "Yogurt Sauce"]
+  },
+  {
+    label: "Masterdürüm",
+    value: "masterDuerum",
+    img: "/assets/kebab.webp",
+    price: 9.9,
+    ingredients: ["Lamb", "Tomatoes", "Onions", "Lettuce", "Garlic Sauce"]
+  },
+  {
+    label: "Master Bowl",
+    value: "masterBowl",
+    img: "/assets/kebab.webp",
+    price: 15,
+    ingredients: ["Lamb", "Chicken", "Rice", "Grilled Vegetables", "Yogurt Sauce"]
+  },
 ];
 
-export const beilagenOptions = [
-  { label: "Pommes Klein ", value: "pommesK", img: "/assets/adanakebab.webp", price: 3.5 },
-  { label: "Pommes Groß ", value: "pommesG", img: "/assets/koeftespieß.webp", price: 6.5 },
-  { label: "2x Baklava ", value: "adanateller", img: "/assets/adanateller.webp", price: 3 },
+export const beilagenOptions: SubMenuItem[] = [
+  {
+    label: "Pommes Klein",
+    value: "pommesK",
+    img: "/assets/adanakebab.webp",
+    price: 3.5,
+    ingredients: ["Potatoes", "Salt"]
+  },
+  {
+    label: "Pommes Groß",
+    value: "pommesG",
+    img: "/assets/koeftespieß.webp",
+    price: 6.5,
+    ingredients: ["Potatoes", "Salt"]
+  },
+  {
+    label: "2x Baklava",
+    value: "adanateller",
+    img: "/assets/adanateller.webp",
+    price: 3,
+    ingredients: ["Phyllo Dough", "Nuts", "Honey"]
+  },
 ];
 
 export interface MainMenuOption {

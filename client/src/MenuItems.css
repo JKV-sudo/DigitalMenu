@@ -18,6 +18,10 @@
   font-weight: bold;
   transition: all 0.3s ease-in-out;
   box-shadow: 16px 16px 19px rgba(0, 0, 0, 0.9);
+  cursor: pointer; /* Zeigt an, dass das Element klickbar ist */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Hover-Effekt für bessere Sichtbarkeit */
@@ -47,12 +51,8 @@
 .kebab-menu .menu-item {
   border-color: rgba(0, 247, 21, 0.692);
 }
+
 .menu-item p {
-  color: white; /* Ensure the text color is visible */
-  font-weight: bold;
-  font-size: 1rem;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.3); /* Abdunkelung für besseren Kontrast */
   padding: 5px 10px;
   border-radius: 8px;
   display: inline-block;
@@ -63,9 +63,6 @@
 .menu-item:hover p {
   text-shadow: 3px 3px 10px rgb(56, 56, 56); /* Starker weißer Glow */
 }
-.menu-item.menu-item:click {
-  transform: scale(1.8);
-}
 
 .menu-item img {
   max-width: 100%;
@@ -74,12 +71,36 @@
   border-radius: 10px; /* Abgerundete Ecken für die Bilder */
 }
 
+.menu-item ul {
+  list-style-type: none;
+  padding: 5px 5px;
+  margin: 10px 0 0 0;
+}
+
+.menu-item ul li {
+  background-color: #0f0f0fb6;
+  padding: 5px 5px;
+  margin: 2px 2px;
+  border-radius: 4px;
+  min-width: 5vw;
+  border-radius: 30px;
+  text-align: center;
+  cursor: pointer; /* Zeigt an, dass das Element klickbar ist */
+}
+
+.ingredient.selected {
+  border: 2px solid green;
+}
+
+.ingredient.not-selected {
+  border: 2px solid red;
+}
+
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Genau 4 Items pro Zeile */
+  grid-template-columns: repeat(3, 1fr); /* Genau 3 Items pro Zeile */
   gap: 20px; /* Abstand zwischen den Items */
   padding: 20px;
-  /*margin-bottom: 20px;*/
 }
 
 @media (max-width: 768px) {
@@ -88,4 +109,26 @@
     margin-left: auto;
     zoom: 80%;
   }
+}
+
+.selected-item {
+  transform: scale(1.1); /* Vergrößere das ausgewählte Element */
+  box-shadow: 20px 30px 10px rgba(0, 0, 0, 0.9); /* Dunklerer Schatten */
+  z-index: 1; /* Bringe das ausgewählte Element nach vorne */
+  transition: all 0.5s ease-in-out;
+}
+
+.add-to-cart {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #30d461a6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+  background-color: #1ccc1c;
 }

@@ -2,10 +2,11 @@ import React, { createContext, useState, useContext } from "react";
 
 // 1. Produkt-Interface (kannst du anpassen, falls du andere Felder brauchst)
 export interface Product {
-  id: number;
+  id: number | string; // Ensure id can be a string
   name: string;
   price: number;
   quantity?: number; // Optional, falls du Menge speicherst
+  ingredients?: string[]; // Add ingredients property
 }
 
 // 2. Interface für den Context-Wert:
@@ -13,8 +14,8 @@ export interface Product {
 interface CartContextValue {
   cartItems: Product[];
   addToCart: (product: Product) => void;
-  removeFromCart: (productId: number) => void;
-  updateQuantity: (productId: number, quantity: number) => void;
+  removeFromCart: (productId: number | string) => void;
+  updateQuantity: (productId: number | string, quantity: number) => void;
   total: number; // <--- NEU: 'total' als number
 }
 
@@ -52,19 +53,27 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         );
       }
       // Neues Produkt hinzufügen (mit quantity = 1, wenn nicht vorhanden)
-      return [...prevItems, { ...product, quantity: product.quantity ?? 1 }];
+      return [
+        ...prevItems,
+        {
+          ...product,
+          id: prevItems.length + 1, // Ensure unique id
+          quantity: product.quantity ?? 1,
+          ingredients: product.ingredients ?? [], // Ensure ingredients is initialized
+        },
+      ];
     });
   };
 
   // Produkt entfernen
-  const removeFromCart = (productId: number) => {
+  const removeFromCart = (productId: number | string) => {
     setCartItems((prevItems) =>
       prevItems.filter((item) => item.id !== productId)
     );
   };
 
   // Menge aktualisieren
-  const updateQuantity = (productId: number, quantity: number) => {
+  const updateQuantity = (productId: number | string, quantity: number) => {
     setCartItems((prevItems) =>
       prevItems.map((item) =>
         item.id === productId ? { ...item, quantity } : item
@@ -86,7 +95,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         addToCart,
         removeFromCart,
         updateQuantity,
-        total, 
+        total,
       }}
     >
       {children}
