@@ -1,7 +1,7 @@
 import React from "react";
 import { useCart } from "../context/cartContext";
 import GlutAnimation from "../GlutAnimation";
-import "./CartPage.css";
+import "../CartPage.css";
 import { Link } from "react-router-dom";
 
 export default function CartPage() {
