@@ -7,6 +7,7 @@ export interface Product {
   price: number;
   quantity?: number; // Optional, falls du Menge speicherst
   ingredients?: string[]; // Add ingredients property
+  img: string; // Add img property
 }
 
 // 2. Interface für den Context-Wert:

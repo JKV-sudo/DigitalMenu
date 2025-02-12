@@ -1,7 +1,7 @@
 import React from "react";
 import { useCart } from "../context/cartContext";
 import GlutAnimation from "../GlutAnimation";
-import "../CartPage.css";
+import "./CartPage.css";
 import { Link } from "react-router-dom";
 
 export default function CartPage() {
@@ -45,6 +45,15 @@ export default function CartPage() {
           <ul className="cart-items">
             {cartItems.map((item) => (
               <li key={`${item.id}-${item.name}`}>
+                <div className="item-header">
+                  <button
+                    className="remove-btn"
+                    onClick={() => removeFromCart(item.id)}
+                  >
+                    X
+                  </button>
+                </div>
+                <img src={item.img} alt={item.name} className="item-img" />
                 <div className="item-info">
                   <span className="item-name">{item.name}</span>
                   <span className="item-price">{item.price} €</span>
@@ -58,12 +67,6 @@ export default function CartPage() {
                     </ul>
                   )}
                 </div>
-                <button
-                  className="remove-btn"
-                  onClick={() => removeFromCart(item.id)}
-                >
-                  Entfernen
-                </button>
               </li>
             ))}
           </ul>

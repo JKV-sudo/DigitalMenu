@@ -19,16 +19,6 @@ interface Product {
 const LayoutContent: FC<MenuLayoutProps> = ({ children, backgroundImage }) => {
   const { addToCart } = useContext(CartContext);
 
-  const exampleProduct: Product = {
-    id: 123,
-    name: "Döner Classic",
-    price: 4.5,
-  };
-
-  const handleAddProduct = () => {
-    addToCart(exampleProduct);
-  };
-
   return (
     <div
       className="menu-layout"
@@ -79,13 +69,7 @@ const LayoutContent: FC<MenuLayoutProps> = ({ children, backgroundImage }) => {
 
       <GlutAnimation />
 
-      <main className="menu-content">
-        {children}
-
-        <button onClick={handleAddProduct} style={{ marginTop: "20px" }}>
-          Döner Classic in den Warenkorb
-        </button>
-      </main>
+      <main className="menu-content">{children}</main>
     </div>
   );
 };

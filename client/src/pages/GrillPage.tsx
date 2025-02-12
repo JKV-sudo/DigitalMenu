@@ -45,12 +45,14 @@ export default function GrillPage() {
           name: item.label, // Ensure name is passed
           price: item.price,
           ingredients: selectedIngredientsList, // Ensure ingredients are passed
+          img: item.img, // Ensure img is passed
         });
         console.log("Product added to cart:", {
           id: item.value,
           name: item.label,
           price: item.price,
           ingredients: selectedIngredientsList,
+          img: item.img,
         });
       }
     }
