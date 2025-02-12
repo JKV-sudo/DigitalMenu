@@ -24,12 +24,12 @@ html {
 }
 
 .top-bar {
-  height: 60px;
-  padding: 5px 15px;
-  z-index: 20;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 60px;
+  padding: 5px 15px;
+  z-index: 2000;
 }
 
 .logo,
@@ -45,6 +45,12 @@ html {
   display: block;
 }
 
+.titel {
+  flex-grow: 1;
+  text-align: center;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
 .titel h1 {
   font-size: 24px;
 }
@@ -52,6 +58,20 @@ html {
 .ig-link img {
   width: 30px;
   height: 30px;
+}
+
+.ig-link,
+.cart-link {
+  margin-left: 10px;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+}
+
+.placeholder {
+  width: 80px; /* Adjust width to match the combined width of the icons */
 }
 
 .menu-content {
@@ -108,6 +128,8 @@ html {
     width: 95%;
     margin-top: 90px; /* Weniger Abstand zum Header */
     padding-bottom: 80px; /* Platz für den fixierten Home-Button */
+    justify-content: center;
+    align-items: center;
   }
 
   .menu-content h2 {
@@ -146,19 +168,24 @@ html {
     width: 50px; /* Größe des Logos */
     height: 50px;
   }
+  .master {
+    margin-left: 0px;
+  }
 }
+
 .kebs {
   font-size: clamp(1.5rem, 4vw, 2.5rem);
 }
-.titel {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-}
+
 .master {
+  margin-left: 100px;
   font-size: clamp(1.5rem, 4vw, 2.5rem);
 }
+
 .cart-link img {
   transition: transform 0.3s ease;
 }
+
 .cart-link img:hover {
   transform: scale(1.1);
 }

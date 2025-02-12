@@ -84,7 +84,7 @@ function MainMenu() {
           onClick={handleLogoClick}
           aria-label="Zurück zur Startseite"
         >
-          <img src="/assets/Logo.png" width={50} height={50} alt="Logo" />
+          <img src="/assets/Logo.png" width={60} height={60} alt="Logo" />
         </Link>
         <div className="titel">
           <h1>
@@ -98,8 +98,17 @@ function MainMenu() {
           rel="noopener noreferrer"
           className="ig-link"
         >
-          <img src="/assets/ig.png" alt="Instagram" className="ig-icon" />
+          <img src="/assets/ig.png" alt="Instagram" className="ig-icon"  />
         </a>
+        <Link to="/cart" className="cart-link" aria-label="Zum Warenkorb">
+                    <img
+                      src="/assets/cart1.png"
+                      width={50}
+                      height={50}
+                      alt="Warenkorb"
+                      className="cart-icon"
+                    />
+                  </Link>
       </header>
 
       {/* Home-Button 1 */}
