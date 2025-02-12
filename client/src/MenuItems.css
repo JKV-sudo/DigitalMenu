@@ -58,6 +58,7 @@
   display: inline-block;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Leichter Schatten für Kontrast */
   margin: 10;
+  background-color: #0f0f0fb6; /* Schwarzer Hintergrund mit Transparenz */
 }
 
 .menu-item:hover p {
@@ -90,10 +91,19 @@
 
 .ingredient.selected {
   border: 2px solid green;
+  color: rgb(9, 255, 9);
+  padding: 10px 10px;
 }
 
 .ingredient.not-selected {
   border: 2px solid red;
+  color: rgb(255, 255, 255);
+  padding: 10px 10px; 
+  font-size: 20px;
+}
+.ingredient{
+  color: white;
+  padding: 10px 10px;
 }
 
 .menu-grid {
