@@ -1,4 +1,9 @@
 /* Standard-Stil für alle Menü-Items */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 * p {
   -webkit-user-select: none;
   -moz-user-select: -moz-none;
@@ -59,6 +64,7 @@
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Leichter Schatten für Kontrast */
   margin: 10;
   background-color: #0f0f0fb6; /* Schwarzer Hintergrund mit Transparenz */
+  font-size: larger;
 }
 
 .menu-item:hover p {
@@ -73,9 +79,36 @@
 }
 
 .menu-item ul {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: center; /* Center items horizontally */
   list-style-type: none;
   padding: 5px 5px;
-  margin: 10px 0 0 0;
+  margin: 10px 0 20px 0; /* Add bottom margin to create space for the button */
+  height: 120px; /* Fixed height to ensure two rows */
+  overflow-y: auto; /* Show scrollbar when content overflows */
+}
+
+/* Custom scrollbar styles */
+.menu-item ul::-webkit-scrollbar {
+  width: 6px; /* Width of the scrollbar */
+}
+
+.menu-item ul::-webkit-scrollbar-track {
+  background: transparent; /* Transparent background for the track */
+}
+
+.menu-item ul::-webkit-scrollbar-thumb {
+  background: rgb(77, 77, 77); /* Darker color for the thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+.menu-item ul::-webkit-scrollbar-thumb:hover {
+  background: rgba(85, 85, 85, 0.7); /* Darker color for the thumb on hover */
+}
+
+.menu-item ul::-webkit-scrollbar-thumb:active {
+  background: rgba(0, 0, 0, 0.9); /* Even darker color for the thumb when active */
 }
 
 .menu-item ul li {
@@ -83,7 +116,7 @@
   padding: 5px 5px;
   margin: 2px 2px;
   border-radius: 4px;
-  min-width: 5vw;
+  width: 45%; /* Ensure consistent width */
   border-radius: 30px;
   text-align: center;
   cursor: pointer; /* Zeigt an, dass das Element klickbar ist */
@@ -91,19 +124,25 @@
 
 .ingredient.selected {
   border: 2px solid green;
-  color: rgb(9, 255, 9);
-  padding: 10px 10px;
+  color: rgb(255, 255, 255);
+  padding: 10px 20px;
+  font-size: 15px;
+  background-color: #1ccc1c42;
 }
 
 .ingredient.not-selected {
   border: 2px solid red;
   color: rgb(255, 255, 255);
-  padding: 10px 10px; 
-  font-size: 20px;
+  padding: 10px 20px;
+  font-size: 15px;
+  background-color: rgba(255, 0, 0, 0.342);
+  margin: 10px 10px;
 }
-.ingredient{
+
+.ingredient {
   color: white;
   padding: 10px 10px;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .menu-grid {
@@ -111,6 +150,9 @@
   grid-template-columns: repeat(3, 1fr); /* Genau 3 Items pro Zeile */
   gap: 20px; /* Abstand zwischen den Items */
   padding: 20px;
+  max-width: 60vw;
+  max-height: 80vh;
+  z-index: 1000;
 }
 
 @media (max-width: 768px) {
@@ -122,14 +164,16 @@
 }
 
 .selected-item {
-  transform: scale(1.1); /* Vergrößere das ausgewählte Element */
-  box-shadow: 20px 30px 10px rgba(0, 0, 0, 0.9); /* Dunklerer Schatten */
+  transform: scale(1.1) !important; /* Ensure it scales only once */
+  box-shadow: 20px 30px 10px rgba(0, 0, 0, 0.527); /* Dunklerer Schatten */
   z-index: 1; /* Bringe das ausgewählte Element nach vorne */
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(10px); /* Weiches Verschwimmen des Hintergrunds */
+  background-color: #0000008f;
 }
 
 .add-to-cart {
-  margin-top: 10px;
+  margin-top: 20px; /* Adjust margin to a more appropriate value */
   padding: 10px 20px;
   background-color: #30d461a6;
   color: white;
@@ -141,4 +185,16 @@
 
 .add-to-cart:hover {
   background-color: #1ccc1c;
+}
+
+.logoHome {
+  margin-top: 20vh;
+  position: bottom;
+  display: fixed;
+  z-index: 1000;
+}
+
+.ingredient:hover {
+  background-color: #104e1042;
+  border: 2px solid #1ccc1c;
 }

@@ -86,7 +86,7 @@
 }
 
 .item:hover {
-  box-shadow: 20px 55px 20px rgba(0, 0, 0, 0.9);
+  box-shadow: 55px 55px 20px rgba(0, 0, 0, 0.9);
   backdrop-filter: blur(3px);
   transform: scale(1.1);
   border-color: #0000008f;

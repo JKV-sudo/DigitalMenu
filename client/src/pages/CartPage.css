@@ -152,13 +152,16 @@
   font-weight: 600;
   background-color: #4b494983;
   border-radius: 10px;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem;
+  margin-top: 2vh;
+  position: baseline;
 }
 .glut {
   z-index: 1;
   position: fixed;
 }
 .logoHome {
+  position: fixed;
   z-index: 1000;
 }
 .item-ingredients {

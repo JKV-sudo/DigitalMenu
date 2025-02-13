@@ -84,6 +84,35 @@ html {
   text-align: center;
   z-index: 10;
   overflow-x: hidden;
+  padding-bottom: 120px; /* Ensure space for the home button */
+  overflow-y: auto; /* Ensure scrollbar is visible */
+}
+
+/* Custom scrollbar styles */
+.menu-content::-webkit-scrollbar {
+  width: 6px; /* Width of the scrollbar */
+}
+
+.menu-content::-webkit-scrollbar-track {
+  background: transparent; /* Transparent background for the track */
+}
+
+.menu-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.5); /* Darker color for the thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+.menu-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.7); /* Darker color for the thumb on hover */
+}
+
+.menu-content::-webkit-scrollbar-thumb:active {
+  background: rgba(
+    0,
+    0,
+    0,
+    0.9
+  ); /* Even darker color for the thumb when active */
 }
 
 .menu-content h2 {
@@ -109,7 +138,20 @@ html {
 
 /* Home-Button Styles */
 .logoHome {
-  display: fixed;
+  position: fixed; /* Fix the button at the bottom */
+  bottom: 20px; /* Space from the bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0
+  ); /* Optional: Background color for better visibility */
+  padding: 10px;
+  border-radius: 50%; /* Round shape */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Optional: Shadow */
 }
 
 /* Mobile Styles */
@@ -188,4 +230,49 @@ html {
 
 .cart-link img:hover {
   transform: scale(1.1);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Exactly 3 items per row */
+  gap: 20px; /* Space between items */
+  padding: 20px;
+  max-width: 60vw;
+  max-height: 80vh;
+  z-index: 1000;
+  padding-bottom: 100px; /* Space for the home button */
+}
+
+@media (max-width: 768px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+    margin-left: auto;
+    zoom: 80%;
+    padding-bottom: 100px; /* Space for the home button */
+  }
+}
+.webkit-scrollbar {
+  width: 6px; /* Width of the scrollbar */
+}
+
+.webkit-scrollbar-track {
+  background: transparent; /* Transparent background for the track */
+}
+
+.webkit-scrollbar-thumb {
+  background: rgb(77, 77, 77); /* Darker color for the thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+.webkit-scrollbar-thumb:hover {
+  background: rgba(85, 85, 85, 0.7); /* Darker color for the thumb on hover */
+}
+
+.webkit-scrollbar-thumb:active {
+  background: rgba(
+    0,
+    0,
+    0,
+    0.9
+  ); /* Even darker color for the thumb when active */
 }

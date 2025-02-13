@@ -9,7 +9,7 @@ export default function CartPage() {
 
   return (
     <>
-    <GlutAnimation />
+      <GlutAnimation />
       <header className="top-bar">
         <Link to="/" className="logo" aria-label="Zurück zur Startseite">
           <img src="/assets/Logo.png" width={50} height={50} alt="Logo" />
@@ -30,12 +30,8 @@ export default function CartPage() {
         </a>
       </header>
       <div className="cart-container">
-        <div>
-          <Link to="/" className="logoHome" aria-label="Zurück zur Startseite">
-            <img src="/assets/Logo2.png" alt="Zurück zur Startseite" />
-          </Link>
-        </div>
-        
+       
+
         <h1>Warenkorb</h1>
 
         {cartItems.length === 0 ? (
@@ -71,9 +67,13 @@ export default function CartPage() {
           </ul>
         )}
         <p className="cart-total">Gesamt: {total.toFixed(2)} €</p>
-        
-
       </div>
+      <div>
+     <Link to="/" className="logoHome" aria-label="Zurück zur Startseite">
+       <img src="/assets/Logo2.png" alt="Zurück zur Startseite" />
+     </Link>
+   </div>
     </>
+     
   );
 }

@@ -16,7 +16,7 @@ export default function GrillPage() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       navigate("/");
-    }, 60000);
+    }, 60000000);
 
     return () => clearTimeout(timeout);
   }, [navigate]);

@@ -1,31 +1,106 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // 👈 Navigation importieren
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import MenuLayout from "../MenuLayout";
 import { burgerOptions } from "../menuData";
+import { useCart } from "../context/cartContext";
 import "../MenuItems.css";
 
 export default function BurgerPage() {
-  // Changed from GrillPage to BurgerPage
-  const navigate = useNavigate(); // ✅ Router-Hook für Navigation
+  const navigate = useNavigate();
+  const { addToCart } = useCart();
+  const [selectedIngredients, setSelectedIngredients] = useState<{
+    [key: string]: boolean;
+  }>({});
+  const [selectedItem, setSelectedItem] = useState<string | null>(null);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      navigate("/"); // 🔥 Nach Timeout zurück zur Startseite
-    }, 60000); // 🕒 Timeout auf 60 Sekunden (60000ms)
+      navigate("/");
+    }, 60000);
 
-    return () => clearTimeout(timeout); // 🚀 Verhindert Speicherlecks
+    return () => clearTimeout(timeout);
   }, [navigate]);
+
+  const handleIngredientClick = (ingredient: string) => {
+    setSelectedIngredients((prevSelectedIngredients) => ({
+      ...prevSelectedIngredients,
+      [ingredient]: !prevSelectedIngredients[ingredient],
+    }));
+  };
+
+  const handleItemClick = (itemValue: string) => {
+    setSelectedItem(itemValue);
+  };
+
+  const handleAddProduct = () => {
+    if (selectedItem) {
+      const item = burgerOptions.find(
+        (option) => option.value === selectedItem
+      );
+      if (item) {
+        const selectedIngredientsList =
+          item.ingredients?.filter(
+            (ingredient) => selectedIngredients[ingredient]
+          ) ?? [];
+        addToCart({
+          id: item.value,
+          name: item.label,
+          price: item.price,
+          ingredients: selectedIngredientsList,
+          img: item.img,
+        });
+        console.log("Product added to cart:", {
+          id: item.value,
+          name: item.label,
+          price: item.price,
+          ingredients: selectedIngredientsList,
+          img: item.img,
+        });
+      }
+    }
+  };
 
   return (
     <MenuLayout backgroundImage="/assets/burger-bg.webp">
-      <h2 className="menu-title">🔥 Smashburger 🔥</h2>{" "}
+      <h2 className="menu-title">🔥 Smashburger 🔥</h2>
       <div className="menu-grid burger-menu">
-        {" "}
         {burgerOptions.map((item) => (
-          <div key={item.value} className="menu-item">
+          <div
+            key={item.value}
+            className={`menu-item ${
+              selectedItem === item.value ? "selected-item" : ""
+            }`}
+            onClick={() => handleItemClick(item.value)}
+          >
             <img src={item.img} alt={item.label} />
             <p>{item.label}</p>
-            <p>{item.price.toFixed(2)} €</p>{" "}
+            <p>{item.price.toFixed(2)} €</p>
+            {selectedItem === item.value && (
+              <>
+                <ul>
+                  {item.ingredients?.map((ingredient, index) => (
+                    <li
+                      key={index}
+                      className={`ingredient ${
+                        selectedIngredients[ingredient]
+                          ? "selected"
+                          : "not-selected"
+                      }`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleIngredientClick(ingredient);
+                      }}
+                      style={{ width: "45%", margin: "5px" }}
+                    >
+                      {ingredient}
+                    </li>
+                  )) ?? []}
+                </ul>
+                <button onClick={handleAddProduct} className="add-to-cart">
+                  In den Warenkorb
+                </button>
+              </>
+            )}
           </div>
         ))}
       </div>
