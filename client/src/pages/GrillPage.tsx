@@ -88,6 +88,7 @@ export default function GrillPage() {
                         e.stopPropagation(); // Prevent the item click event
                         handleIngredientClick(ingredient);
                       }}
+                      style={{ width: "45%", margin: "5px" }}
                     >
                       {ingredient}
                     </li>

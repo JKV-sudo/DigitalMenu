@@ -55,9 +55,11 @@ export default function CartPage() {
                   {item.ingredients && item.ingredients.length > 0 && (
                     <ul className="item-ingredients">
                       {item.ingredients.map((ingredient, index) => (
-                        <li key={index} className="ingredient">
+                        <li key={index} className="ingredient" >
                           {ingredient}
+                          
                         </li>
+                         
                       ))}
                     </ul>
                   )}
