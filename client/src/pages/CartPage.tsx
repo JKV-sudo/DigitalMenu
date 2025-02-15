@@ -30,10 +30,7 @@ export default function CartPage() {
         </a>
       </header>
       <div className="cart-container">
-       
-
         <h1>Warenkorb</h1>
-
         {cartItems.length === 0 ? (
           <p className="empty-cart">Der Warenkorb ist leer.</p>
         ) : (
@@ -53,13 +50,11 @@ export default function CartPage() {
                   <span className="item-name">{item.name}</span>
                   <span className="item-price">{item.price.toFixed(2)} €</span>
                   {item.ingredients && item.ingredients.length > 0 && (
-                    <ul className="item-ingredients">
+                    <ul className="cart-item-ingredients">
                       {item.ingredients.map((ingredient, index) => (
-                        <li key={index} className="ingredient" >
+                        <li key={index} className="cart-ingredient">
                           {ingredient}
-                          
                         </li>
-                         
                       ))}
                     </ul>
                   )}
@@ -71,11 +66,10 @@ export default function CartPage() {
         <p className="cart-total">Gesamt: {total.toFixed(2)} €</p>
       </div>
       <div>
-     <Link to="/" className="logoHome" aria-label="Zurück zur Startseite">
-       <img src="/assets/Logo2.png" alt="Zurück zur Startseite" />
-     </Link>
-   </div>
+        <Link to="/" className="logoHome" aria-label="Zurück zur Startseite">
+          <img src="/assets/Logo2.png" alt="Zurück zur Startseite" />
+        </Link>
+      </div>
     </>
-     
   );
 }
