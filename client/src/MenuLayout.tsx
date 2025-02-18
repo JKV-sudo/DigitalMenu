@@ -1,7 +1,6 @@
-import React, { FC, ReactNode, useContext } from "react";
+import React, { FC, ReactNode } from "react";
 import { Link } from "react-router-dom";
 import GlutAnimation from "./GlutAnimation";
-import { CartProvider, CartContext } from "./context/cartContext";
 import "./App.css";
 import "./MenuLayout.css";
 
@@ -10,15 +9,7 @@ interface MenuLayoutProps {
   backgroundImage: string;
 }
 
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-}
-
 const LayoutContent: FC<MenuLayoutProps> = ({ children, backgroundImage }) => {
-  const { addToCart } = useContext(CartContext);
-
   return (
     <div
       className="menu-layout"
@@ -76,11 +67,7 @@ const LayoutContent: FC<MenuLayoutProps> = ({ children, backgroundImage }) => {
 
 const MenuLayout: FC<MenuLayoutProps> = ({ children, backgroundImage }) => {
   return (
-    <CartProvider>
-      <LayoutContent backgroundImage={backgroundImage}>
-        {children}
-      </LayoutContent>
-    </CartProvider>
+    <LayoutContent backgroundImage={backgroundImage}>{children}</LayoutContent>
   );
 };
 

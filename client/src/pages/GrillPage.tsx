@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MenuLayout from "../MenuLayout";
 import { grillOptions } from "../menuData";
-import { useCart } from "../context/cartContext";
+
 import "../MenuItems.css";
+import { addToCart } from "../cartService"; // 🔥 Firestore-Warenkorb nutzen
 
 export default function GrillPage() {
   const navigate = useNavigate();
-  const { addToCart } = useCart();
   const [selectedIngredients, setSelectedIngredients] = useState<{
     [key: string]: boolean;
   }>({});
@@ -16,7 +16,7 @@ export default function GrillPage() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       navigate("/");
-    }, 60000000);
+    }, 60000);
 
     return () => clearTimeout(timeout);
   }, [navigate]);
@@ -32,7 +32,7 @@ export default function GrillPage() {
     setSelectedItem(itemValue);
   };
 
-  const handleAddProduct = () => {
+  const handleAddProduct = async () => {
     if (selectedItem) {
       const item = grillOptions.find((option) => option.value === selectedItem);
       if (item) {
@@ -40,20 +40,27 @@ export default function GrillPage() {
           item.ingredients?.filter(
             (ingredient) => selectedIngredients[ingredient]
           ) ?? [];
-        addToCart({
-          id: item.value, // Ensure unique id
-          name: item.label, // Ensure name is passed
-          price: item.price,
-          ingredients: selectedIngredientsList, // Ensure ingredients are passed
-          img: item.img, // Ensure img is passed
-        });
-        console.log("Product added to cart:", {
+
+        // 🔥 Produkt in Firestore-Warenkorb speichern
+        await addToCart({
           id: item.value,
           name: item.label,
           price: item.price,
           ingredients: selectedIngredientsList,
           img: item.img,
         });
+
+        console.log("✅ Produkt hinzugefügt:", {
+          id: item.value,
+          name: item.label,
+          price: item.price,
+          ingredients: selectedIngredientsList,
+          img: item.img,
+        });
+
+        // Reset Auswahl
+        setSelectedItem(null);
+        setSelectedIngredients({});
       }
     }
   };

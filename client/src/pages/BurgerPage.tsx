@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MenuLayout from "../MenuLayout";
 import { burgerOptions } from "../menuData";
-import { useCart } from "../context/cartContext";
 import "../MenuItems.css";
+import { addToCart } from "../cartService"; // 🔥 Firestore-Warenkorb nutzen
 
 export default function BurgerPage() {
   const navigate = useNavigate();
-  const { addToCart } = useCart();
   const [selectedIngredients, setSelectedIngredients] = useState<{
     [key: string]: boolean;
   }>({});
@@ -17,7 +16,6 @@ export default function BurgerPage() {
     const timeout = setTimeout(() => {
       navigate("/");
     }, 60000);
-
     return () => clearTimeout(timeout);
   }, [navigate]);
 
@@ -36,7 +34,7 @@ export default function BurgerPage() {
     setSelectedItem(itemValue);
   };
 
-  const handleAddProduct = () => {
+  const handleAddProduct = async () => {
     if (selectedItem) {
       const item = burgerOptions.find(
         (option) => option.value === selectedItem
@@ -46,22 +44,27 @@ export default function BurgerPage() {
           item.ingredients?.filter(
             (ingredient) => selectedIngredients[ingredient]
           ) ?? [];
-        addToCart({
+
+        // 🔥 Produkt in Firestore-Warenkorb speichern
+        await addToCart({
           id: item.value,
           name: item.label,
           price: item.price,
           ingredients: selectedIngredientsList,
           img: item.img,
         });
-        console.log("Product added to cart:", {
+
+        console.log("✅ Produkt hinzugefügt:", {
           id: item.value,
           name: item.label,
           price: item.price,
           ingredients: selectedIngredientsList,
           img: item.img,
         });
-        setSelectedItem(null); // Reset selected item
-        setSelectedIngredients({}); // Reset selected ingredients
+
+        // Reset Auswahl
+        setSelectedItem(null);
+        setSelectedIngredients({});
       }
     }
   };
@@ -103,10 +106,7 @@ export default function BurgerPage() {
                   )) ?? []}
                 </ul>
                 <button
-                  onClick={() => {
-                    handleAddProduct();
-                    setSelectedItem(null); // Reset selected item
-                  }}
+                  onClick={handleAddProduct}
                   className="add-to-cart"
                 >
                   In den Warenkorb

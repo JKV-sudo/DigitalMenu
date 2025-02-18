@@ -1,11 +1,42 @@
-import React from "react";
-import { useCart } from "../context/cartContext";
+import React, { useEffect, useState } from "react";
+import { getCart, removeFromCart } from "../cartService";
 import GlutAnimation from "../GlutAnimation";
 import "./CartPage.css";
 import { Link } from "react-router-dom";
 
+interface CartItem {
+  id: string;
+  name: string;
+  price: number;
+  img?: string; // Falls Bilder vorhanden sind
+  ingredients?: string[]; // Falls Zutaten-Infos existieren
+ 
+}
+
 export default function CartPage() {
-  const { cartItems, removeFromCart, total } = useCart();
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [total, setTotal] = useState<number>(0);
+
+  // 🛒 Warenkorb aus Firestore abrufen
+  useEffect(() => {
+    const fetchCart = async () => {
+      const items = await getCart();
+      setCartItems(items);
+      setTotal(items.reduce((sum: number, item: CartItem) => sum + item.price, 0));
+
+    };
+
+    fetchCart();
+  }, []);
+
+  // 🛒 Produkt aus Warenkorb entfernen
+  const handleRemoveFromCart = async (productId: string) => {
+    await removeFromCart(productId);
+    setCartItems((prevItems) => prevItems.filter((item) => item.id !== productId));
+    setTotal((prevTotal) =>
+      prevTotal - (cartItems.find((item) => item.id === productId)?.price || 0)
+    );
+  };
 
   return (
     <>
@@ -29,6 +60,7 @@ export default function CartPage() {
           <img src="/assets/ig.png" alt="Instagram" className="ig-icon" />
         </a>
       </header>
+
       <div className="cart-container">
         <h1>Warenkorb</h1>
         {cartItems.length === 0 ? (
@@ -36,16 +68,16 @@ export default function CartPage() {
         ) : (
           <ul className="cart-items">
             {cartItems.map((item) => (
-              <li key={`${item.id}-${item.name}`}>
+              <li key={item.id}>
                 <div className="item-header">
                   <button
                     className="remove-btn"
-                    onClick={() => removeFromCart(item.id)}
+                    onClick={() => handleRemoveFromCart(item.id)}
                   >
                     X
                   </button>
                 </div>
-                <img src={item.img} alt={item.name} className="item-img" />
+                {item.img && <img src={item.img} alt={item.name} className="item-img" />}
                 <div className="item-info">
                   <span className="item-name">{item.name}</span>
                   <span className="item-price">{item.price.toFixed(2)} €</span>
@@ -65,6 +97,7 @@ export default function CartPage() {
         )}
         <p className="cart-total">Gesamt: {total.toFixed(2)} €</p>
       </div>
+
       <div>
         <Link to="/" className="logoHome" aria-label="Zurück zur Startseite">
           <img src="/assets/Logo2.png" alt="Zurück zur Startseite" />

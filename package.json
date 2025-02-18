@@ -1,6 +1,0 @@
-{
-  "scripts": {
-    "build": "react-scripts build"
-  },
-  "homepage": "."
-}
