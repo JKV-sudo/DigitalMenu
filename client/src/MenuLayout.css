@@ -211,7 +211,16 @@ html {
     height: 50px;
   }
   .master {
-    margin-left: 0px;
+    margin-left: 0; /* Ensure no left margin on mobile */
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+    margin: 0 auto; /* Center the grid container */
+    padding: 0 10px; /* Add padding to prevent content from touching the edges */
+    zoom: 80%;
+    padding-bottom: 100px; /* Space for the home button */
+    justify-content: center; /* Center items horizontally */
   }
 }
 
@@ -241,6 +250,7 @@ html {
   max-height: 80vh;
   z-index: 1000;
   padding-bottom: 100px; /* Space for the home button */
+  justify-content: center; /* Center items horizontally */
 }
 
 @media (max-width: 768px) {
@@ -249,6 +259,7 @@ html {
     margin-left: auto;
     zoom: 80%;
     padding-bottom: 100px; /* Space for the home button */
+    justify-content: center; /* Center items horizontally */
   }
 }
 .webkit-scrollbar {

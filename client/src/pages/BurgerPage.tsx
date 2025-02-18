@@ -21,6 +21,10 @@ export default function BurgerPage() {
     return () => clearTimeout(timeout);
   }, [navigate]);
 
+  useEffect(() => {
+    console.log("Selected item changed:", selectedItem);
+  }, [selectedItem]);
+
   const handleIngredientClick = (ingredient: string) => {
     setSelectedIngredients((prevSelectedIngredients) => ({
       ...prevSelectedIngredients,
@@ -56,9 +60,17 @@ export default function BurgerPage() {
           ingredients: selectedIngredientsList,
           img: item.img,
         });
+        setSelectedItem(null); // Reset selected item
+        setSelectedIngredients({}); // Reset selected ingredients
       }
     }
   };
+
+  useEffect(() => {
+    if (selectedItem === null) {
+      console.log("Item unselected, component re-rendered");
+    }
+  }, [selectedItem]);
 
   return (
     <MenuLayout backgroundImage="/assets/burger-bg.webp">

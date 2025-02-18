@@ -108,7 +108,12 @@
 }
 
 .menu-item ul::-webkit-scrollbar-thumb:active {
-  background: rgba(0, 0, 0, 0.9); /* Even darker color for the thumb when active */
+  background: rgba(
+    0,
+    0,
+    0,
+    0.9
+  ); /* Even darker color for the thumb when active */
 }
 
 .menu-item ul li {
@@ -141,7 +146,7 @@
 
 .ingredient {
   color: white;
-  padding: 10px 10px;
+  padding: 10px 10px !important;
   grid-template-columns: repeat(2, 1fr);
 }
 
@@ -170,6 +175,14 @@
   transition: all 0.3s ease-in-out;
   backdrop-filter: blur(10px); /* Weiches Verschwimmen des Hintergrunds */
   background-color: #0000008f;
+}
+
+.menu-item:not(.selected-item) {
+  transform: scale(1) !important; /* Reset scale */
+  box-shadow: 16px 16px 19px rgba(0, 0, 0, 0.9); /* Reset shadow */
+  z-index: 0; /* Reset z-index */
+  backdrop-filter: none; /* Reset backdrop filter */
+  background-color: rgba(0, 0, 0, 0.466); /* Reset background color */
 }
 
 .add-to-cart {
