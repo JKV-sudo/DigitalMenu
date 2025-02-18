@@ -66,16 +66,10 @@ export default function BurgerPage() {
     }
   };
 
-  useEffect(() => {
-    if (selectedItem === null) {
-      console.log("Item unselected, component re-rendered");
-    }
-  }, [selectedItem]);
-
   return (
     <MenuLayout backgroundImage="/assets/burger-bg.webp">
       <h2 className="menu-title">🔥 Smashburger 🔥</h2>
-      <div className="menu-grid burger-menu">
+      <div key={selectedItem || "default"} className="menu-grid burger-menu">
         {burgerOptions.map((item) => (
           <div
             key={item.value}
@@ -108,7 +102,13 @@ export default function BurgerPage() {
                     </li>
                   )) ?? []}
                 </ul>
-                <button onClick={handleAddProduct} className="add-to-cart">
+                <button
+                  onClick={() => {
+                    handleAddProduct();
+                    setSelectedItem(null); // Reset selected item
+                  }}
+                  className="add-to-cart"
+                >
                   In den Warenkorb
                 </button>
               </>

@@ -1,6 +1,8 @@
 {
+  "include": ["./src"],
+  "exclude": ["./build"],
+
   "compilerOptions": {
-    // ...existing options...
     "outDir": "./build",
     "target": "es5",
     "module": "commonjs",
@@ -12,5 +14,5 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["src"]
+  
 }

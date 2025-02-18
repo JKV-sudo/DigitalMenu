@@ -205,19 +205,41 @@
 
   .cart-items li {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     padding: 0.5rem 1rem;
   }
 
-  .item-name,
+  .item-name {
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+    order: -1; /* Move the item name above the image */
+  }
+
+  .item-img {
+    max-width: 100%;
+    max-height: 30vh;
+    margin-bottom: 0.5rem;
+  }
+
   .item-price {
     font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .cart-item-ingredients {
     padding: 0.5rem 1rem;
   }
 
   .remove-btn {
     font-size: 1rem;
     padding: 0.25rem 0.5rem;
+  }
+
+  .item-info {
+    gap: 10px;
+    align-items: center;
   }
 }
 
@@ -236,10 +258,22 @@
   .item-price {
     font-size: 1rem;
     padding: 0.25rem 0.5rem;
+    margin-bottom: 0.25rem;
+    order: -1; /* Move the item name above the image */
   }
 
   .remove-btn {
     font-size: 0.75rem;
     padding: 0.1rem 0.25rem;
+  }
+
+  .item-img {
+    max-width: 100%;
+    max-height: 20vh;
+    margin-bottom: 0.25rem;
+  }
+
+  .item-info {
+    gap: 10px;
   }
 }
