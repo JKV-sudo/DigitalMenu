@@ -187,7 +187,6 @@ function MainMenu() {
   );
 }
 
-// 🔥 Haupt-App mit Routing:
 export default function App() {
   return (
     <Router>
@@ -195,7 +194,7 @@ export default function App() {
         <Route path="/" element={<MainMenu />} />
         <Route path="/grill" element={<GrillPage />} />
         <Route path="/burger" element={<BurgerPage />} />
-        <Route path="/kebab" element={<KebabPage />} />
+        <Route path="/kebab" element={<PersKebabPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/jkv" element={<JKV />} />
         <Route path="*" element={<MainMenu />} />

@@ -465,7 +465,7 @@
 
 .meat-slider label {
   display: flex;
-  align-items: center;
+  align-items: space-between;
   font-size: 18px;
   color: white;
 }
