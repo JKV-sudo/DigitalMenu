@@ -8,9 +8,8 @@ interface CartItem {
   id: string;
   name: string;
   price: number;
-  img?: string; // Falls Bilder vorhanden sind
-  ingredients?: string[]; // Falls Zutaten-Infos existieren
- 
+  img?: string;
+  ingredients?: string[];
 }
 
 export default function CartPage() {
@@ -22,20 +21,25 @@ export default function CartPage() {
     const fetchCart = async () => {
       const items = await getCart();
       setCartItems(items);
-      setTotal(items.reduce((sum: number, item: CartItem) => sum + item.price, 0));
-
+      setTotal(
+        items.reduce((sum: number, item: CartItem) => sum + item.price, 0)
+      );
     };
 
     fetchCart();
   }, []);
 
   // 🛒 Produkt aus Warenkorb entfernen
-  const handleRemoveFromCart = async (productId: string) => {
+  const handleRemoveFromCart = async (
+    productId: string,
+    indexToRemove: number
+  ) => {
     await removeFromCart(productId);
-    setCartItems((prevItems) => prevItems.filter((item) => item.id !== productId));
-    setTotal((prevTotal) =>
-      prevTotal - (cartItems.find((item) => item.id === productId)?.price || 0)
+
+    setCartItems((prevItems) =>
+      prevItems.filter((_, index) => index !== indexToRemove)
     );
+    setTotal((prevTotal) => prevTotal - (cartItems[indexToRemove]?.price || 0));
   };
 
   return (
@@ -67,24 +71,29 @@ export default function CartPage() {
           <p className="empty-cart">Der Warenkorb ist leer.</p>
         ) : (
           <ul className="cart-items">
-            {cartItems.map((item) => (
-              <li key={item.id}>
+            {cartItems.map((item, index) => (
+              <li key={`${item.id}-${index}`}>
                 <div className="item-header">
                   <button
                     className="remove-btn"
-                    onClick={() => handleRemoveFromCart(item.id)}
+                    onClick={() => handleRemoveFromCart(item.id, index)} // 🔥 ID + Index übergeben
                   >
                     X
                   </button>
                 </div>
-                {item.img && <img src={item.img} alt={item.name} className="item-img" />}
+                {item.img && (
+                  <img src={item.img} alt={item.name} className="item-img" />
+                )}
                 <div className="item-info">
                   <span className="item-name">{item.name}</span>
                   <span className="item-price">{item.price.toFixed(2)} €</span>
                   {item.ingredients && item.ingredients.length > 0 && (
                     <ul className="cart-item-ingredients">
-                      {item.ingredients.map((ingredient, index) => (
-                        <li key={index} className="cart-ingredient">
+                      {item.ingredients.map((ingredient, i) => (
+                        <li
+                          key={`${item.id}-ingredient-${i}`}
+                          className="cart-ingredient"
+                        >
                           {ingredient}
                         </li>
                       ))}
