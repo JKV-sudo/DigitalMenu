@@ -362,11 +362,13 @@
 }
 
 .carousel-button.prev {
-  left: -400px; /* Position the previous button to the left */
+  left: -450px; /* Position the previous button to the left */
+  transform: scale(1.6);
 }
 
 .carousel-button.next {
-  right: -400px; /* Position the next button to the right */
+  right: -450px; /* Position the next button to the right */
+  transform: scale(1.6);
 }
 
 .carousel-preview {
