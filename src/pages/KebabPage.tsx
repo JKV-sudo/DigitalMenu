@@ -11,6 +11,7 @@ export default function KebabPage() {
     [key: string]: boolean;
   }>({});
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
+  const [showBanner, setShowBanner] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -53,6 +54,10 @@ export default function KebabPage() {
           img: item.img,
         });
 
+        // Show banner
+        setShowBanner(true);
+        setTimeout(() => setShowBanner(false), 3000); // Hide banner after 3 seconds
+
         console.log("✅ Produkt hinzugefügt:", {
           id: item.value,
           name: item.label,
@@ -61,15 +66,20 @@ export default function KebabPage() {
           img: item.img,
         });
 
-        // Reset Auswahl
-        setSelectedItem(null);
-        setSelectedIngredients({});
+        // Reset Auswahl with animation
+        setTimeout(() => {
+          setSelectedItem(null);
+          setSelectedIngredients({});
+        }, 300); // Delay to allow animation
       }
     }
   };
 
   return (
     <MenuLayout backgroundImage="/assets/kebab-bg.webp">
+      {showBanner && (
+        <div className="banner">Artikel wurde zum Warenkorb hinzugefügt!</div>
+      )}
       <h2 className="menu-title">🥙 Döner-Spezialitäten 🥙</h2>
       <div key={selectedItem || "default"} className="menu-grid kebab-menu">
         {kebabOptions.map((item) => (

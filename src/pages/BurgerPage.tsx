@@ -11,6 +11,7 @@ export default function BurgerPage() {
     [key: string]: boolean;
   }>({});
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
+  const [showBanner, setShowBanner] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -54,6 +55,10 @@ export default function BurgerPage() {
           img: item.img,
         });
 
+        // Show banner
+        setShowBanner(true);
+        setTimeout(() => setShowBanner(false), 3000); // Hide banner after 3 seconds
+
         console.log("✅ Produkt hinzugefügt:", {
           id: item.value,
           name: item.label,
@@ -62,15 +67,20 @@ export default function BurgerPage() {
           img: item.img,
         });
 
-        // Reset Auswahl
-        setSelectedItem(null);
-        setSelectedIngredients({});
+        // Reset Auswahl with animation
+        setTimeout(() => {
+          setSelectedItem(null);
+          setSelectedIngredients({});
+        }, 300); // Delay to allow animation
       }
     }
   };
 
   return (
     <MenuLayout backgroundImage="/assets/burger-bg.webp">
+      {showBanner && (
+        <div className="banner">Artikel wurde zum Warenkorb hinzugefügt!</div>
+      )}
       <h2 className="menu-title">🔥 Smashburger 🔥</h2>
       <div key={selectedItem || "default"} className="menu-grid burger-menu">
         {burgerOptions.map((item) => (
@@ -105,10 +115,7 @@ export default function BurgerPage() {
                     </li>
                   )) ?? []}
                 </ul>
-                <button
-                  onClick={handleAddProduct}
-                  className="add-to-cart"
-                >
+                <button onClick={handleAddProduct} className="add-to-cart">
                   In den Warenkorb
                 </button>
               </>
