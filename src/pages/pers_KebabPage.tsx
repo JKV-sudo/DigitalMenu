@@ -27,6 +27,7 @@ export default function pers_KebabPage() {
   const [selectedIngredients, setSelectedIngredients] = useState<string[]>([]);
   const [showBanner, setShowBanner] = useState(false);
   const [selectedKebab, setSelectedKebab] = useState(kebabOptions[0]);
+  const [rotation, setRotation] = useState(0);
 
   const handleIngredientClick = (ingredient: string) => {
     setSelectedIngredients((prevSelectedIngredients) =>
@@ -66,25 +67,18 @@ export default function pers_KebabPage() {
     }, 300); // Delay to allow animation
   };
 
-  const handleKebabChange = (kebab) => {
-    setSelectedKebab(kebab);
-  };
-
-  const getNextKebab = () => {
+  const handleKebabChange = (direction: string) => {
     const currentIndex = kebabOptions.findIndex(
       (option) => option.id === selectedKebab.id
     );
-    const nextIndex = (currentIndex + 1) % kebabOptions.length;
-    return kebabOptions[nextIndex];
-  };
-
-  const getPrevKebab = () => {
-    const currentIndex = kebabOptions.findIndex(
-      (option) => option.id === selectedKebab.id
+    const newIndex =
+      direction === "next"
+        ? (currentIndex + 1) % kebabOptions.length
+        : (currentIndex - 1 + kebabOptions.length) % kebabOptions.length;
+    setSelectedKebab(kebabOptions[newIndex]);
+    setRotation(
+      (prevRotation) => prevRotation + (direction === "next" ? 120 : -120)
     );
-    const prevIndex =
-      (currentIndex - 1 + kebabOptions.length) % kebabOptions.length;
-    return kebabOptions[prevIndex];
   };
 
   return (
@@ -109,21 +103,36 @@ export default function pers_KebabPage() {
         <h2 className="menu-title">🥙 Döner-Spezialitäten 🥙</h2>
       </div>
       <div className="carousel">
-        <div
-          className="carousel-preview"
-          onClick={() => handleKebabChange(getPrevKebab())}
+        <button
+          onClick={() => handleKebabChange("prev")}
+          className="carousel-button"
         >
-          <img src={getPrevKebab().img} alt={getPrevKebab().name} />
-        </div>
-        <div className="kebab-photo">
-          <img src={selectedKebab.img} alt={selectedKebab.name} />
-        </div>
+          &lt;
+        </button>
         <div
-          className="carousel-preview"
-          onClick={() => handleKebabChange(getNextKebab())}
+          className="carousel-container"
+          style={{ transform: `rotateY(${rotation}deg)` }}
         >
-          <img src={getNextKebab().img} alt={getNextKebab().name} />
+          {kebabOptions.map((kebab, index) => (
+            <div
+              key={kebab.id}
+              className={`carousel-item ${
+                selectedKebab.id === kebab.id ? "selected" : ""
+              }`}
+              style={{
+                transform: `rotateY(${index * 120}deg) translateZ(300px)`,
+              }}
+            >
+              <img src={kebab.img} alt={kebab.name} />
+            </div>
+          ))}
         </div>
+        <button
+          onClick={() => handleKebabChange("next")}
+          className="carousel-button"
+        >
+          &gt;
+        </button>
       </div>
       <div className="ingredients-grid">
         {[
