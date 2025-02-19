@@ -12,6 +12,7 @@ export default function GrillPage() {
     [key: string]: boolean;
   }>({});
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
+  const [showBanner, setShowBanner] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -50,6 +51,10 @@ export default function GrillPage() {
           img: item.img,
         });
 
+        // Show banner
+        setShowBanner(true);
+        setTimeout(() => setShowBanner(false), 3000); // Hide banner after 3 seconds
+
         console.log("✅ Produkt hinzugefügt:", {
           id: item.value,
           name: item.label,
@@ -67,6 +72,9 @@ export default function GrillPage() {
 
   return (
     <MenuLayout backgroundImage="/assets/grill-bg.jpg">
+      {showBanner && (
+        <div className="banner">Artikel wurde zum Warenkorb hinzugefügt!</div>
+      )}
       <h2 className="menu-title">🔥 Grill-Gerichte 🔥</h2>
       <div className="menu-grid grill-menu">
         {grillOptions.map((item) => (
