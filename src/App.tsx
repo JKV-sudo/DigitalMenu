@@ -16,6 +16,7 @@ import BurgerPage from "./pages/BurgerPage";
 import KebabPage from "./pages/KebabPage";
 import CartPage from "./pages/CartPage";
 import JKV from "./jkv";
+import PersKebabPage from "./pages/pers_KebabPage";
 
 // 🔥 Firebase Imports
 import { auth } from "./firebase";
@@ -198,6 +199,7 @@ export default function App() {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/jkv" element={<JKV />} />
         <Route path="*" element={<MainMenu />} />
+        <Route path="/pers_KebabPage" element={<PersKebabPage />} />
       </Routes>
     </Router>
   );

@@ -1,0 +1,127 @@
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 5px 15px;
+  z-index: 2000;
+}
+
+.logo {
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  z-index: 11;
+}
+
+.logo img {
+  display: block;
+}
+
+.titel {
+  flex-grow: 1;
+  text-align: center;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+.titel h1 {
+  font-size: 24px;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+}
+
+.cart-link img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
+}
+
+.cart-link img:hover {
+  transform: scale(1.1);
+}
+
+.logoHome {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logoHome img {
+  width: 50px;
+  height: 50px;
+}
+
+.kebab-photo {
+  background-color: rgba(0, 0, 0, 0.623);
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.kebab-photo img {
+  max-width: 80%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ingredients-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  justify-content: center;
+  margin: 20px auto;
+  max-width: 80%;
+  background-color: rgba(0, 0, 0, 0.623);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 19px 18px rgba(0, 0, 0, 0.9);
+}
+
+.ingredient-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: #ffffff00 solid 5px;
+  border-radius: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.ingredient-item img {
+  scale: 1.1;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ingredient-item p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.ingredient-item:hover {
+  transform: scale(1.1);
+  transition: all 0.2s ease;
+  border: green solid 5px;
+  border-radius: 20px;
+}
+
+.ingredient-item.selected {
+  border: green solid 5px;
+}
