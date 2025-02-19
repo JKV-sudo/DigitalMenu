@@ -30,7 +30,7 @@
 }
 
 /* Hover-Effekt für bessere Sichtbarkeit */
-.menu-item:hover {
+.menu-item:not(.selected-item):hover {
   background: rgba(
     80,
     79,
@@ -38,7 +38,7 @@
     0.404
   ); /* Etwas weniger Transparenz beim Hover */
   border-color: rgba(255, 255, 255, 0.808); /* Stärkerer Rand beim Hover */
-  transform: scale(1.05); /* Leichte Vergrößerung */
+  transform: scale(1.5); /* Leichte Vergrößerung */
   box-shadow: 20px 30px 10px rgba(0, 0, 0, 0.9); /* Dunkler Schatten */
   transition: all 0.3s ease-in-out; /* Ensure transition is applied */
 }

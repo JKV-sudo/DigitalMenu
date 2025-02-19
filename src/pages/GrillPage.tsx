@@ -14,13 +14,7 @@ export default function GrillPage() {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const [showBanner, setShowBanner] = useState(false);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      navigate("/");
-    }, 60000);
-
-    return () => clearTimeout(timeout);
-  }, [navigate]);
+ 
 
   const handleIngredientClick = (ingredient: string) => {
     setSelectedIngredients((prevSelectedIngredients) => ({

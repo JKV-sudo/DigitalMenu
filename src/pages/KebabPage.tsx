@@ -13,13 +13,7 @@ export default function KebabPage() {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const [showBanner, setShowBanner] = useState(false);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      navigate("/");
-    }, 60000);
-
-    return () => clearTimeout(timeout);
-  }, [navigate]);
+ 
 
   useEffect(() => {
     console.log("Selected item changed:", selectedItem);
