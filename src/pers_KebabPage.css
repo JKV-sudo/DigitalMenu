@@ -115,6 +115,26 @@
   animation: spinOut 0.3s forwards;
 }
 
+.kebab-details {
+  text-align: center;
+  margin-top: 20px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.kebab-details h3 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.kebab-details p {
+  margin: 5px 0 0;
+  font-size: 20px;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -268,9 +288,6 @@
   color: white;
 }
 
-html {
-  /* overflow: hidden;*/
-}
 .add-to-cart {
   margin-bottom: 2px; /* Adjust margin to a more appropriate value */
   padding: 10px 20px;
@@ -299,7 +316,6 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
   transition: transform 0.5s ease;
   scale: 0.6;
   perspective: 1000px; /* Add perspective for 3D effect */
@@ -309,15 +325,16 @@ html {
   display: flex;
   transform-style: preserve-3d;
   transition: transform 0.5s ease;
-  margin-bottom: 200px;
   position: relative; /* Ensure proper positioning */
+  justify-content: center; /* Center the container */
+  align-items: center; /* Center the container */
+  height: 300px; /* Set a fixed height for the container */
 }
 
 .carousel-item {
   position: absolute;
   width: 200px;
   height: 200px;
-  backface-visibility: hidden;
 }
 
 .carousel-item img {
@@ -325,7 +342,7 @@ html {
   height: 100%;
   object-fit: cover;
   border-radius: 15px;
-  box-shadow: 14px 24px 8px rgba(0, 0, 0, 0.815);
+  box-shadow: 0px 30px 80px rgba(0, 0, 0, 0.8);
 }
 
 .carousel-button {
@@ -333,16 +350,23 @@ html {
   color: white;
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 80px;
+  height: 80px;
   cursor: pointer;
-  margin: 10 10px;
+  margin: 0 10px;
   transition: background-color 0.3s ease;
   z-index: 1001; /* Ensure buttons are above other elements */
+  position: absolute; /* Position the buttons absolutely */
+  top: 50%; /* Center the buttons vertically */
+  transform: translateY(-50%); /* Center the buttons vertically */
 }
 
-.carousel-button:hover {
-  background-color: rgba(0, 0, 0, 0.7);
+.carousel-button.prev {
+  left: -400px; /* Position the previous button to the left */
+}
+
+.carousel-button.next {
+  right: -400px; /* Position the next button to the right */
 }
 
 .carousel-preview {
@@ -370,16 +394,80 @@ html {
 
 .carousel-preview.move-in {
   animation: moveIn 0.3s forwards;
+  box-shadow: none;
 }
 
 .carousel-preview.move-out {
   animation: moveOut 0.3s forwards;
+  box-shadow: none;
 }
 
 .carousel-preview.spin-in {
   animation: spinIn 0.3s forwards;
+  box-shadow: none;
 }
 
 .carousel-preview.spin-out {
   animation: spinOut 0.3s forwards;
+  box-shadow: none;
+}
+
+.meat-slider {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.slider {
+  position: relative;
+  width: 200px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.slider-option {
+  flex: 1;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  z-index: 1;
+}
+
+.slider-option.active {
+  font-weight: bold;
+}
+
+.slider-thumb {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background-color: #30d461a6;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+}
+
+.slider-thumb.left {
+  transform: translateX(0);
+}
+
+.slider-thumb.right {
+  transform: translateX(100%);
+}
+
+.meat-slider label {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  color: white;
+}
+
+.meat-slider input[type="radio"] {
+  margin-right: 10px;
 }

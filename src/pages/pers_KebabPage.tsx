@@ -9,16 +9,19 @@ const kebabOptions = [
     id: "kebab",
     name: "Kebab",
     img: "/assets/kebab1.jpg",
+    price: 5.99,
   },
   {
     id: "dürüm",
     name: "Dürüm",
     img: "/assets/durum.jpeg",
+    price: 6.99,
   },
   {
     id: "bowl",
     name: "Bowl",
     img: "/assets/bowl.png",
+    price: 7.99,
   },
 ];
 
@@ -28,6 +31,7 @@ export default function pers_KebabPage() {
   const [showBanner, setShowBanner] = useState(false);
   const [selectedKebab, setSelectedKebab] = useState(kebabOptions[0]);
   const [rotation, setRotation] = useState(0);
+  const [meatOption, setMeatOption] = useState("Chicken");
 
   const handleIngredientClick = (ingredient: string) => {
     setSelectedIngredients((prevSelectedIngredients) =>
@@ -43,8 +47,8 @@ export default function pers_KebabPage() {
     // 🔥 Produkt in Firestore-Warenkorb speichern
     await addToCart({
       id: selectedKebab.id,
-      name: selectedKebab.name,
-      price: 5.99,
+      name: `${selectedKebab.name} (${meatOption})`,
+      price: selectedKebab.price,
       ingredients: selectedIngredientsList,
       img: selectedKebab.img,
     });
@@ -55,8 +59,8 @@ export default function pers_KebabPage() {
 
     console.log("✅ Produkt hinzugefügt:", {
       id: selectedKebab.id,
-      name: selectedKebab.name,
-      price: 5.99,
+      name: `${selectedKebab.name} (${meatOption})`,
+      price: selectedKebab.price,
       ingredients: selectedIngredientsList,
       img: selectedKebab.img,
     });
@@ -78,6 +82,12 @@ export default function pers_KebabPage() {
     setSelectedKebab(kebabOptions[newIndex]);
     setRotation(
       (prevRotation) => prevRotation + (direction === "next" ? 120 : -120)
+    );
+  };
+
+  const handleMeatOptionChange = () => {
+    setMeatOption((prevOption) =>
+      prevOption === "Chicken" ? "Steak" : "Chicken"
     );
   };
 
@@ -105,7 +115,7 @@ export default function pers_KebabPage() {
       <div className="carousel">
         <button
           onClick={() => handleKebabChange("prev")}
-          className="carousel-button"
+          className="carousel-button prev"
         >
           &lt;
         </button>
@@ -129,10 +139,37 @@ export default function pers_KebabPage() {
         </div>
         <button
           onClick={() => handleKebabChange("next")}
-          className="carousel-button"
+          className="carousel-button next"
         >
           &gt;
         </button>
+      </div>
+      <div className="kebab-details">
+        <h3>{selectedKebab.name}</h3>
+        <p>{selectedKebab.price.toFixed(2)} €</p>
+      </div>
+      <div className="meat-slider">
+        <div className="slider" onClick={handleMeatOptionChange}>
+          <div
+            className={`slider-option ${
+              meatOption === "Chicken" ? "active" : ""
+            }`}
+          >
+            Chicken
+          </div>
+          <div
+            className={`slider-option ${
+              meatOption === "Steak" ? "active" : ""
+            }`}
+          >
+            Steak
+          </div>
+          <div
+            className={`slider-thumb ${
+              meatOption === "Steak" ? "right" : "left"
+            }`}
+          ></div>
+        </div>
       </div>
       <div className="ingredients-grid">
         {[
