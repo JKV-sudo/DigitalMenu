@@ -63,9 +63,11 @@ export default function GrillPage() {
           img: item.img,
         });
 
-        // Reset Auswahl
-        setSelectedItem(null);
-        setSelectedIngredients({});
+        // Reset Auswahl with animation
+        setTimeout(() => {
+          setSelectedItem(null);
+          setSelectedIngredients({});
+        }, 300); // Delay to allow animation
       }
     }
   };

@@ -21,7 +21,7 @@
   text-align: center;
   font-size: 18px;
   font-weight: bold;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; /* Ensure transition is applied */
   box-shadow: 16px 16px 19px rgba(0, 0, 0, 0.9);
   cursor: pointer; /* Zeigt an, dass das Element klickbar ist */
   display: flex;
@@ -40,6 +40,7 @@
   border-color: rgba(255, 255, 255, 0.808); /* Stärkerer Rand beim Hover */
   transform: scale(1.05); /* Leichte Vergrößerung */
   box-shadow: 20px 30px 10px rgba(0, 0, 0, 0.9); /* Dunkler Schatten */
+  transition: all 0.3s ease-in-out; /* Ensure transition is applied */
 }
 
 /* 🔥 Grill-Menü: Dunkler Rand */
@@ -172,7 +173,7 @@
   transform: scale(1.1) !important; /* Ensure it scales only once */
   box-shadow: 20px 30px 10px rgba(0, 0, 0, 0.527); /* Dunklerer Schatten */
   z-index: 1; /* Bringe das ausgewählte Element nach vorne */
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; /* Smooth transition */
   backdrop-filter: blur(10px); /* Weiches Verschwimmen des Hintergrunds */
   background-color: #0000008f;
 }
@@ -183,6 +184,7 @@
   z-index: 0; /* Reset z-index */
   backdrop-filter: none; /* Reset backdrop filter */
   background-color: rgba(0, 0, 0, 0.466); /* Reset background color */
+  transition: all 0.3s ease-in-out; /* Smooth transition */
 }
 
 .add-to-cart {
