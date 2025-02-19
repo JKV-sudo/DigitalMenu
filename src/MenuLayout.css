@@ -167,7 +167,7 @@ html {
   }
 
   .menu-content {
-    width: 95%;
+    
     margin-top: 90px; /* Weniger Abstand zum Header */
     padding-bottom: 80px; /* Platz für den fixierten Home-Button */
     justify-content: center;

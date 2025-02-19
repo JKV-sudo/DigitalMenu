@@ -30,17 +30,18 @@ interface MenuOption {
 
 // 🔥 Hauptmenü-Optionen:
 const mainMenuOptions: MenuOption[] = [
-  {
-    label: "Grill-Gerichte",
-    value: "grill",
-    className: "grill",
-    img: "/assets/grill.jpg" ,
-  },
+  
   {
     label: "Smash-Burger",
     value: "burger",
     className: "burger",
     img: "/assets/smash.jpg",
+  },
+  {
+    label: "Grill-Gerichte",
+    value: "grill",
+    className: "grill",
+    img: "/assets/grill.jpg" ,
   },
   {
     label: "Kebab-Spezialitäten",
@@ -112,7 +113,7 @@ function MainMenu() {
           onClick={handleLogoClick}
           aria-label="Zurück zur Startseite"
         >
-          <img src="/assets/Logo.png" width={60} height={60} alt="Logo" />
+          <img src="/assets/Logo.png" width={50} height={50} alt="Logo" />
         </Link>
         <div className="titel">
           <h1>

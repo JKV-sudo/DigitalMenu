@@ -33,6 +33,9 @@ canvas {
   left: 0;
 }
 @media (max-width: 768px) {
+  .qr {
+    display: none;
+  }
   html {
     background-size: cover;
     background-position: center;
