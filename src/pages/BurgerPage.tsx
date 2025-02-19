@@ -109,7 +109,7 @@ export default function BurgerPage() {
                         e.stopPropagation();
                         handleIngredientClick(ingredient);
                       }}
-                      style={{ width: "45%", margin: "5px" }}
+                      style={{ width: "55%", margin: "5px", padding: "5px" }}
                     >
                       {ingredient}
                     </li>

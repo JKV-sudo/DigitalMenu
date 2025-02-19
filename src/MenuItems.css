@@ -170,6 +170,7 @@
 }
 
 .selected-item {
+  animation: pulse 1s infinite; /* Add pulsating animation */
   transform: scale(1.1) !important; /* Ensure it scales only once */
   box-shadow: 20px 30px 10px rgba(0, 0, 0, 0.527); /* Dunklerer Schatten */
   z-index: 1; /* Bringe das ausgewählte Element nach vorne */
@@ -212,4 +213,15 @@
 .ingredient:hover {
   background-color: #104e1042;
   border: 2px solid #1ccc1c;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
