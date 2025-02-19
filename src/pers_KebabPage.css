@@ -64,16 +64,19 @@
   background-color: rgba(0, 0, 0, 0.623);
   display: flex;
   justify-content: center;
-  margin-top: 60px;
-  padding: 20px;
+  padding: 2px;
   border-radius: 15px;
+  scale: 0.8;
+  width: 50%; /* Adjust width to be narrower */
+  margin: 0 auto; /* Center the box */
 }
 
 .kebab-photo img {
-  max-width: 80%;
+  max-width: 100%;
   height: auto;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  scale: 0.8;
 }
 
 .ingredients-grid {
@@ -83,10 +86,12 @@
   justify-content: center;
   margin: 20px auto;
   max-width: 80%;
-  background-color: rgba(0, 0, 0, 0.623);
+  background-color: rgba(0, 0, 0, 0.726);
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 19px 18px rgba(0, 0, 0, 0.9);
+  scale: 0.8;
+  min-width: 40vw;
 }
 
 .ingredient-item {
@@ -99,10 +104,11 @@
   padding: 10px;
   cursor: pointer;
   transition: all 0.2s ease;
+  width: 150px; /* Fixed width */
+  height: 200px; /* Fixed height */
 }
 
 .ingredient-item img {
-  scale: 1.1;
   width: 100px;
   height: 100px;
   object-fit: cover;
@@ -116,7 +122,6 @@
   color: #ffffff00;
   padding: 5px 5px;
   border-radius: 10px;
-  
 }
 
 .ingredient-item:hover {
@@ -124,7 +129,6 @@
   border: green solid 5px;
   border-radius: 20px;
 }
-
 
 .ingredient-item:hover p {
   display: block;
@@ -136,7 +140,6 @@
 .ingredient-item.selected {
   border: green solid 5px;
   border-radius: 20px;
-
 }
 
 .ingredient-item.selected p {
@@ -145,7 +148,74 @@
   color: white;
 }
 
-
 html {
+  /* overflow: hidden;*/
+}
+.add-to-cart {
+  margin-bottom: 20px; /* Adjust margin to a more appropriate value */
+  padding: 10px 20px;
+  background-color: #30d461a6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.banner {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #30d461a6;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 2000;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  transition: transform 0.5s ease;
+  scale: 0.6;
+}
+
+.carousel-button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-preview {
+  width: 20%; /* Half the width of the main window */
+  height: 20%; /* Half the height of the main window */
   overflow: hidden;
-} 
+  border-radius: 10px;
+  margin: 0 5px; /* 5px margin between items */
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s ease;
+  padding: 5px 5px;
+}
+
+.carousel-preview img {
+  width: 20vw;
+  height: 30vh;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}

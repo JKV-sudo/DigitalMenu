@@ -74,7 +74,7 @@ export default function KebabPage() {
       {showBanner && (
         <div className="banner">Artikel wurde zum Warenkorb hinzugefügt!</div>
       )}
-      <h2 className="menu-title">🥙 Döner-Spezialitäten 🥙</h2>
+      <h2 className="menu-title">🥙Döner-Spezialitäten🥙</h2>
       <div key={selectedItem || "default"} className="menu-grid kebab-menu">
         {kebabOptions.map((item) => (
           <div
