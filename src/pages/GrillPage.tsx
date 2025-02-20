@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MenuLayout from "../MenuLayout";
-import { grillOptions } from "../menuData";
+import { beilagenOptions } from "../menuData";
 
 import "../MenuItems.css";
 import { addToCart } from "../cartService"; // 🔥 Firestore-Warenkorb nutzen
@@ -29,7 +29,7 @@ export default function GrillPage() {
 
   const handleAddProduct = async () => {
     if (selectedItem) {
-      const item = grillOptions.find((option) => option.value === selectedItem);
+      const item = beilagenOptions.find((option) => option.value === selectedItem);
       if (item) {
         const selectedIngredientsList =
           item.ingredients?.filter(
@@ -73,7 +73,7 @@ export default function GrillPage() {
       )}
       <h2 className="menu-title">🔥 Grill-Gerichte 🔥</h2>
       <div className="menu-grid grill-menu">
-        {grillOptions.map((item) => (
+        {beilagenOptions.map((item) => (
           <div
             key={item.value}
             className={`menu-item ${

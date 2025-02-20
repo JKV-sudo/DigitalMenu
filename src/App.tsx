@@ -39,17 +39,18 @@ const mainMenuOptions: MenuOption[] = [
     img: "/assets/smash.jpg",
   },
   {
-    label: "Grill-Gerichte",
-    value: "grill",
-    className: "grill",
-    img: "/assets/grill.jpg" ,
-  },
-  {
     label: "Kebab-Spezialitäten",
     value: "kebab",
     className: "kebab",
     img: "/assets/kebab.jpg",
   },
+  {
+    label: "Desserts & Beilagen",
+    value: "grill",
+    className: "grill",
+    img: "/assets/grill.jpg" ,
+  },
+ 
 ];
 
 // 🔥 Firebase Auth-Handling (Anonyme Anmeldung)
