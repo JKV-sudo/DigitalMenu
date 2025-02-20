@@ -14,13 +14,13 @@ const kebabOptions = [
   {
     id: "dürüm",
     name: "Dürüm",
-    img: "/assets/durum.jpeg",
+    img: "/assets/durum.jpeg", // Ensure this path is correct
     price: 6.99,
   },
   {
     id: "bowl",
     name: "Bowl",
-    img: "/assets/bowl.png",
+    img: "/assets/bowl.png", // Ensure this path is correct
     price: 7.99,
   },
 ];
@@ -135,7 +135,6 @@ export default function pers_KebabPage() {
 
   return (
     <MenuLayout backgroundImage="/assets/kebab-bg.webp">
-     
       <div>
         <h2 className="menu-title">🥙 Döner-Spezialitäten 🥙</h2>
       </div>

@@ -584,7 +584,7 @@
 }
 
 .additional-option.selected {
-  border: green solid 5px;
+  border: rgb(150, 253, 15) solid 5px;
   border-radius: 20px;
 }
 
@@ -615,4 +615,23 @@
   color: white;
   width: 45%;
   text-align: center;
+}
+
+.menu-title {
+  padding: 10px 20px;
+  margin: 0px 0;
+  color: #ffffff; /* Weißer Text */
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 70px;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(3px); /* Glasiger Effekt durch Unschärfe */
+  -webkit-backdrop-filter: blur(10px); /* Unterstützung für Safari */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Weißer, halbtransparenter Rand */
+  text-align: center;
+  max-width: 90%;
+  white-space: nowrap; /* Prevents text from wrapping to the next line */
+  overflow: hidden; /* Ensures content doesn't overflow */
+  text-overflow: ellipsis; /* Adds ellipsis if text overflows */
 }
