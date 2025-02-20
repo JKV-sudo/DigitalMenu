@@ -129,7 +129,6 @@
   margin: 0;
   font-size: 24px;
   width: 80px;
-
 }
 
 .kebab-details p {
@@ -228,15 +227,18 @@
   justify-content: center;
   margin: 0px auto;
   max-width: 80;
-  background-color: rgba(0, 0, 0, 0.726);
+  background-color: rgba(0, 0, 0, 0);
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 19px 18px rgba(0, 0, 0, 0.9);
   scale: 0.8;
   min-width: 40vw;
+  width: 75%; /* Adjust width to take remaining space */
+  height: 100%; /* Ensure both containers take full height */
 }
 
-.ingredient-item {
+.ingredient-item,
+.additional-option {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -250,7 +252,8 @@
   height: 200px; /* Fixed height */
 }
 
-.ingredient-item img {
+.ingredient-item img,
+.additional-option img {
   width: 100px;
   height: 100px;
   object-fit: cover;
@@ -258,7 +261,8 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.ingredient-item p {
+.ingredient-item p,
+.additional-option p {
   margin-top: 10px;
   font-size: 16px;
   color: #ffffff00;
@@ -272,19 +276,28 @@
   border-radius: 20px;
 }
 
-.ingredient-item:hover p {
+.additional-option:hover {
+  transition: all 0.2s ease;
+  border: rgb(150, 253, 15) solid 5px;
+  border-radius: 20px;
+}
+
+.ingredient-item:hover p,
+.additional-option:hover p {
   display: block;
   transition: all 0.4s ease;
   background: #313131c9;
   color: white;
 }
 
-.ingredient-item.selected {
+.ingredient-item.selected,
+.additional-option.selected {
   border: green solid 5px;
   border-radius: 20px;
 }
 
-.ingredient-item.selected p {
+.ingredient-item.selected p,
+.additional-option.selected p {
   display: block;
   background: #313131c9;
   color: white;
@@ -465,6 +478,11 @@
   transform: translateX(100%);
 }
 
+.slider.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 .meat-slider label {
   display: flex;
   align-items: space-between;
@@ -474,4 +492,127 @@
 
 .meat-slider input[type="radio"] {
   margin-right: 10px;
+}
+
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  height: 100%; /* Ensure it takes full height */
+}
+
+.second-container,
+.ingredients-grid,
+.third-container {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%; /* Ensure all containers take full height */
+}
+
+.second-container,
+.third-container {
+  width: 20% !important; /* Adjust width to be narrower */
+}
+
+.ingredients-grid {
+  width: 55%; /* Adjust width to take remaining space */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Change to 3 columns */
+  grid-template-rows: repeat(2, 1fr); /* Change to 2 rows */
+  gap: 20px;
+  padding: 10px 40px;
+}
+
+.additional-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.additional-option {
+  background-color: rgba(0, 0, 0, 0);
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: #ffffff00 solid 5px;
+}
+
+.additional-option p {
+  margin: 10px 0 0;
+  color: rgba(255, 255, 255, 0);
+}
+
+.additional-option.selected {
+  border-color: #a6ff00;
+  color: white;
+}
+
+.additional-option.selected p {
+  display: block;
+}
+
+.additional-option img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.additional-option p {
+  margin: 10px 0 0;
+  color: white;
+  display: none;
+}
+
+.additional-option:hover {
+  transition: all 0.2s ease;
+  border: rgb(150, 253, 15) solid 5px;
+  border-radius: 20px;
+}
+
+.additional-option.selected {
+  border: green solid 5px;
+  border-radius: 20px;
+}
+
+.additional-option.selected p {
+  display: block;
+  background: #313131c9;
+  color: white;
+}
+
+/* Red hover and selected states for "Scharf" and "Sehr scharf" */
+.additional-option.scharf:hover,
+.additional-option.sehr-scharf:hover {
+  border: red solid 5px;
+  border-radius: 20px;
+}
+
+.additional-option.scharf.selected,
+.additional-option.sehr-scharf.selected {
+  border: red solid 5px;
+  border-radius: 20px;
+}
+
+.second-container {
+  background-color: rgba(0, 0, 0, 0.76);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  width: 45%;
+  text-align: center;
 }

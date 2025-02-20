@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import MenuLayout from "../MenuLayout";
 import "../pers_KebabPage.css";
@@ -32,7 +32,13 @@ export default function pers_KebabPage() {
   const [selectedKebab, setSelectedKebab] = useState(kebabOptions[0]);
   const [rotation, setRotation] = useState(0);
   const [meatOption, setMeatOption] = useState("Chicken");
+  const [isSaturday, setIsSaturday] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const today = new Date();
+    setIsSaturday(today.getDay() === 6);
+  }, []);
 
   const handleIngredientClick = (ingredient: string) => {
     setSelectedIngredients((prevSelectedIngredients) =>
@@ -42,6 +48,20 @@ export default function pers_KebabPage() {
     );
   };
 
+  const calculatePrice = () => {
+    let price = selectedKebab.price;
+    if (selectedIngredients.includes("Käse")) {
+      price += 3;
+    }
+    if (selectedIngredients.includes("Mais")) {
+      price += 3;
+    }
+    if (meatOption === "Steak") {
+      price += 10;
+    }
+    return price.toFixed(2);
+  };
+
   const handleAddProduct = async () => {
     const selectedIngredientsList = selectedIngredients;
 
@@ -49,7 +69,7 @@ export default function pers_KebabPage() {
     await addToCart({
       id: selectedKebab.id,
       name: `${selectedKebab.name} (${meatOption})`,
-      price: selectedKebab.price,
+      price: parseFloat(calculatePrice()),
       ingredients: selectedIngredientsList,
       img: selectedKebab.img,
     });
@@ -61,7 +81,7 @@ export default function pers_KebabPage() {
     console.log("✅ Produkt hinzugefügt:", {
       id: selectedKebab.id,
       name: `${selectedKebab.name} (${meatOption})`,
-      price: selectedKebab.price,
+      price: parseFloat(calculatePrice()),
       ingredients: selectedIngredientsList,
       img: selectedKebab.img,
     });
@@ -87,9 +107,11 @@ export default function pers_KebabPage() {
   };
 
   const handleMeatOptionChange = () => {
-    setMeatOption((prevOption) =>
-      prevOption === "Chicken" ? "Steak" : "Chicken"
-    );
+    if (isSaturday || meatOption === "Steak") {
+      setMeatOption((prevOption) =>
+        prevOption === "Chicken" ? "Steak" : "Chicken"
+      );
+    }
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -113,20 +135,7 @@ export default function pers_KebabPage() {
 
   return (
     <MenuLayout backgroundImage="/assets/kebab-bg.webp">
-      <div className="top-bar">
-        <div className="logo" onClick={() => navigate("/")}>
-          <img src="/assets/logo.png" alt="Logo" />
-        </div>
-        
-        <div className="icon-container">
-          <div className="cart-link" onClick={() => navigate("/cart")}>
-            <img src="/assets/cart-icon.png" alt="Cart" />
-          </div>
-        </div>
-      </div>
-      <div className="logoHome" onClick={() => navigate("/")}>
-        <img src="/assets/home-icon.png" alt="Home" />
-      </div>
+     
       <div>
         <h2 className="menu-title">🥙 Döner-Spezialitäten 🥙</h2>
       </div>
@@ -169,10 +178,14 @@ export default function pers_KebabPage() {
       </div>
       <div className="kebab-details">
         <h3>{selectedKebab.name}</h3>
-        <p>{selectedKebab.price.toFixed(2)} €</p>
+        <p>{calculatePrice()} €</p>
       </div>
       <div className="meat-slider">
-        <div className="slider" onClick={handleMeatOptionChange}>
+        <div
+          className={`slider ${!isSaturday ? "disabled" : ""}`}
+          onClick={handleMeatOptionChange}
+          title={!isSaturday ? "Steakspieß nur Samstags verfügbar" : ""}
+        >
           <div
             className={`slider-option ${
               meatOption === "Chicken" ? "active" : ""
@@ -194,31 +207,63 @@ export default function pers_KebabPage() {
           ></div>
         </div>
       </div>
-      <div className="ingredients-grid">
-        {[
-          "Tomaten",
-          "Gurken",
-          "Zwiebeln",
-          "Salat",
-          "Käse",
-          "Mais",
-          "Paprika",
-          "Blaukraut",
-        ].map((ingredient, index) => (
-          <div
-            key={index}
-            className={`ingredient-item ${
-              selectedIngredients.includes(ingredient) ? "selected" : ""
-            }`}
-            onClick={() => handleIngredientClick(ingredient)}
-          >
-            <img
-              src={`/assets/${ingredient.toLowerCase()}.png`}
-              alt={ingredient}
-            />
-            <p>{ingredient}</p>
+      <div className="content-container">
+        <div className="second-container">
+          <div className="additional-options">
+            {["Käse", "Mais"].map((option, index) => (
+              <div
+                key={index}
+                className={`additional-option ${
+                  selectedIngredients.includes(option) ? "selected" : ""
+                }`}
+                onClick={() => handleIngredientClick(option)}
+              >
+                <img src={`/assets/${option.toLowerCase()}.png`} alt={option} />
+                <p>{option}</p>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
+        <div className="ingredients-grid">
+          {[
+            "Tomaten",
+            "Gurken",
+            "Zwiebeln",
+            "Salat",
+            "Paprika",
+            "Blaukraut",
+          ].map((ingredient, index) => (
+            <div
+              key={index}
+              className={`ingredient-item ${
+                selectedIngredients.includes(ingredient) ? "selected" : ""
+              }`}
+              onClick={() => handleIngredientClick(ingredient)}
+            >
+              <img
+                src={`/assets/${ingredient.toLowerCase()}.png`}
+                alt={ingredient}
+              />
+              <p>{ingredient}</p>
+            </div>
+          ))}
+        </div>
+        <div className="third-container">
+          <div className="additional-options">
+            {["Scharf", "Sehr scharf"].map((option, index) => (
+              <div
+                key={index}
+                className={`additional-option ${
+                  selectedIngredients.includes(option) ? "selected" : ""
+                } ${option === "Scharf" ? "scharf" : "sehr-scharf"}`}
+                onClick={() => handleIngredientClick(option)}
+              >
+                <img src={`/assets/${option.toLowerCase()}.png`} alt={option} />
+                <p>{option}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
       <button onClick={handleAddProduct} className="add-to-cart">
         In den Warenkorb
