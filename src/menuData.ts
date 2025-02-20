@@ -86,21 +86,21 @@ export const kebabOptions: SubMenuItem[] = [
   {
     label: "Döner",
     value: "doener",
-    img: "/assets/kebab.webp",
+    img: "/assets/kebab1.jpg",
     price: 6.5,
     ingredients: ["Lamb", "Tomatoes", "Onions", "Lettuce", "Yogurt Sauce"]
   },
   {
     label: "Chicken Bowl",
     value: "doener-teller",
-    img: "/assets/kebab.webp",
+    img: "/assets/bowl.jpg",
     price: 10.5,
     ingredients: ["Chicken", "Rice", "Grilled Vegetables", "Yogurt Sauce"]
   },
   {
     label: "Chicken Dürüm",
     value: "duerum",
-    img: "/assets/kebab.webp",
+    img: "/assets/durum.jpg",
     price: 7.5,
     ingredients: ["Chicken", "Tomatoes", "Onions", "Lettuce", "Garlic Sauce"]
   },
@@ -114,16 +114,37 @@ export const kebabOptions: SubMenuItem[] = [
   {
     label: "Masterdürüm",
     value: "masterDuerum",
-    img: "/assets/kebab.webp",
+    img: "/assets/durum.jpeg",
     price: 9.9,
     ingredients: ["Lamb", "Tomatoes", "Onions", "Lettuce", "Garlic Sauce"]
   },
   {
     label: "Master Bowl",
     value: "masterBowl",
-    img: "/assets/kebab.webp",
+    img: "/assets/bowl.png",
     price: 15,
     ingredients: ["Lamb", "Chicken", "Rice", "Grilled Vegetables", "Yogurt Sauce"]
+  },
+];
+
+export const sauceOptions: SubMenuItem[] = [
+  {
+    label: "Knoblauchsauce",
+    value: "knoblauchsauce",
+    img: "/assets/knoblauchsauce.jpg",
+    price: 0.5,
+  },
+  {
+    label: "Scharfe Sauce",
+    value: "scharfesauce",
+    img: "/assets/scharfesauce.jpg",
+    price: 0.5,
+  },
+  {
+    label: "Kräutersauce",
+    value: "kraeutersauce",
+    img: "/assets/kraeutersauce.jpg",
+    price: 0.5,
   },
 ];
 
