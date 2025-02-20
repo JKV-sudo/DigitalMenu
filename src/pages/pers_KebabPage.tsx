@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import MenuLayout from "../MenuLayout";
 import "../pers_KebabPage.css";
@@ -32,6 +32,7 @@ export default function pers_KebabPage() {
   const [selectedKebab, setSelectedKebab] = useState(kebabOptions[0]);
   const [rotation, setRotation] = useState(0);
   const [meatOption, setMeatOption] = useState("Chicken");
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   const handleIngredientClick = (ingredient: string) => {
     setSelectedIngredients((prevSelectedIngredients) =>
@@ -91,15 +92,32 @@ export default function pers_KebabPage() {
     );
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const touch = e.touches[0];
+    carouselRef.current!.dataset.startX = touch.clientX.toString();
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    const touch = e.touches[0];
+    const startX = parseFloat(carouselRef.current!.dataset.startX!);
+    const deltaX = touch.clientX - startX;
+
+    if (deltaX > 50) {
+      handleKebabChange("prev");
+      carouselRef.current!.dataset.startX = touch.clientX.toString();
+    } else if (deltaX < -50) {
+      handleKebabChange("next");
+      carouselRef.current!.dataset.startX = touch.clientX.toString();
+    }
+  };
+
   return (
     <MenuLayout backgroundImage="/assets/kebab-bg.webp">
       <div className="top-bar">
         <div className="logo" onClick={() => navigate("/")}>
           <img src="/assets/logo.png" alt="Logo" />
         </div>
-        <div className="titel">
-          <h1>Kebab Page</h1>
-        </div>
+        
         <div className="icon-container">
           <div className="cart-link" onClick={() => navigate("/cart")}>
             <img src="/assets/cart-icon.png" alt="Cart" />
@@ -112,7 +130,12 @@ export default function pers_KebabPage() {
       <div>
         <h2 className="menu-title">🥙 Döner-Spezialitäten 🥙</h2>
       </div>
-      <div className="carousel">
+      <div
+        className="carousel"
+        ref={carouselRef}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+      >
         <button
           onClick={() => handleKebabChange("prev")}
           className="carousel-button prev"
