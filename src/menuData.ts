@@ -91,40 +91,20 @@ export const kebabOptions: SubMenuItem[] = [
     ingredients: ["Lamb", "Tomatoes", "Onions", "Lettuce", "Yogurt Sauce"]
   },
   {
-    label: "Chicken Bowl",
+    label: "Bowl",
     value: "doener-teller",
-    img: "/assets/bowl.jpg",
+    img: "/assets/bowl.png",
     price: 10.5,
     ingredients: ["Chicken", "Rice", "Grilled Vegetables", "Yogurt Sauce"]
   },
   {
-    label: "Chicken Dürüm",
+    label: "Dürüm",
     value: "duerum",
     img: "/assets/durum.jpg",
     price: 7.5,
     ingredients: ["Chicken", "Tomatoes", "Onions", "Lettuce", "Garlic Sauce"]
   },
-  {
-    label: "Masterdöner",
-    value: "masterDoener",
-    img: "/assets/kebab.webp",
-    price: 8.9,
-    ingredients: ["Lamb", "Tomatoes", "Onions", "Lettuce", "Yogurt Sauce"]
-  },
-  {
-    label: "Masterdürüm",
-    value: "masterDuerum",
-    img: "/assets/durum.jpeg",
-    price: 9.9,
-    ingredients: ["Lamb", "Tomatoes", "Onions", "Lettuce", "Garlic Sauce"]
-  },
-  {
-    label: "Master Bowl",
-    value: "masterBowl",
-    img: "/assets/bowl.png",
-    price: 15,
-    ingredients: ["Lamb", "Chicken", "Rice", "Grilled Vegetables", "Yogurt Sauce"]
-  },
+ 
 ];
 
 export const sauceOptions: SubMenuItem[] = [

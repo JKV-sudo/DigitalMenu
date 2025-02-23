@@ -155,9 +155,7 @@ export default function pers_KebabPage() {
 
   return (
     <MenuLayout backgroundImage="/assets/kebab-bg.webp">
-      <div>
-        <h2 className="menu-title">🥙 Döner-Spezialitäten 🥙</h2>
-      </div>
+     
       <div
         className="carousel"
         ref={carouselRef}
@@ -229,7 +227,7 @@ export default function pers_KebabPage() {
       <div className="select-all">
         <label>
           <input
-            type="radio"
+            type="checkbox"
             checked={selectAll}
             onChange={() => setSelectAll(!selectAll)}
           />

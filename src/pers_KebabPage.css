@@ -1,3 +1,11 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent scrolling */
+}
+
 .top-bar {
   display: flex;
   justify-content: space-between;
@@ -117,7 +125,7 @@
 
 .kebab-details {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 5px; /* Reduce margin to save space */
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 10px;
@@ -242,12 +250,13 @@
   grid-template-columns: repeat(3, 1fr); /* 3 items per row */
   gap: 20px;
   justify-content: center;
-  margin: 20px auto;
+  margin: 10px auto;
   max-width: 80%;
   background-color: rgba(0, 0, 0, 0.7);
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  height: 8vh; /* Further reduce height */
 }
 
 .sauce-item {
@@ -260,11 +269,12 @@
   padding: 10px;
   cursor: pointer;
   transition: all 0.2s ease;
+  justify-content: center; /* Center image */
 }
 
 .sauce-item img {
-  width: 100px;
-  height: 100px;
+  width: 60px; /* Further reduce width */
+  height: 60px; /* Further reduce height */
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -279,9 +289,7 @@
 }
 
 .sauce-item:hover {
-  transition: all 0.2s ease;
-  border: green solid 5px;
-  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.1); /* Subtle background change */
 }
 
 .sauce-item.selected {
@@ -297,6 +305,8 @@
 
 .ingredient-item,
 .additional-option {
+  margin-top: 10px;
+  margin-bottom: 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -306,14 +316,22 @@
   padding: 10px;
   cursor: pointer;
   transition: all 0.2s ease;
-  width: 200px; /* Fixed width */
-  height: 200px; /* Fixed height */
+  width: 100px; /* Further reduce width */
+  height: 80px; /* Further reduce height */
+  display: flex; /* Center image */
+  align-items: center; /* Center image */
+  justify-content: center; /* Center image */
+  border: 5px solid transparent; /* Maintain size when selected */
+  
+}
+.additional-option {
+  margin-bottom: 60px;
 }
 
 .ingredient-item img,
 .additional-option img {
-  width: 100px;
-  height: 100px;
+  width: 60px; /* Further reduce width */
+  height: 60px; /* Further reduce height */
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -329,29 +347,18 @@
 }
 
 .ingredient-item:hover {
-  transition: all 0.2s ease;
-  border: green solid 5px;
-  border-radius: 20px;
+  background-color: rgba(66, 199, 39, 0.568); /* Subtle background change */
 }
 
 .additional-option:hover {
-  transition: all 0.2s ease;
-  border: rgb(150, 253, 15) solid 5px;
-  border-radius: 20px;
-}
-
-.ingredient-item:hover p,
-.additional-option:hover p {
-  display: block;
-  transition: all 0.4s ease;
-  background: #313131c9;
-  color: white;
+  background-color: rgba(7, 255, 19, 0.959); /* Subtle background change */
 }
 
 .ingredient-item.selected,
 .additional-option.selected {
   border: green solid 5px;
   border-radius: 20px;
+  border-color: green; /* Change border color when selected */
 }
 
 .ingredient-item.selected p,
@@ -370,11 +377,12 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: 5px; /* Reduce margin to save space */
 }
 
 .banner {
   position: fixed;
-  top: 10px;
+  top: 5px; /* Adjust position to save space */
   left: 50%;
   transform: translateX(-50%);
   background-color: #30d461a6;
@@ -392,6 +400,7 @@
   transition: transform 0.5s ease;
   scale: 0.6;
   perspective: 1000px; /* Add perspective for 3D effect */
+  height: 15vh; /* Further reduce height */
 }
 
 .carousel-container {
@@ -401,13 +410,16 @@
   position: relative; /* Ensure proper positioning */
   justify-content: center; /* Center the container */
   align-items: center; /* Center the container */
-  height: 300px; /* Set a fixed height for the container */
+  height: 100%; /* Ensure it takes full height */
 }
 
 .carousel-item {
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: 120px; /* Further reduce width */
+  height: 120px; /* Further reduce height */
+  display: flex; /* Center image */
+  align-items: center; /* Center image */
+  justify-content: center; /* Center image */
 }
 
 .carousel-item img {
@@ -415,7 +427,7 @@
   height: 100%;
   object-fit: cover;
   border-radius: 15px;
-  box-shadow: 0px 30px 80px rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 15px 45px rgba(0, 0, 0, 0.8); /* Adjust shadow */
 }
 
 .carousel-button {
@@ -490,7 +502,7 @@
 .meat-slider {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 5px; /* Reduce margin to save space */
   gap: 20px;
 }
 
@@ -555,8 +567,9 @@
 .content-container {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
-  height: 100%; /* Ensure it takes full height */
+  margin-top: -20px;
+  height: 25vh; /* Further reduce height */
+  gap: 40px;
 }
 
 .second-container,
@@ -571,11 +584,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%; /* Ensure all containers take full height */
+  height: 120%; /* Ensure all containers take full height */
+  
 }
 
 .second-container,
 .third-container {
+  
   width: 20% !important; /* Adjust width to be narrower */
 }
 
@@ -586,6 +601,7 @@
   grid-template-rows: repeat(2, 1fr); /* Change to 2 rows */
   gap: 20px;
   padding: 10px 40px;
+  height: 100%; /* Ensure both containers take full height */
 }
 
 .additional-options {
@@ -636,9 +652,7 @@
 }
 
 .additional-option:hover {
-  transition: all 0.2s ease;
-  border: rgb(150, 253, 15) solid 5px;
-  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.1); /* Subtle background change */
 }
 
 .additional-option.selected {
@@ -665,19 +679,11 @@
   border-radius: 20px;
 }
 
-.second-container {
-  background-color: rgba(0, 0, 0, 0.76);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  color: white;
-  width: 45%;
-  text-align: center;
-}
+
 
 .menu-title {
   padding: 10px 20px;
-  margin: 0px 0;
+  margin: 0 auto; /* Center the title */
   color: #ffffff; /* Weißer Text */
   font-size: 2rem;
   font-weight: bold;
@@ -698,32 +704,33 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 5px; /* Reduce margin to save space */
   background-color: rgba(0, 0, 0, 0.7);
   padding: 10px;
   border-radius: 10px;
   color: white;
 }
 
-.select-all input[type="radio"] {
+.select-all input[type="checkbox"] {
   margin-right: 10px;
 }
 
 .sauces-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 items per row */
-  gap: 20px;
+  gap: 0px;
   justify-content: center;
   margin: 20px auto;
   max-width: 80%;
   background-color: rgba(0, 0, 0, 0.7);
-  padding: 20px;
+  padding: 0px;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  
+  height: 12vh; /* Further reduce height */
 }
 
 .sauce-item {
+  scale: 0.8;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -733,18 +740,19 @@
   padding: 10px;
   cursor: pointer;
   transition: all 0.2s ease;
+  justify-content: center; /* Center image */
 }
 
 .sauce-item img {
-  width: 100px;
-  height: 100px;
+  width: 60px; /* Further reduce width */
+  height: 60px; /* Further reduce height */
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .sauce-item p {
-  margin-top: 10px;
+  margin-top: 0px;
   font-size: 16px;
   color: white;
   padding: 5px 5px;
@@ -752,9 +760,7 @@
 }
 
 .sauce-item:hover {
-  transition: all 0.2s ease;
-  border: green solid 5px;
-  border-radius: 20px;
+  background-color:rgba(66, 199, 39, 0.568)  /* Subtle background change */
 }
 
 .sauce-item.selected {
