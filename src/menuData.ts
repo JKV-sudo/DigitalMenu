@@ -100,7 +100,7 @@ export const kebabOptions: SubMenuItem[] = [
   {
     label: "Dürüm",
     value: "duerum",
-    img: "/assets/durum.jpg",
+    img: "/assets/durum.jpeg",
     price: 7.5,
     ingredients: ["Chicken", "Tomatoes", "Onions", "Lettuce", "Garlic Sauce"]
   },

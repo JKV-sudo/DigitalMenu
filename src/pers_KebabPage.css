@@ -289,7 +289,7 @@ body {
 }
 
 .sauce-item:hover {
-  background-color: rgba(0, 0, 0, 0.1); /* Subtle background change */
+  background-color: rgba(66, 199, 39, 0.568); /* Subtle background change */
 }
 
 .sauce-item.selected {
@@ -301,6 +301,20 @@ body {
   display: block;
   background: #313131c9;
   color: white;
+}
+
+/* Specific hover styles for "Scharf" and "Sehr scharf" */
+.additional-option.scharf:hover {
+  background-color: rgba(255, 0, 0, 0.5); /* Red background for "Scharf" */
+}
+
+.additional-option.sehr-scharf:hover {
+  background-color: rgba(
+    255,
+    69,
+    0,
+    0.5
+  ); /* Orange-red background for "Sehr scharf" */
 }
 
 .ingredient-item,
@@ -322,7 +336,6 @@ body {
   align-items: center; /* Center image */
   justify-content: center; /* Center image */
   border: 5px solid transparent; /* Maintain size when selected */
-  
 }
 .additional-option {
   margin-bottom: 60px;
@@ -585,12 +598,10 @@ body {
   flex-direction: column;
   justify-content: center;
   height: 120%; /* Ensure all containers take full height */
-  
 }
 
 .second-container,
 .third-container {
-  
   width: 20% !important; /* Adjust width to be narrower */
 }
 
@@ -652,7 +663,7 @@ body {
 }
 
 .additional-option:hover {
-  background-color: rgba(0, 0, 0, 0.1); /* Subtle background change */
+  background-color: rgba(150, 253, 15, 0.692); /* Subtle background change */
 }
 
 .additional-option.selected {
@@ -666,20 +677,13 @@ body {
   color: white;
 }
 
-/* Red hover and selected states for "Scharf" and "Sehr scharf" */
-.additional-option.scharf:hover,
-.additional-option.sehr-scharf:hover {
-  border: red solid 5px;
-  border-radius: 20px;
-}
+
 
 .additional-option.scharf.selected,
 .additional-option.sehr-scharf.selected {
   border: red solid 5px;
   border-radius: 20px;
 }
-
-
 
 .menu-title {
   padding: 10px 20px;
@@ -760,7 +764,7 @@ body {
 }
 
 .sauce-item:hover {
-  background-color:rgba(66, 199, 39, 0.568)  /* Subtle background change */
+  background-color: rgba(66, 199, 39, 0.568); /* Subtle background change */
 }
 
 .sauce-item.selected {
