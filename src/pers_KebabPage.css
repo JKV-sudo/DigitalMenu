@@ -229,19 +229,21 @@ body {
 }
 
 .ingredients-grid {
+  margin-left: -10px;
+  align-items: center;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   justify-content: center;
   margin: 0px auto;
-  max-width: 80;
+  max-width: 30vw;
   background-color: rgba(0, 0, 0, 0);
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 19px 18px rgba(0, 0, 0, 0.9);
-  scale: 0.8;
-  min-width: 40vw;
-  width: 75%; /* Adjust width to take remaining space */
+  scale: 0.9;
+  min-width: 20vw;
+  width: 100%; /* Adjust width to take remaining space */
   height: 100%; /* Ensure both containers take full height */
 }
 
@@ -709,6 +711,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 5px; /* Reduce margin to save space */
+  margin-bottom: 15px;
   background-color: rgba(0, 0, 0, 0.7);
   padding: 10px;
   border-radius: 10px;
