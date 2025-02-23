@@ -57,29 +57,17 @@ export const burgerOptions: SubMenuItem[] = [
     value: "smashburger",
     img: "/assets/smashburger.webp",
     price: 7.9,
-    ingredients: ["Beef Patty", "Cheese", "Lettuce", "Tomato", "Onion"]
+    ingredients: ["Menü"]
   },
-  {
-    label: "Smashburger O.G. Menü",
-    value: "smashburger_menu",
-    img: "/assets/smashburger.webp",
-    price: 15,
-    ingredients: ["Beef Patty", "Cheese", "Lettuce", "Tomato", "Onion", "Fries", "Drink"]
-  },
+ 
   {
     label: "Double Smash",
     value: "doubleSmash",
     img: "/assets/smashburger.webp",
     price: 10.5,
-    ingredients: ["Double Beef Patty", "Double Cheese", "Lettuce", "Tomato", "Onion"]
+    ingredients: ["Menü"]
   },
-  {
-    label: "Double Smash Menü",
-    value: "doubleSmashMenu",
-    img: "/assets/smashburger.webp",
-    price: 15,
-    ingredients: ["Double Beef Patty", "Double Cheese", "Lettuce", "Tomato", "Onion", "Fries", "Drink"]
-  },
+ 
 ];
 
 export const kebabOptions: SubMenuItem[] = [
@@ -132,23 +120,23 @@ export const beilagenOptions: SubMenuItem[] = [
   {
     label: "Pommes Klein",
     value: "pommesK",
-    img: "/assets/adanakebab.webp",
+    img: "/assets/pommes_klein.webp",
     price: 3.5,
-    ingredients: ["Potatoes", "Salt"]
+    ingredients: ["Mayo", "Ketchup", "Salz & Pfeffer"]
   },
   {
     label: "Pommes Groß",
     value: "pommesG",
-    img: "/assets/koeftespieß.webp",
+    img: "/assets/pommes_groß.webp",
     price: 6.5,
-    ingredients: ["Potatoes", "Salt"]
+    ingredients: ["Mayo", "Ketchup", "Salz & Pfeffer"]
   },
   {
     label: "2x Baklava",
-    value: "adanateller",
-    img: "/assets/adanateller.webp",
+    value: "Baklava",
+    img: "/assets/baklava.webp",
     price: 3,
-    ingredients: ["Phyllo Dough", "Nuts", "Honey"]
+    
   },
 ];
 

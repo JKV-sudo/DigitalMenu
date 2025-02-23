@@ -156,9 +156,10 @@
   grid-template-columns: repeat(3, 1fr); /* Genau 3 Items pro Zeile */
   gap: 20px; /* Abstand zwischen den Items */
   padding: 20px;
-  max-width: 60vw;
+  max-width: 30vw;
   max-height: 80vh;
   z-index: 1000;
+  min-width: 10vw;
 }
 
 @media (max-width: 768px) {
@@ -177,6 +178,7 @@
   transition: all 0.3s ease-in-out; /* Smooth transition */
   backdrop-filter: blur(10px); /* Weiches Verschwimmen des Hintergrunds */
   background-color: #0000008f;
+  min-width: 10vw;
 }
 
 .menu-item:not(.selected-item) {

@@ -67,7 +67,7 @@ export default function GrillPage() {
   };
 
   return (
-    <MenuLayout backgroundImage="/assets/grill-bg.jpg">
+    <MenuLayout backgroundImage="/assets/desserts_bg.webp">
       {showBanner && (
         <div className="banner">Artikel wurde zum Warenkorb hinzugefügt!</div>
       )}
