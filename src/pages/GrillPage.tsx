@@ -71,7 +71,7 @@ export default function GrillPage() {
       {showBanner && (
         <div className="banner">Artikel wurde zum Warenkorb hinzugefügt!</div>
       )}
-      <h2 className="menu-title">🔥 Grill-Gerichte 🔥</h2>
+      
       <div className="menu-grid grill-menu">
         {beilagenOptions.map((item) => (
           <div

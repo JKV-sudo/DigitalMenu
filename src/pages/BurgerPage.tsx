@@ -33,9 +33,11 @@ export default function BurgerPage() {
     setIsMenuSelected((prevIsMenuSelected) => !prevIsMenuSelected);
   };
 
-  const calculatePrice = () => {
-    if (!selectedItem) return "0";
-    const item = burgerOptions.find((option) => option.value === selectedItem);
+  const calculatePrice = (itemValue: string | null) => {
+    const defaultItem = burgerOptions[0];
+    const item = itemValue
+      ? burgerOptions.find((option) => option.value === itemValue)
+      : defaultItem;
     if (!item) return "0";
     let price = item.price;
     if (isMenuSelected) {
@@ -59,7 +61,7 @@ export default function BurgerPage() {
         await addToCart({
           id: item.value,
           name: item.label + (isMenuSelected ? " (Menü)" : ""),
-          price: parseFloat(calculatePrice()),
+          price: parseFloat(calculatePrice(selectedItem)),
           ingredients: selectedIngredientsList,
           img: item.img,
         });
@@ -71,7 +73,7 @@ export default function BurgerPage() {
         console.log("✅ Produkt hinzugefügt:", {
           id: item.value,
           name: item.label + (isMenuSelected ? " (Menü)" : ""),
-          price: parseFloat(calculatePrice()),
+          price: parseFloat(calculatePrice(selectedItem)),
           ingredients: selectedIngredientsList,
           img: item.img,
         });
@@ -91,7 +93,7 @@ export default function BurgerPage() {
       {showBanner && (
         <div className="banner">Artikel wurde zum Warenkorb hinzugefügt!</div>
       )}
-      
+
       <div key={selectedItem || "default"} className="menu-list burger-menu">
         {burgerOptions.map((item) => (
           <div
@@ -104,7 +106,7 @@ export default function BurgerPage() {
             <img src={item.img} alt={item.label} />
             <div className="menu-item-details">
               <h3>{item.label}</h3>
-              <p>{calculatePrice()} €</p>
+              <p>{calculatePrice(item.value)} €</p>
               {selectedItem === item.value && (
                 <>
                   <ul>

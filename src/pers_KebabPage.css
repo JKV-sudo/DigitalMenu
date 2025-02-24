@@ -780,3 +780,9 @@ body {
   background: #313131c9;
   color: white;
 }
+.menu-option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -15px;
+}
