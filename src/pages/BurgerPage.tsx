@@ -12,8 +12,7 @@ export default function BurgerPage() {
   }>({});
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const [showBanner, setShowBanner] = useState(false);
-
-
+  const [isMenuSelected, setIsMenuSelected] = useState(false); // State to track "Menü" option
 
   useEffect(() => {
     console.log("Selected item changed:", selectedItem);
@@ -30,6 +29,21 @@ export default function BurgerPage() {
     setSelectedItem(itemValue);
   };
 
+  const handleMenuClick = () => {
+    setIsMenuSelected((prevIsMenuSelected) => !prevIsMenuSelected);
+  };
+
+  const calculatePrice = () => {
+    if (!selectedItem) return "0";
+    const item = burgerOptions.find((option) => option.value === selectedItem);
+    if (!item) return "0";
+    let price = item.price;
+    if (isMenuSelected) {
+      price += 5; // Add 5€ for "Menü" option
+    }
+    return price.toFixed(2);
+  };
+
   const handleAddProduct = async () => {
     if (selectedItem) {
       const item = burgerOptions.find(
@@ -44,8 +58,8 @@ export default function BurgerPage() {
         // 🔥 Produkt in Firestore-Warenkorb speichern
         await addToCart({
           id: item.value,
-          name: item.label,
-          price: item.price,
+          name: item.label + (isMenuSelected ? " (Menü)" : ""),
+          price: parseFloat(calculatePrice()),
           ingredients: selectedIngredientsList,
           img: item.img,
         });
@@ -56,8 +70,8 @@ export default function BurgerPage() {
 
         console.log("✅ Produkt hinzugefügt:", {
           id: item.value,
-          name: item.label,
-          price: item.price,
+          name: item.label + (isMenuSelected ? " (Menü)" : ""),
+          price: parseFloat(calculatePrice()),
           ingredients: selectedIngredientsList,
           img: item.img,
         });
@@ -66,6 +80,7 @@ export default function BurgerPage() {
         setTimeout(() => {
           setSelectedItem(null);
           setSelectedIngredients({});
+          setIsMenuSelected(false); // Reset "Menü" option
         }, 300); // Delay to allow animation
       }
     }
@@ -76,8 +91,8 @@ export default function BurgerPage() {
       {showBanner && (
         <div className="banner">Artikel wurde zum Warenkorb hinzugefügt!</div>
       )}
-      <h2 className="menu-title">🔥 Smashburger 🔥</h2>
-      <div key={selectedItem || "default"} className="menu-grid burger-menu">
+      
+      <div key={selectedItem || "default"} className="menu-list burger-menu">
         {burgerOptions.map((item) => (
           <div
             key={item.value}
@@ -87,34 +102,45 @@ export default function BurgerPage() {
             onClick={() => handleItemClick(item.value)}
           >
             <img src={item.img} alt={item.label} />
-            <p>{item.label}</p>
-            <p>{item.price.toFixed(2)} €</p>
-            {selectedItem === item.value && (
-              <>
-                <ul>
-                  {item.ingredients?.map((ingredient, index) => (
-                    <li
-                      key={index}
-                      className={`ingredient ${
-                        selectedIngredients[ingredient]
-                          ? "selected"
-                          : "not-selected"
-                      }`}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleIngredientClick(ingredient);
-                      }}
-                      style={{ width: "55%", margin: "5px", padding: "5px" }}
-                    >
-                      {ingredient}
-                    </li>
-                  )) ?? []}
-                </ul>
-                <button onClick={handleAddProduct} className="add-to-cart">
-                  In den Warenkorb
-                </button>
-              </>
-            )}
+            <div className="menu-item-details">
+              <h3>{item.label}</h3>
+              <p>{calculatePrice()} €</p>
+              {selectedItem === item.value && (
+                <>
+                  <ul>
+                    {item.ingredients?.map((ingredient, index) => (
+                      <li
+                        key={index}
+                        className={`ingredient ${
+                          selectedIngredients[ingredient]
+                            ? "selected"
+                            : "not-selected"
+                        }`}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleIngredientClick(ingredient);
+                        }}
+                      >
+                        {ingredient}
+                      </li>
+                    )) ?? []}
+                  </ul>
+                  <div className="menu-option">
+                    <label>
+                      <input
+                        type="checkbox"
+                        checked={isMenuSelected}
+                        onChange={handleMenuClick}
+                      />
+                      Menü (+5€)
+                    </label>
+                  </div>
+                  <button onClick={handleAddProduct} className="add-to-cart">
+                    In den Warenkorb
+                  </button>
+                </>
+              )}
+            </div>
           </div>
         ))}
       </div>

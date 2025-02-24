@@ -15,6 +15,7 @@ export default function pers_KebabPage() {
   const [meatOption, setMeatOption] = useState("Chicken");
   const [isSaturday, setIsSaturday] = useState(false);
   const [selectAll, setSelectAll] = useState(false);
+  const [isMenuSelected, setIsMenuSelected] = useState(false); // State to track "Menü" option
   const carouselRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -77,6 +78,9 @@ export default function pers_KebabPage() {
     if (meatOption === "Steak") {
       price += 10;
     }
+    if (isMenuSelected) {
+      price += 5; // Add 5€ for "Menü" option
+    }
     return price.toFixed(2);
   };
 
@@ -87,7 +91,9 @@ export default function pers_KebabPage() {
     // 🔥 Produkt in Firestore-Warenkorb speichern
     await addToCart({
       id: selectedKebab.value,
-      name: `${selectedKebab.label} (${meatOption})`,
+      name:
+        `${selectedKebab.label} (${meatOption})` +
+        (isMenuSelected ? " (Menü)" : ""),
       price: parseFloat(calculatePrice()),
       ingredients: [...selectedIngredientsList, ...selectedSaucesList],
       img: selectedKebab.img,
@@ -99,7 +105,9 @@ export default function pers_KebabPage() {
 
     console.log("✅ Produkt hinzugefügt:", {
       id: selectedKebab.value,
-      name: `${selectedKebab.label} (${meatOption})`,
+      name:
+        `${selectedKebab.label} (${meatOption})` +
+        (isMenuSelected ? " (Menü)" : ""),
       price: parseFloat(calculatePrice()),
       ingredients: [...selectedIngredientsList, ...selectedSaucesList],
       img: selectedKebab.img,
@@ -109,6 +117,7 @@ export default function pers_KebabPage() {
     setTimeout(() => {
       setSelectedIngredients([]);
       setSelectedSauces([]);
+      setIsMenuSelected(false); // Reset "Menü" option
     }, 300); // Delay to allow animation
   };
 
@@ -155,7 +164,6 @@ export default function pers_KebabPage() {
 
   return (
     <MenuLayout backgroundImage="/assets/kebab-bg.webp">
-     
       <div
         className="carousel"
         ref={carouselRef}
@@ -275,7 +283,7 @@ export default function pers_KebabPage() {
             </div>
           ))}
         </div>
-        
+
         <div className="third-container">
           <div className="additional-options">
             {["Scharf", "Sehr scharf"].map((option, index) => (
@@ -292,22 +300,32 @@ export default function pers_KebabPage() {
             ))}
           </div>
         </div>
-       
       </div>
       <div className="sauces-grid">
-          {sauceOptions.map((sauce, index) => (
-            <div
-              key={index}
-              className={`sauce-item ${
-                selectedSauces.includes(sauce.value) ? "selected" : ""
-              }`}
-              onClick={() => handleSauceClick(sauce.value)}
-            >
-              <img src={sauce.img} alt={sauce.label} />
-              <p>{sauce.label}</p>
-            </div>
-          ))}
-        </div>
+        {sauceOptions.map((sauce, index) => (
+          <div
+            key={index}
+            className={`sauce-item ${
+              selectedSauces.includes(sauce.value) ? "selected" : ""
+            }`}
+            onClick={() => handleSauceClick(sauce.value)}
+          >
+            <img src={sauce.img} alt={sauce.label} />
+            <p>{sauce.label}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="menu-option">
+        <label>
+          <input
+            type="checkbox"
+            checked={isMenuSelected}
+            onChange={() => setIsMenuSelected(!isMenuSelected)}
+          />
+          Menü (+5€)
+        </label>
+      </div>
 
       <button onClick={handleAddProduct} className="add-to-cart">
         In den Warenkorb

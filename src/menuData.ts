@@ -57,7 +57,7 @@ export const burgerOptions: SubMenuItem[] = [
     value: "smashburger",
     img: "/assets/smashburger.webp",
     price: 7.9,
-    ingredients: ["Menü"]
+    ingredients: []
   },
  
   {
@@ -65,7 +65,7 @@ export const burgerOptions: SubMenuItem[] = [
     value: "doubleSmash",
     img: "/assets/smashburger.webp",
     price: 10.5,
-    ingredients: ["Menü"]
+    ingredients: []
   },
  
 ];

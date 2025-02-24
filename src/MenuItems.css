@@ -27,6 +27,35 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-height: 40vh;
+  justify-content: space-between; /* Ensure space between elements */
+  height: 100%; /* Ensure the card takes full height */
+  position: relative; /* Ensure absolute positioning works within the card */
+}
+
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  max-width: 80vw;
+  margin: 0 auto;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  justify-content: space-between; /* Ensure space between elements */
+  height: 100%; /* Ensure the card takes full height */
+  position: relative; /* Ensure absolute positioning works within the card */
 }
 
 /* Hover-Effekt für bessere Sichtbarkeit */
@@ -41,6 +70,10 @@
   transform: scale(1.5); /* Leichte Vergrößerung */
   box-shadow: 20px 30px 10px rgba(0, 0, 0, 0.9); /* Dunkler Schatten */
   transition: all 0.3s ease-in-out; /* Ensure transition is applied */
+}
+
+.menu-item:hover {
+  transform: scale(1.05);
 }
 
 /* 🔥 Grill-Menü: Dunkler Rand */
@@ -68,6 +101,39 @@
   font-size: larger;
 }
 
+.menu-item-details {
+  text-align: center;
+  margin-top: 10px;
+  flex-grow: 1; /* Allow details to grow and take available space */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensure space between elements */
+}
+
+.menu-item-details h3 {
+  margin: 10px 0;
+  font-size: 24px;
+  color: white;
+}
+
+.menu-item-details p {
+  margin: 5px 0;
+  font-size: 20px;
+  color: white;
+}
+
+.menu-item-details ul {
+  flex-grow: 1; /* Allow the list to grow and take available space */
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: center; /* Center items horizontally */
+  list-style-type: none;
+  padding: 5px 5px;
+  margin: 10px 0 20px 0; /* Add bottom margin to create space for the button */
+  height: 120px; /* Fixed height to ensure two rows */
+  overflow-y: auto; /* Show scrollbar when content overflows */
+}
+
 .menu-item:hover p {
   text-shadow: 3px 3px 10px rgb(56, 56, 56); /* Starker weißer Glow */
 }
@@ -77,6 +143,13 @@
   max-height: 150px; /* Beschränke die maximale Höhe */
   object-fit: cover; /* Bild skalieren und zuschneiden, um den Container zu füllen */
   border-radius: 10px; /* Abgerundete Ecken für die Bilder */
+}
+
+.menu-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .menu-item ul {
@@ -152,6 +225,23 @@
   grid-template-columns: repeat(1, 1fr);
 }
 
+.ingredient {
+  margin: 5px 0;
+  padding: 5px 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ingredient.selected {
+  background-color: rgba(66, 199, 39, 0.7);
+}
+
+.ingredient.not-selected:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Genau 3 Items pro Zeile */
@@ -192,7 +282,7 @@
 }
 
 .add-to-cart {
-  margin-top: 20px; /* Adjust margin to a more appropriate value */
+  margin-top: 10px;
   padding: 10px 20px;
   background-color: #30d461a6;
   color: white;
@@ -200,10 +290,17 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  align-self: center; /* Center the button horizontally */
+  position: absolute; /* Position the button at the bottom of the card */
+  bottom: 10px; /* Space from the bottom */
 }
 
 .add-to-cart:hover {
   background-color: #1ccc1c;
+}
+
+.add-to-cart:hover {
+  background-color: #28a745;
 }
 
 .logoHome {
@@ -227,4 +324,21 @@
   100% {
     transform: scale(1);
   }
+}
+
+.menu-option {
+  margin-top: 10px;
+  text-align: center;
+  color: white;
+  align-self: center; /* Center the checkbox horizontally */
+  position: absolute; /* Position the checkbox at the bottom of the card */
+  bottom: 50px; /* Space from the bottom */
+}
+
+.menu-option label {
+  cursor: pointer;
+}
+
+.menu-option input[type="checkbox"] {
+  margin-right: 10px;
 }
