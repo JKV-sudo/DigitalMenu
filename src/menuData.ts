@@ -4,6 +4,7 @@ export interface SubMenuItem {
   img: string;
   price: number;
   ingredients?: string[]; // Optional ingredients array
+  versions?: SubMenuItem[]; // Optional versions array
 }
 
 export const grillOptions: SubMenuItem[] = [
@@ -59,7 +60,6 @@ export const burgerOptions: SubMenuItem[] = [
     price: 7.9,
     ingredients: []
   },
- 
   {
     label: "Double Smash",
     value: "doubleSmash",
@@ -67,7 +67,13 @@ export const burgerOptions: SubMenuItem[] = [
     price: 10.5,
     ingredients: []
   },
- 
+  {
+    label: "Spicy-Smash",
+    value: "spicySmash",
+    img: "/assets/smashburger.webp",
+    price: 10.5,
+    ingredients: []
+  },
 ];
 
 export const kebabOptions: SubMenuItem[] = [
@@ -92,7 +98,6 @@ export const kebabOptions: SubMenuItem[] = [
     price: 7.5,
     ingredients: ["Chicken", "Tomatoes", "Onions", "Lettuce", "Garlic Sauce"]
   },
- 
 ];
 
 export const sauceOptions: SubMenuItem[] = [
@@ -132,11 +137,30 @@ export const beilagenOptions: SubMenuItem[] = [
     ingredients: ["Mayo", "Ketchup", "Salz & Pfeffer"]
   },
   {
-    label: "2x Baklava",
+    label: "Baklava",
     value: "Baklava",
     img: "/assets/baklava.webp",
     price: 3,
-    
+    versions: [
+      {
+        label: "5x Baklava",
+        value: "baklava2",
+        img: "/assets/baklava2.webp",
+        price: 3,
+      },
+      {
+        label: "1x Baklava",
+        value: "baklava4",
+        img: "/assets/baklava2.webp",
+        price: 5,
+      },
+      {
+        label: "1x Baklava mit Eis",
+        value: "baklava5",
+        img: "/assets/baklava2.webp",
+        price: 5,
+      },
+    ]
   },
 ];
 

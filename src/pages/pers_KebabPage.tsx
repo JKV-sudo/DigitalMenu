@@ -25,17 +25,15 @@ export default function pers_KebabPage() {
 
   useEffect(() => {
     if (selectAll) {
-      const allIngredients = [
+      const mainIngredients = [
         "Tomaten",
         "Gurken",
         "Zwiebeln",
         "Salat",
-        "Paprika",
+        "Jalapeno",
         "Blaukraut",
       ];
-      setSelectedIngredients(allIngredients);
-    } else {
-      setSelectedIngredients([]);
+      setSelectedIngredients(mainIngredients);
     }
   }, [selectAll]);
 
@@ -47,10 +45,17 @@ export default function pers_KebabPage() {
         ? prevSelectedIngredients.filter((item) => item !== ingredient)
         : [...prevSelectedIngredients, ingredient];
 
-      // Reset selectAll if any ingredient other than "Mais", "Käse", "Scharf", and "Sehr scharf" is unselected
+      // Reset selectAll if any main ingredient is unselected
       if (
         !newSelectedIngredients.includes(ingredient) &&
-        !["Mais", "Käse", "Scharf", "Sehr scharf"].includes(ingredient)
+        [
+          "Tomaten",
+          "Gurken",
+          "Zwiebeln",
+          "Salat",
+          "Jalapeno",
+          "Blaukraut",
+        ].includes(ingredient)
       ) {
         setSelectAll(false);
       }
@@ -72,7 +77,10 @@ export default function pers_KebabPage() {
     if (selectedIngredients.includes("Käse")) {
       price += 3;
     }
-    if (selectedIngredients.includes("Mais")) {
+    if (selectedIngredients.includes("Pommes")) {
+      price += 3;
+    }
+    if (selectedIngredients.includes("Hot Cheddar")) {
       price += 3;
     }
     if (meatOption === "Steak") {
@@ -245,7 +253,7 @@ export default function pers_KebabPage() {
       <div className="content-container">
         <div className="second-container">
           <div className="additional-options">
-            {["Käse", "Mais"].map((option, index) => (
+            {["Hot Cheddar", "Käse", "Pommes"].map((option, index) => (
               <div
                 key={index}
                 className={`additional-option ${
@@ -265,7 +273,7 @@ export default function pers_KebabPage() {
             "Gurken",
             "Zwiebeln",
             "Salat",
-            "Paprika",
+            "Jalapeno",
             "Blaukraut",
           ].map((ingredient, index) => (
             <div
@@ -286,7 +294,7 @@ export default function pers_KebabPage() {
 
         <div className="third-container">
           <div className="additional-options">
-            {["Scharf", "Sehr scharf"].map((option, index) => (
+            {["Scharf", "Sehr scharf", "Habanero"].map((option, index) => (
               <div
                 key={index}
                 className={`additional-option ${
@@ -314,17 +322,6 @@ export default function pers_KebabPage() {
             <p>{sauce.label}</p>
           </div>
         ))}
-      </div>
-
-      <div className="menu-option">
-        <label>
-          <input
-            type="checkbox"
-            checked={isMenuSelected}
-            onChange={() => setIsMenuSelected(!isMenuSelected)}
-          />
-          Menü (+5€)
-        </label>
       </div>
 
       <button onClick={handleAddProduct} className="add-to-cart">

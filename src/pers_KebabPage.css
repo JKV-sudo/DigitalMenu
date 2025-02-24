@@ -384,7 +384,7 @@ body {
 }
 
 .add-to-cart {
-  margin-bottom: 2px; /* Adjust margin to a more appropriate value */
+  margin-bottom: 80px; /* Adjust margin to a more appropriate value */
   padding: 10px 20px;
   background-color: #30d461a6;
   color: white;
@@ -462,12 +462,12 @@ body {
 }
 
 .carousel-button.prev {
-  left: -450px; /* Position the previous button to the left */
+  left: 550px; /* Position the previous button to the left */
   transform: scale(1.6);
 }
 
 .carousel-button.next {
-  right: -450px; /* Position the next button to the right */
+  right: 550px; /* Position the next button to the right */
   transform: scale(1.6);
 }
 
@@ -565,7 +565,7 @@ body {
 
 .slider.disabled {
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .meat-slider label {
@@ -573,6 +573,9 @@ body {
   align-items: space-between;
   font-size: 18px;
   color: white;
+}
+.meat-slider.disabled label {
+  opacity: 0.5;
 }
 
 .meat-slider input[type="radio"] {
@@ -604,7 +607,9 @@ body {
 
 .second-container,
 .third-container {
+  margin-top: -120px;
   width: 20% !important; /* Adjust width to be narrower */
+  height: 200%;
 }
 
 .ingredients-grid {

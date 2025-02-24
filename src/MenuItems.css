@@ -166,25 +166,41 @@
   overflow-y: auto; /* Show scrollbar when content overflows */
 }
 
+.pommes-item ul {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: center; /* Center items horizontally */
+  list-style-type: none;
+  padding: 5px 5px;
+  margin: 10px 0 20px 0; /* Add bottom margin to create space for the button */
+  height: 60px; /* Adjust height to ensure two rows */
+  overflow-y: auto; /* Show scrollbar when content overflows */
+}
+
 /* Custom scrollbar styles */
-.menu-item ul::-webkit-scrollbar {
+.menu-item ul::-webkit-scrollbar,
+.pommes-item ul::-webkit-scrollbar {
   width: 6px; /* Width of the scrollbar */
 }
 
-.menu-item ul::-webkit-scrollbar-track {
+.menu-item ul::-webkit-scrollbar-track,
+.pommes-item ul::-webkit-scrollbar-track {
   background: transparent; /* Transparent background for the track */
 }
 
-.menu-item ul::-webkit-scrollbar-thumb {
+.menu-item ul::-webkit-scrollbar-thumb,
+.pommes-item ul::-webkit-scrollbar-thumb {
   background: rgb(77, 77, 77); /* Darker color for the thumb */
   border-radius: 10px; /* Rounded corners for the thumb */
 }
 
-.menu-item ul::-webkit-scrollbar-thumb:hover {
+.menu-item ul::-webkit-scrollbar-thumb:hover,
+.pommes-item ul::-webkit-scrollbar-thumb:hover {
   background: rgba(85, 85, 85, 0.7); /* Darker color for the thumb on hover */
 }
 
-.menu-item ul::-webkit-scrollbar-thumb:active {
+.menu-item ul::-webkit-scrollbar-thumb:active,
+.pommes-item ul::-webkit-scrollbar-thumb:active {
   background: rgba(
     0,
     0,
@@ -310,6 +326,18 @@
   background-color: #28a745;
 }
 
+.invisible-button {
+  visibility: hidden; /* Make the button invisible */
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  align-self: center; /* Center the button horizontally */
+  position: absolute; /* Position the button at the bottom of the card */
+  bottom: 10px; /* Space from the bottom */
+  pointer-events: none; /* Ensure it doesn't interfere with clicks */
+}
+
 .logoHome {
   margin-top: 20vh;
   position: bottom;
@@ -348,4 +376,145 @@
 
 .menu-option input[type="checkbox"] {
   margin-right: 10px;
+}
+
+.carousel {
+  position: relative;
+  height: 150px; /* Match exactly to your image height */
+  width: 100%;
+  perspective: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.carousel-container {
+  margin-top: 20px;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-item {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-button.prev {
+  left: 5px; /* Adjust if needed */
+}
+
+.carousel-button.next {
+  right: 5px; /* Adjust if needed */
+}
+
+.grill-menu .carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s ease;
+  perspective: 1000px; /* Add perspective for 3D effect */
+  height: 150px; /* Adjust height as needed */
+  margin-bottom: 20px; /* Add margin to separate from details */
+  position: relative; /* Ensure buttons are positioned relative to the carousel */
+  width: 100%; /* Ensure the carousel takes full width */
+}
+
+.grill-menu .carousel-container {
+  display: flex;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+  position: relative; /* Ensure proper positioning */
+  justify-content: center; /* Center the container */
+  align-items: center; /* Center the container */
+  height: 100%; /* Ensure it takes full height */
+}
+
+.grill-menu .carousel-item {
+  position: absolute;
+  width: 120px; /* Adjust width as needed */
+  height: 120px; /* Adjust height as needed */
+  display: flex; /* Center image */
+  align-items: center; /* Center image */
+  justify-content: center; /* Center image */
+  text-align: center; /* Center text */
+}
+
+.grill-menu .carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0px 15px 45px rgba(0, 0, 0, 0.8); /* Adjust shadow */
+}
+
+.grill-menu .carousel-buttons {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 35px; /* Adjust margin as needed */
+  height: 50%;
+}
+
+.grill-menu .carousel-button {
+  background-color: rgba(0, 0, 0, 0.712);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 100%; /* Full height of the carousel */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 1001; /* Ensure buttons are above other elements */
+}
+
+.grill-menu .carousel-button.prev {
+  left: 25px; /* Position the previous button to the left */
+  height: 130%; /* Adjust height as needed */
+  margin-top: -30px;
+  border-radius: 15px 0 0 15px; /* Adjust border radius */
+  width: 4%;
+}
+
+.grill-menu .carousel-button.next {
+  right: 25px; /* Position the next button to the right */
+  height: 130%;
+  margin-top: -30px;
+  border-radius: 0px 15px 15px 0px; /* Adjust border radius */
+  width: 4%;
 }
