@@ -8,12 +8,13 @@ import {
   Link,
 } from "react-router-dom";
 import "./App.css";
+import AdminOrders from "./pages/AdminPanel";
 
 import GlutAnimation from "./GlutAnimation";
 import AnimatedMenu from "./AnimatedMenu";
 import GrillPage from "./pages/GrillPage";
 import BurgerPage from "./pages/BurgerPage";
-import KebabPage from "./pages/KebabPage";
+
 import CartPage from "./pages/CartPage";
 import JKV from "./jkv";
 import PersKebabPage from "./pages/pers_KebabPage";
@@ -200,6 +201,8 @@ export default function App() {
         <Route path="/jkv" element={<JKV />} />
         <Route path="*" element={<MainMenu />} />
         <Route path="/pers_KebabPage" element={<PersKebabPage />} />
+        <Route path="/admin/orders" element={<AdminOrders />} />
+        
       </Routes>
     </Router>
   );
