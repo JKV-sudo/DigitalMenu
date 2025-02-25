@@ -1,8 +1,15 @@
 .admin-container {
     padding: 20px;
-    max-width: 800px;
+    max-width: 1000px;
     margin: auto;
     color: #fff;
+    background: #111;
+    border-radius: 8px;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #ff0000;
   }
   
   .order-list {
@@ -14,23 +21,72 @@
     background: #222;
     padding: 15px;
     border-radius: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    transition: 0.3s;
+  }
+  
+  .order-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 0px 15px rgba(255, 204, 0, 0.5);
   }
   
   .order-actions {
     display: flex;
-    gap: 10px;
+    justify-content: space-between;
     margin-top: 10px;
   }
   
   button {
-    padding: 8px 12px;
+    padding: 10px 15px;
     border: none;
     cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  .status-pending {
+    background-color: #ffcc00;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .status-shipped {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .status-delivered {
+    background-color: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .confirm-btn {
+    background: #007bff;
+    color: white;
+  }
+  
+  .shipped-btn {
+    background: #17a2b8;
+    color: white;
+  }
+  
+  .delivered-btn {
+    background: #28a745;
+    color: white;
   }
   
   .delete-btn {
-    background: red;
+    background: #dc3545;
     color: white;
   }
   

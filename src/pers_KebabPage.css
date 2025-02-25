@@ -791,3 +791,14 @@ body {
   align-items: center;
   margin-top: -15px;
 }
+@media (max-width: 768px) {
+ .body{
+  scale: 0.7;
+ }
+  
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .body{
+    scale: 0.7;
+   }
+}

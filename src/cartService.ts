@@ -110,3 +110,24 @@ export const placeOrder = async (customerInfo: { name: string; address: string; 
     return false;
   }
 };
+import emailjs from "@emailjs/browser";
+
+export const sendOrderEmail = async (customerEmail: string, customerName: string, orderDetails: string, total: number) => {
+  const serviceId = "PASTE_YOUR_SERVICE_ID"; // 🔥 Service ID von EmailJS
+  const templateId = "PASTE_YOUR_TEMPLATE_ID"; // 🔥 Template ID von EmailJS
+  const publicKey = "PASTE_YOUR_PUBLIC_KEY"; // 🔥 Public Key von EmailJS
+
+  const templateParams = {
+    to_email: customerEmail,
+    to_name: customerName,
+    order_details: orderDetails,
+    total_price: total.toFixed(2),
+  };
+
+  try {
+    await emailjs.send(serviceId, templateId, templateParams, publicKey);
+    console.log("✅ Bestellbestätigung gesendet an:", customerEmail);
+  } catch (error) {
+    console.error("❌ Fehler beim Senden der E-Mail:", error);
+  }
+};
