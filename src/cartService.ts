@@ -63,3 +63,50 @@ export const removeFromCart = async (productId: string) => {
     await setDoc(cartRef, { items: updatedItems });
   }
 };
+import { collection, addDoc, Timestamp, deleteDoc } from "firebase/firestore";
+
+// 🛒 Funktion zum Aufgeben einer Bestellung
+export const placeOrder = async (customerInfo: { name: string; address: string; phone: string }) => {
+  const user = auth.currentUser;
+  if (!user) {
+    console.error("❌ Kein Benutzer angemeldet!");
+    return false;
+  }
+
+  const cartRef = doc(db, "carts", user.uid);
+  const cartSnap = await getDoc(cartRef);
+
+  if (!cartSnap.exists()) {
+    console.error("❌ Kein Warenkorb gefunden!");
+    return false;
+  }
+
+  const cartData = cartSnap.data();
+  if (!cartData.items || cartData.items.length === 0) {
+    console.error("❌ Warenkorb ist leer!");
+    return false;
+  }
+
+  const orderData = {
+    userId: user.uid,
+    customer: {
+      name: customerInfo.name,
+      address: customerInfo.address,
+      phone: customerInfo.phone,
+    },
+    items: cartData.items,
+    total: cartData.items.reduce((sum: number, item: any) => sum + item.price, 0),
+    status: "pending", // Status kann später geändert werden
+    createdAt: Timestamp.now(),
+  };
+
+  try {
+    await addDoc(collection(db, "orders"), orderData); // 🔥 Speichert die Bestellung in Firestore
+    await deleteDoc(cartRef); // 🗑️ Löscht den Warenkorb nach der Bestellung
+    console.log("✅ Bestellung erfolgreich gespeichert:", orderData);
+    return true;
+  } catch (error) {
+    console.error("❌ Fehler beim Speichern der Bestellung:", error);
+    return false;
+  }
+};
