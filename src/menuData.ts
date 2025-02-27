@@ -54,24 +54,31 @@ export const grillOptions: SubMenuItem[] = [
 
 export const burgerOptions: SubMenuItem[] = [
   {
-    label: "Smashburger O.G.",
+    label: "Classic",
     value: "smashburger",
     img: "/assets/smashburger.webp",
     price: 7.9,
     ingredients: []
   },
   {
-    label: "Double Smash",
+    label: "Double",
     value: "doubleSmash",
+    img: "/assets/smashburger.webp",
+    price: 11.50,
+    ingredients: []
+  },
+  {
+    label: "Spicy",
+    value: "spicySmash",
     img: "/assets/smashburger.webp",
     price: 10.5,
     ingredients: []
   },
   {
-    label: "Spicy-Smash",
-    value: "spicySmash",
+    label: "Juice",
+    value: "jucySmash",
     img: "/assets/smashburger.webp",
-    price: 10.5,
+    price: 7.90,
     ingredients: []
   },
 ];
@@ -127,14 +134,14 @@ export const beilagenOptions: SubMenuItem[] = [
     value: "pommesK",
     img: "/assets/pommes_klein.webp",
     price: 3.5,
-    ingredients: ["Mayo", "Ketchup", "Salz & Pfeffer"]
+    ingredients: ["Mayo", "Ketchup"]
   },
   {
     label: "Pommes Groß",
     value: "pommesG",
     img: "/assets/pommes_groß.webp",
     price: 6.5,
-    ingredients: ["Mayo", "Ketchup", "Salz & Pfeffer"]
+    ingredients: ["Mayo", "Ketchup"]
   },
   {
     label: "Baklava",
