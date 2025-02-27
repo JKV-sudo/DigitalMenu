@@ -303,19 +303,9 @@
   background-color: rgba(0, 0, 0, 0.466); /* Reset background color */
   transition: all 0.3s ease-in-out; /* Smooth transition */
 }
-
 .add-to-cart {
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #30d461a6;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  align-self: center; /* Center the button horizontally */
-  position: absolute; /* Position the button at the bottom of the card */
-  bottom: 10px; /* Space from the bottom */
+  background-color: #1ccc1c;
+  margin-top: 30px;
 }
 
 .add-to-cart:hover {
@@ -379,18 +369,20 @@
 }
 
 .carousel {
-  position: relative;
+  position: absolute;
   height: 150px; /* Match exactly to your image height */
-  width: 100%;
+  width: 60%;
   perspective: 1000px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
 .carousel-container {
-  margin-top: 20px;
+  position: fixed;
+  margin-top: 30px;
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
@@ -409,35 +401,11 @@
 }
 
 .carousel-item img {
+  position: fixed;
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
-}
-
-.carousel-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.carousel-button.prev {
-  left: 5px; /* Adjust if needed */
-}
-
-.carousel-button.next {
-  right: 5px; /* Adjust if needed */
 }
 
 .grill-menu .carousel {
@@ -453,6 +421,7 @@
 }
 
 .grill-menu .carousel-container {
+  margin-top: 15px;
   display: flex;
   transform-style: preserve-3d;
   transition: transform 0.5s ease;
@@ -489,7 +458,7 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 35px; /* Adjust margin as needed */
-  height: 50%;
+  height: 30%;
 }
 
 .grill-menu .carousel-button {
@@ -497,24 +466,77 @@
   color: white;
   border: none;
   width: 40px;
-  height: 100%; /* Full height of the carousel */
+  height: 800%; /* Full height of the carousel */
   cursor: pointer;
   transition: background-color 0.3s ease;
   z-index: 1001; /* Ensure buttons are above other elements */
 }
 
 .grill-menu .carousel-button.prev {
-  left: 25px; /* Position the previous button to the left */
-  height: 130%; /* Adjust height as needed */
-  margin-top: -30px;
+  left: 35px; /* Position the previous button to the left */
+  height: 170px; /* Adjust height as needed */
+  margin-top: 10px;
   border-radius: 15px 0 0 15px; /* Adjust border radius */
-  width: 4%;
+  width: 8%;
+  padding: 0;
+  position: fixed;
+  scale: 1;
+  font-size: larger;
+  background-color: rgb(0, 0, 0);
 }
 
 .grill-menu .carousel-button.next {
-  right: 25px; /* Position the next button to the right */
-  height: 130%;
-  margin-top: -30px;
+  right: 35px; /* Position the next button to the right */
+  height: 170px;
+  margin-top: 10px;
   border-radius: 0px 15px 15px 0px; /* Adjust border radius */
-  width: 4%;
+  width: 8%;
+  padding: 0;
+  scale: 1;
+  position: fixed;
+  font-size: larger;
+  background-color: rgb(0, 0, 0);
+}
+.menu-item {
+  height: 400px; /* Sicherstellen, dass die Höhe fix bleibt */
+  overflow: hidden; /* Verhindert, dass zusätzliche Inhalte die Größe verändern */
+}
+.menu-item-details {
+  min-height: 150px; /* Stelle sicher, dass genügend Platz für Zutaten und Button bleibt */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Gleichmäßige Verteilung */
+  max-width: 180px;
+}
+
+.carousel-button {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 35px; /* Kleinere Knöpfe */
+  height: 35px; /* Kleinere Knöpfe */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 1001;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.carousel-button.prev {
+  left: 0px; /* Näher an das Bild */
+  width: 160px;
+  height: 160px;
+  font-size: xxx-large;
+}
+
+.carousel-button.next {
+  right: 0px; /* Näher an das Bild */
+  width: 160px;
+  height: 160px;
+  font-size: xxx-large;
 }

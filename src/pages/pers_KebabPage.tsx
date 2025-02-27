@@ -180,7 +180,7 @@ export default function pers_KebabPage() {
       >
         <button
           onClick={() => handleKebabChange("prev")}
-          className="carousel-button prev"
+          className="pers_kebab carousel-button prev"
         >
           &lt;
         </button>
@@ -204,7 +204,7 @@ export default function pers_KebabPage() {
         </div>
         <button
           onClick={() => handleKebabChange("next")}
-          className="carousel-button next"
+          className="pers_kebab carousel-button next"
         >
           &gt;
         </button>
@@ -213,6 +213,7 @@ export default function pers_KebabPage() {
         <h3>{selectedKebab.label}</h3>
         <p>{calculatePrice()} €</p>
       </div>
+      <div className="body-grid">
       <div className="meat-slider">
         <div
           className={`slider ${!isSaturday ? "disabled" : ""}`}
@@ -238,7 +239,9 @@ export default function pers_KebabPage() {
               meatOption === "Steak" ? "right" : "left"
             }`}
           ></div>
+       
         </div>
+       
       </div>
       <div className="select-all">
         <label>
@@ -251,7 +254,9 @@ export default function pers_KebabPage() {
         </label>
       </div>
       <div className="content-container">
+     
         <div className="second-container">
+     
           <div className="additional-options">
             {["Hot Cheddar", "Käse", "Pommes"].map((option, index) => (
               <div
@@ -267,6 +272,7 @@ export default function pers_KebabPage() {
             ))}
           </div>
         </div>
+      
         <div className="ingredients-grid">
           {[
             "Tomaten",
@@ -291,7 +297,7 @@ export default function pers_KebabPage() {
             </div>
           ))}
         </div>
-
+      
         <div className="third-container">
           <div className="additional-options">
             {["Scharf", "Sehr scharf", "Habanero"].map((option, index) => (
@@ -309,7 +315,9 @@ export default function pers_KebabPage() {
           </div>
         </div>
       </div>
+    
       <div className="sauces-grid">
+     
         {sauceOptions.map((sauce, index) => (
           <div
             key={index}
@@ -323,13 +331,14 @@ export default function pers_KebabPage() {
           </div>
         ))}
       </div>
-
+      
       <button onClick={handleAddProduct} className="add-to-cart">
         In den Warenkorb
       </button>
       {showBanner && (
         <div className="banner">Artikel wurde zum Warenkorb hinzugefügt!</div>
       )}
+      </div>
     </MenuLayout>
   );
 }

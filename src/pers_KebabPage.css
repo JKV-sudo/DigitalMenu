@@ -69,6 +69,7 @@ body {
 }
 
 .kebab-photo {
+  
   background-color: rgba(0, 0, 0, 0.623);
   display: flex;
   justify-content: center;
@@ -76,10 +77,12 @@ body {
   border-radius: 15px;
   scale: 0.8;
   width: 50%; /* Adjust width to be narrower */
-  margin: 0 auto; /* Center the box */
+   /* Center the box */
+   z-index: 1000;
 }
 
 .kebab-photo img {
+  
   max-width: 100%;
   height: auto;
   border-radius: 15px;
@@ -125,23 +128,27 @@ body {
 
 .kebab-details {
   text-align: center;
-  margin-top: 5px; /* Reduce margin to save space */
+  margin-top: px; /* Reduce margin to save space */
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 55px;
+  z-index: 1000;
 }
 
 .kebab-details h3 {
-  margin: 0;
+  
   font-size: 24px;
   width: 80px;
+  
 }
 
 .kebab-details p {
   margin: 5px 0 0;
   font-size: 20px;
+  
 }
 
 @keyframes fadeIn {
@@ -229,7 +236,7 @@ body {
 }
 
 .ingredients-grid {
-  margin-left: -10px;
+  margin-left: 10px;
   align-items: center;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -383,8 +390,8 @@ body {
   color: white;
 }
 
-.add-to-cart {
-  margin-bottom: 80px; /* Adjust margin to a more appropriate value */
+.pers_Kebab.add-to-cart {
+  margin-bottom: 180px; /* Adjust margin to a more appropriate value */
   padding: 10px 20px;
   background-color: #30d461a6;
   color: white;
@@ -393,6 +400,8 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-top: 5px; /* Reduce margin to save space */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .banner {
@@ -419,6 +428,7 @@ body {
 }
 
 .carousel-container {
+  margin-top: 190px;
   display: flex;
   transform-style: preserve-3d;
   transition: transform 0.5s ease;
@@ -445,30 +455,23 @@ body {
   box-shadow: 0px 15px 45px rgba(0, 0, 0, 0.8); /* Adjust shadow */
 }
 
-.carousel-button {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
+.pers_Kebab.carousel-button {
+  width: 50px; /* Gleiche Breite für beide Buttons */
+  height: 50px;
   border-radius: 50%;
-  width: 80px;
-  height: 80px;
-  cursor: pointer;
-  margin: 0 10px;
-  transition: background-color 0.3s ease;
-  z-index: 1001; /* Ensure buttons are above other elements */
-  position: absolute; /* Position the buttons absolutely */
-  top: 50%; /* Center the buttons vertically */
-  transform: translateY(-50%); /* Center the buttons vertically */
+  font-size: 1.2rem; /* Falls Text im Button enthalten ist */
 }
 
-.carousel-button.prev {
-  left: 550px; /* Position the previous button to the left */
+
+.pers_Kebab.carousel-button.prev {
+  left: 55px; /* Position the previous button to the left */
   transform: scale(1.6);
 }
 
-.carousel-button.next {
-  right: 550px; /* Position the next button to the right */
+.pers_Kebab.carousel-button.next {
+  right: 55px; /* Position the next button to the right */
   transform: scale(1.6);
+ 
 }
 
 .carousel-preview {
@@ -490,8 +493,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(100%);
-  transition: filter 0.3s ease;
+ 
 }
 
 .carousel-preview.move-in {
@@ -517,7 +519,7 @@ body {
 .meat-slider {
   display: flex;
   justify-content: center;
-  margin-top: 5px; /* Reduce margin to save space */
+  margin-top: 15px; /* Reduce margin to save space */
   gap: 20px;
 }
 
@@ -589,7 +591,10 @@ body {
   height: 25vh; /* Further reduce height */
   gap: 40px;
 }
-
+.ingredients-grid{
+  margin-left: 60px;
+  margin-right: 60px;
+}
 .second-container,
 .ingredients-grid,
 .third-container {
@@ -713,6 +718,8 @@ body {
 
 .select-all {
   display: flex;
+  margin-left: auto;
+  margin-right: auto;
   justify-content: center;
   align-items: center;
   margin-top: 5px; /* Reduce margin to save space */
@@ -721,6 +728,7 @@ body {
   padding: 10px;
   border-radius: 10px;
   color: white;
+  max-width: 140px;
 }
 
 .select-all input[type="checkbox"] {
@@ -733,7 +741,7 @@ body {
   gap: 0px;
   justify-content: center;
   margin: 20px auto;
-  max-width: 80%;
+  max-width: 60%;
   background-color: rgba(0, 0, 0, 0.7);
   padding: 0px;
   border-radius: 15px;
@@ -753,22 +761,22 @@ body {
   cursor: pointer;
   transition: all 0.2s ease;
   justify-content: center; /* Center image */
+ 
 }
 
 .sauce-item img {
   width: 60px; /* Further reduce width */
-  height: 60px; /* Further reduce height */
+  height: 40px; /* Further reduce height */
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
 }
 
 .sauce-item p {
-  margin-top: 0px;
-  font-size: 16px;
+  margin: 10px 0 0;
   color: white;
-  padding: 5px 5px;
-  border-radius: 10px;
+  display: none;
 }
 
 .sauce-item:hover {
@@ -785,20 +793,19 @@ body {
   background: #313131c9;
   color: white;
 }
-.menu-option {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: -15px;
+
+.body-grid{
+  margin-top: 50px;
 }
+/* ====== RESPONSIVE DESIGN ====== */
 @media (max-width: 768px) {
- .body{
-  scale: 0.7;
- }
-  
-}
-@media (min-width: 768px) and (max-width: 1024px) {
-  .body{
+  body {
     scale: 0.7;
-   }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  body {
+    scale: 0.7;
+  }
 }

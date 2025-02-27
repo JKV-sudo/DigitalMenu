@@ -149,16 +149,16 @@ export const beilagenOptions: SubMenuItem[] = [
         price: 3,
       },
       {
-        label: "1x Baklava",
+        label: "1x Baklava Havuc",
         value: "baklava4",
         img: "/assets/baklava2.webp",
         price: 5,
       },
       {
-        label: "1x Baklava mit Eis",
+        label: "1x Havuc mit Eis",
         value: "baklava5",
         img: "/assets/baklava2.webp",
-        price: 5,
+        price: 8.50,
       },
     ]
   },
