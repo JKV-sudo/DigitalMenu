@@ -215,7 +215,7 @@ html {
   }
 
   .menu-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+    grid-template-columns: repeat(2, 2fr); /* 2 items per row */
     margin: 0 auto; /* Center the grid container */
     padding: 0 10px; /* Add padding to prevent content from touching the edges */
     zoom: 80%;
@@ -242,8 +242,8 @@ html {
 }
 
 .menu-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Exactly 3 items per row */
+  display: grid !important;
+  grid-template-columns: repeat(4, 2fr); /* Exactly 3 items per row */
   gap: 20px; /* Space between items */
   padding: 20px;
   max-width: 60vw;
@@ -256,13 +256,14 @@ html {
 
 @media (max-width: 768px) {
   .menu-grid {
-    grid-template-columns: repeat(2, 1fr) !important; /* 2 items per row */
-    margin-left: auto;
-    zoom: 80%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 items per row */
     padding-bottom: 100px; /* Space for the home button */
     justify-content: center; /* Center items horizontally */
+    transform: scale(0.8); /* Instead of zoom */
   }
 }
+
 .webkit-scrollbar {
   width: 6px; /* Width of the scrollbar */
 }

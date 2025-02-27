@@ -34,7 +34,7 @@
 }
 
 .menu-list {
-  display: flex;
+  
   flex-direction: row; /* Change to row layout */
   align-items: center;
   gap: 20px;
@@ -241,7 +241,7 @@
 .ingredient {
   color: white;
   padding: 10px 10px !important;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(2, 2fr);
 }
 
 .ingredient {
@@ -263,7 +263,7 @@
 
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Exactly 3 items per row */
+  grid-template-columns: repeat(2, 2fr); /* Exactly 3 items per row */
   gap: 20px; /* Space between items */
   padding: 20px;
   max-width: 60vw;
