@@ -499,7 +499,7 @@
     padding: 10px;
   }
   .burger-menu {
-    zoom: 0.7;  
+    zoom: 0.6;  
   }
   .grill-menu {
     margin-top: -60px;
@@ -514,8 +514,12 @@
     font-size: 18px;
   }
   .add-to-cart{
-    margin-top: 0px;
+    margin-top: 150px;
     margin-bottom: 10px;
+    position: fixed;
+    margin-left: auto;
+    margin-right: auto;
+
   }
   .menu-option {
     margin-top: -10px;
