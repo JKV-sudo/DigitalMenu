@@ -816,6 +816,7 @@ body {
   }
  .kebab-details{
   margin-top: 30px !important;
+  margin-bottom: 20px;
  
 }
   .pers_Kebab.carousel-button.next {
@@ -824,8 +825,9 @@ body {
   }
 
   .pers_kebab carousel-button prev {
-    display: none !important;
+    display: none ;
   }
+ 
 
  .ingredients-grid{
   min-width: 80vw;
