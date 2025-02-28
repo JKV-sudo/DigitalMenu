@@ -846,7 +846,7 @@ body {
     justify-content: center;
   }
   .body-grid{
-    zoom: 0.7;
+    scale: 0.6;
     margin-top: 0px;
 }
 
