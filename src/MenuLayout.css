@@ -20,7 +20,7 @@ html {
   width: 100vw;
   background-size: cover;
   background-position: center;
-  overflow: hidden;
+  
 }
 
 .top-bar {
@@ -83,9 +83,9 @@ html {
   align-items: center;
   text-align: center;
   z-index: 10;
-  overflow-x: hidden;
+ 
   padding-bottom: 120px; /* Ensure space for the home button */
-  overflow-y: auto; /* Ensure scrollbar is visible */
+  /* Ensure scrollbar is visible */
 }
 
 /* Custom scrollbar styles */
