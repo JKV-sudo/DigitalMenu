@@ -535,6 +535,7 @@
 }
 /* ======= FIXED GRID LAYOUT ======= */
 .menu-list {
+  margin-top: -20px;
   display: grid !important;
   grid-template-columns: repeat(2, 1fr) !important; /* 3 columns for desktop */
   gap: 20px;
@@ -569,4 +570,7 @@
   width: 100%;
   max-width: 300px; /* Ensures it fits inside the grid */
   min-width: 280px;
+}
+.menu-content {
+  margin-top: 65px;
 }
