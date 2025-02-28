@@ -229,7 +229,7 @@ export default function GrillPage() {
                   {/* Unsichtbarer Abstandshalter */}
                  
                   <button onClick={handleAddProduct} className="add-to-cart">
-                    In den Warenkorb
+                     Warenkorb
                   </button>
                 </>
               ) : (

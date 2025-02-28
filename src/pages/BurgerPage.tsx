@@ -138,7 +138,7 @@ export default function BurgerPage() {
                     </label>
                   </div>
                   <button onClick={handleAddProduct} className="add-to-cart">
-                    In den Warenkorb
+                     Warenkorb
                   </button>
                 </>
               )}

@@ -128,13 +128,13 @@ body {
 
 .kebab-details {
   text-align: center;
-  margin-top: px; /* Reduce margin to save space */
+  margin-top: -180px; /* Reduce margin to save space */
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin-bottom: 55px;
+  margin-bottom: 150px;
   z-index: 1000;
 }
 
@@ -391,7 +391,7 @@ body {
 }
 
 .pers_Kebab.add-to-cart {
-  margin-bottom: 180px; /* Adjust margin to a more appropriate value */
+  margin-bottom: 200px; /* Adjust margin to a more appropriate value */
   padding: 10px 20px;
   background-color: #30d461a6;
   color: white;
@@ -489,29 +489,29 @@ body {
   transform: translateZ(-150px) rotateY(0deg); /* Move the preview images back */
 }
 
-.carousel-preview img {
+.carousel_kebab-preview img {
   width: 100%;
   height: 100%;
   object-fit: cover;
  
 }
 
-.carousel-preview.move-in {
+.carousel_kebab-preview.move-in {
   animation: moveIn 0.3s forwards;
   box-shadow: none;
 }
 
-.carousel-preview.move-out {
+.carousel_kebab-preview.move-out {
   animation: moveOut 0.3s forwards;
   box-shadow: none;
 }
 
-.carousel-preview.spin-in {
+.carousel_kebab-preview.spin-in {
   animation: spinIn 0.3s forwards;
   box-shadow: none;
 }
 
-.carousel-preview.spin-out {
+.carousel_kebab-preview.spin-out {
   animation: spinOut 0.3s forwards;
   box-shadow: none;
 }
@@ -798,3 +798,57 @@ body {
   margin-top: 50px;
 }
 /* ====== RESPONSIVE DESIGN ====== */
+/* Medium screens (tablets) */
+@media (max-width: 1024px) {
+  .menu-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-button {
+    display: none;
+  }
+ 
+  .carousel_kebab {
+    margin-top: 0px !important;
+    scale: 0.7;
+  }
+ .kebab-details{
+  margin-top: 30px !important;
+ 
+}
+  .pers_Kebab.carousel-button.next {
+    display: none;
+
+  }
+
+  .pers_kebab carousel-button prev {
+    display: none !important;
+  }
+
+ .ingredients-grid{
+  min-width: 80vw;
+  margin-left: -60px;
+  margin-right: -60px;
+ 
+}
+  .sauces-grid {
+  scale: 0.9;
+  }
+  .additional-option{
+    scale: 0.8;
+    max-height: fit-content;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+  }
+  .body-grid{
+    zoom: 0.7;
+    margin-top: 0px;
+}
+
+@media (max-width: 480px) {
+
+}
+}

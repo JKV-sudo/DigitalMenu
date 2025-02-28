@@ -20,6 +20,8 @@ export default function CartPage() {
     name: "",
     address: "",
     phone: "",
+    email:"",
+   
   });
 
   // 🛒 Load cart items
@@ -42,7 +44,7 @@ export default function CartPage() {
 
   // 📩 Handle customer input
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCustomerInfo({ ...customerInfo, [e.target.name]: e.target.value });
+    setCustomerInfo({ ...customerInfo, [e.target.name]: e.target.value  });
   };
 
   const handleConfirmOrder = async () => {
@@ -138,6 +140,11 @@ export default function CartPage() {
               Telefonnummer:
               <input type="text" name="phone" value={customerInfo.phone} onChange={handleChange} required />
             </label>
+            <label>
+              Email:
+              <input type="email" name="email" value={customerInfo.email} onChange={handleChange} required />
+            </label>
+           
             <p><strong>Gesamtbetrag:</strong> {total.toFixed(2)} €</p>
             <button className="confirm-btn" onClick={handleConfirmOrder}>Bestellung bestätigen</button>
             <button className="close-btn" onClick={() => setShowModal(false)}>Schließen</button>

@@ -173,7 +173,7 @@ export default function pers_KebabPage() {
   return (
     <MenuLayout backgroundImage="/assets/kebab-bg.webp">
       <div
-        className="carousel"
+        className="carousel_kebab"
         ref={carouselRef}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
@@ -333,7 +333,7 @@ export default function pers_KebabPage() {
       </div>
       
       <button onClick={handleAddProduct} className="add-to-cart">
-        In den Warenkorb
+        Warenkorb
       </button>
       {showBanner && (
         <div className="banner">Artikel wurde zum Warenkorb hinzugefügt!</div>
