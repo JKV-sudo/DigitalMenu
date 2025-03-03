@@ -345,18 +345,27 @@
 }
 .radio-group {
   display: flex;
-  gap: 10px; /* Space between options */
-  align-items: center; /* Aligns text and inputs properly */
-  justify-content: center;
-  padding: 10px 20px;
+ align-items: center;
+ justify-content: center; 
+  
+ 
+  
+  
 }
 
-.radio-group label {
-  gap: 10px;
+.radio-group p {
+  padding: 10px;
+  align-items: center;
+  justify-content: center; 
+  
+  text-align: center;
+  color: white;
+  
   display: flex;
-  padding: 10px 20px;
+  
   cursor: pointer;
   font-size: large;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+ 
+  border-radius: 25px;
 }
 

@@ -21,9 +21,8 @@ export default function CartPage() {
     address: "",
     phone: "",
     email: "",
-    isPickup:"",
-    isDelivery:""
   });
+  const [isPickup, setIsPickup] = useState(true); // ✅ Default: Pickup
 
   // 🛒 Load cart items
   useEffect(() => {
@@ -61,14 +60,15 @@ export default function CartPage() {
       !customerInfo.address ||
       !customerInfo.phone ||
       !customerInfo.email ||
-      !customerInfo.isDelivery ||
-      !customerInfo.isPickup
+      (!isPickup && !customerInfo.name)
+      
     ) {
       alert("Bitte fülle alle Felder aus!");
       return;
     }
 
-    const success = await placeOrder(customerInfo);
+    const success = await placeOrder({ ...customerInfo, isPickup });
+
     if (success) {
       alert("Bestellung erfolgreich aufgegeben!");
       setCartItems([]); // 🛒 Warenkorb-UI zurücksetzen
@@ -163,24 +163,20 @@ export default function CartPage() {
           <div className="modal-content">
             <h2>Bestellung bestätigen</h2>
             <div className="radio-group">
-              <label>
-                <input
-                  type="radio"
-                  name="isPickup"
-                  value={customerInfo.isPickup}
-                  onChange={handleChange}
-                />
-                Abholung
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="isPickup"
-                  value={customerInfo.isDelivery}
-                  onChange={handleChange}
-                />
-                Lieferung
-              </label>
+              <input
+                type="radio"
+                name="isPickup"
+                value="true"
+                checked={isPickup}
+                onChange={() => setIsPickup(true)}
+              /> <p>Abholung</p>
+              <input
+                type="radio"
+                name="isPickup"
+                value="false"
+                checked={!isPickup}
+                onChange={() => setIsPickup(false)}
+              /><p>Lieferung</p>
             </div>
 
             <label>

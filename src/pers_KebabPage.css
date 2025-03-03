@@ -252,6 +252,7 @@ body {
   min-width: 20vw;
   width: 100%; /* Adjust width to take remaining space */
   height: 100%; /* Ensure both containers take full height */
+  
 }
 
 .sauces-grid {
@@ -348,6 +349,7 @@ body {
 }
 .additional-option {
   margin-bottom: 60px;
+    
 }
 
 .ingredient-item img,
@@ -610,6 +612,12 @@ body {
   justify-content: center;
   height: 120%; /* Ensure all containers take full height */
 }
+.second-container{
+  border: #a6ff00a8 solid 5px;
+}
+.third-container{
+  border: red solid 5px;
+}
 
 .second-container,
 .third-container {
@@ -626,6 +634,7 @@ body {
   gap: 20px;
   padding: 10px 40px;
   height: 100%; /* Ensure both containers take full height */
+  border: green solid 5px;
 }
 
 .additional-options {
@@ -750,6 +759,7 @@ body {
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   height: 12vh; /* Further reduce height */
+  border: rgb(206, 206, 206) solid 5px ;
 }
 
 .sauce-item {
@@ -783,11 +793,11 @@ body {
 }
 
 .sauce-item:hover {
-  background-color: rgba(66, 199, 39, 0.568); /* Subtle background change */
+  background-color: rgba(255, 255, 255, 0.568); /* Subtle background change */
 }
 
 .sauce-item.selected {
-  border: green solid 5px;
+  border: rgb(255, 255, 255) solid 5px;
   border-radius: 20px;
 }
 
@@ -796,7 +806,10 @@ body {
   background: #313131c9;
   color: white;
 }
-
+.hotness{
+  background-color: rgba(0, 0, 0, 0.7);
+  color: red;
+}
 .body-grid{
   margin-top: 50px;
 }

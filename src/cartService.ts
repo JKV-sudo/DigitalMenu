@@ -9,7 +9,8 @@ export const addToCart = async (product: {
     price: number; 
     ingredients?: string[]; // ✅ Ingredients jetzt erlaubt
     img?: string; 
-    email?: string
+    email?: string;
+    isPickup?: boolean;
   }) => {
     const user = auth.currentUser;
     if (!user) {
@@ -67,7 +68,7 @@ export const removeFromCart = async (productId: string) => {
 import { collection, addDoc, Timestamp, deleteDoc } from "firebase/firestore";
 
 // 🛒 Funktion zum Aufgeben einer Bestellung
-export const placeOrder = async (customerInfo: { name: string; address: string; phone: string; email: string; }) => {
+export const placeOrder = async (customerInfo: { name: string; address: string; phone: string; email: string; isPickup: boolean }) => {
   const user = auth.currentUser;
   if (!user) {
     console.error("❌ Kein Benutzer angemeldet!");
@@ -98,9 +99,11 @@ export const placeOrder = async (customerInfo: { name: string; address: string; 
     },
     items: cartData.items,
     total: cartData.items.reduce((sum: number, item: any) => sum + item.price, 0),
-    status: "pending", // Status kann später geändert werden
+    isPickup: customerInfo.isPickup, // ✅ Now storing Pickup/Delivery option
+    status: "pending",
     createdAt: Timestamp.now(),
   };
+  
 
   try {
     await addDoc(collection(db, "orders"), orderData); // 🔥 Speichert die Bestellung in Firestore

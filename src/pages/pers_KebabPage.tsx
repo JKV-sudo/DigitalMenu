@@ -75,13 +75,13 @@ export default function pers_KebabPage() {
   const calculatePrice = () => {
     let price = selectedKebab.price;
     if (selectedIngredients.includes("Käse")) {
-      price += 3;
+      price += 1;
     }
     if (selectedIngredients.includes("Pommes")) {
-      price += 3;
+      price += 3.5;
     }
     if (selectedIngredients.includes("Hot Cheddar")) {
-      price += 3;
+      price += 2;
     }
     if (meatOption === "Steak") {
       price += 10;
@@ -180,9 +180,14 @@ export default function pers_KebabPage() {
       >
         <button
           onClick={() => handleKebabChange("prev")}
-
           className="pers_kebab carousel-button prev"
-          style={{ top: "20%", left: "25vw", opacity: "0.7", height: "100px", width: "100px" }}
+          style={{
+            top: "20%",
+            left: "25vw",
+            opacity: "0.7",
+            height: "100px",
+            width: "100px",
+          }}
         >
           &lt;
         </button>
@@ -207,7 +212,13 @@ export default function pers_KebabPage() {
         <button
           onClick={() => handleKebabChange("next")}
           className="pers_kebab carousel-button next"
-          style={{ top: "20%", right: "25vw", opacity: "0.7", height: "100px", width: "100px" }}
+          style={{
+            top: "20%",
+            right: "25vw",
+            opacity: "0.7",
+            height: "100px",
+            width: "100px",
+          }}
         >
           &gt;
         </button>
@@ -217,133 +228,178 @@ export default function pers_KebabPage() {
         <p>{calculatePrice()} €</p>
       </div>
       <div className="body-grid">
-      <div className="meat-slider">
-        <div
-          className={`slider ${!isSaturday ? "disabled" : ""}`}
-          onClick={handleMeatOptionChange}
-          title={!isSaturday ? "Steakspieß nur Samstags verfügbar" : ""}
-        >
+        <div className="meat-slider">
           <div
-            className={`slider-option ${
-              meatOption === "Chicken" ? "active" : ""
-            }`}
+            className={`slider ${!isSaturday ? "disabled" : ""}`}
+            onClick={handleMeatOptionChange}
+            title={!isSaturday ? "Steakspieß nur Samstags verfügbar" : ""}
           >
-            Chicken
+            <div
+              className={`slider-option ${
+                meatOption === "Chicken" ? "active" : ""
+              }`}
+            >
+              Chicken
+            </div>
+            <div
+              className={`slider-option ${
+                meatOption === "Steak" ? "active" : ""
+              }`}
+            >
+              Steak
+            </div>
+            <div
+              className={`slider-thumb ${
+                meatOption === "Steak" ? "right" : "left"
+              }`}
+            ></div>
           </div>
-          <div
-            className={`slider-option ${
-              meatOption === "Steak" ? "active" : ""
-            }`}
-          >
-            Steak
-          </div>
-          <div
-            className={`slider-thumb ${
-              meatOption === "Steak" ? "right" : "left"
-            }`}
-          ></div>
-       
         </div>
-       
-      </div>
-      <div className="select-all">
-        <label>
-          <input
-            type="checkbox"
-            checked={selectAll}
-            onChange={() => setSelectAll(!selectAll)}
-          />
-          Mit allem
-        </label>
-      </div>
-      <div className="content-container">
+        <div className="select-all">
+          <label>
+            <input
+              type="checkbox"
+              checked={selectAll}
+              onChange={() => setSelectAll(!selectAll)}
+            />
+            Mit allem
+          </label>
+        </div>
      
-        <div className="second-container">
-     
-          <div className="additional-options">
-          <p style= {{color: "rgb(191, 255, 0)", fontWeight: "bold", backgroundColor: "rgba(0, 0, 0, 0.44)", borderRadius:"30px"}}  > Aufpreis</p>
-            {["Hot Cheddar", "Käse", "Pommes"].map((option, index) => (
+        <div className="content-container">
+          <div className="second-container">
+            <div className="additional-options">
+              <p
+                style={{
+                  color: "rgb(191, 255, 0)",
+                  fontWeight: "bold",
+                  backgroundColor: "rgba(0, 0, 0, 0.44)",
+                  borderRadius: "30px",
+                  border: "3px solid rgb(191, 255, 0)",
+                  marginTop: "20px",
+                }}
+              >
+                {" "}
+                Extras
+              </p>
+              {["Hot Cheddar", "Käse", "Pommes"].map((option, index) => (
+                <div
+                  key={index}
+                  className={`additional-option ${
+                    selectedIngredients.includes(option) ? "selected" : ""
+                  }`}
+                  onClick={() => handleIngredientClick(option)}
+                >
+                  <img
+                    src={`/assets/${option.toLowerCase()}.png`}
+                    alt={option}
+                  />
+                  <p>{option} </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="ingredients-grid">
+            {[
+              "Tomaten",
+              "Gurken",
+              "Zwiebeln",
+              "Salat",
+              "Jalapeno",
+              "Blaukraut",
+            ].map((ingredient, index) => (
               <div
                 key={index}
-                className={`additional-option ${
-                  selectedIngredients.includes(option) ? "selected" : ""
+                className={`ingredient-item ${
+                  selectedIngredients.includes(ingredient) ? "selected" : ""
                 }`}
-                onClick={() => handleIngredientClick(option)}
+                onClick={() => handleIngredientClick(ingredient)}
               >
-                <img src={`/assets/${option.toLowerCase()}.png`} alt={option} />
-                <p>{option}  </p> 
+                <img
+                  src={`/assets/${ingredient.toLowerCase()}.png`}
+                  alt={ingredient}
+                />
+                <p>{ingredient}</p>
               </div>
-              
             ))}
-            
+          </div>
+
+          <div className="third-container">
+            <div className="additional-options">
+              <p
+                style={{
+                  color: "rgba(235, 151, 8, 0.91)",
+                  fontWeight: "bold",
+                  backgroundColor: "rgba(0, 0, 0, 0.44)",
+                  borderRadius: "30px",
+                  border: "3px solid rgba(255, 0, 0, 0.91)",
+                  marginTop: "20px",
+                }}
+              >
+                {" "}
+                Schärfe
+              </p>
+              {["Scharf", "Sehr scharf", "Habanero"].map((option, index) => (
+                <div
+                  key={index}
+                  className={`additional-option ${
+                    selectedIngredients.includes(option) ? "selected" : ""
+                  } ${option === "Scharf" ? "scharf" : "sehr-scharf"}`}
+                  onClick={() => handleIngredientClick(option)}
+                >
+                  <img
+                    src={`/assets/${option.toLowerCase()}.png`}
+                    alt={option}
+                  />
+                  <p>{option}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      
-        <div className="ingredients-grid">
-          {[
-            "Tomaten",
-            "Gurken",
-            "Zwiebeln",
-            "Salat",
-            "Jalapeno",
-            "Blaukraut",
-          ].map((ingredient, index) => (
+        <p
+          style={{
+            color: "rgba(255, 255, 255, 0.91)",
+            backgroundColor: "rgba(0, 0, 0, 0.78)",
+            borderRadius: "30px",
+            fontWeight: "bold",
+            justifyContent: "center",
+            maxWidth: "20%",
+            alignItems: "center",
+            marginLeft: "auto",
+            marginRight: "auto",
+            marginBottom: "-15px",
+            border: "3px solid rgb(255, 255, 255)",
+          }}
+        >
+          Saucen
+        </p>
+        <div className="sauces-grid">
+          {sauceOptions.map((sauce, index) => (
             <div
               key={index}
-              className={`ingredient-item ${
-                selectedIngredients.includes(ingredient) ? "selected" : ""
+              className={`sauce-item ${
+                selectedSauces.includes(sauce.value) ? "selected" : ""
               }`}
-              onClick={() => handleIngredientClick(ingredient)}
+              onClick={() => handleSauceClick(sauce.value)}
             >
-              <img
-                src={`/assets/${ingredient.toLowerCase()}.png`}
-                alt={ingredient}
-              />
-              <p>{ingredient}</p>
+              <img src={sauce.img} alt={sauce.label} />
+              <p>{sauce.label}</p>
             </div>
           ))}
         </div>
-      
-        <div className="third-container">
-          <div className="additional-options">
-            {["Scharf", "Sehr scharf", "Habanero"].map((option, index) => (
-              <div
-                key={index}
-                className={`additional-option ${
-                  selectedIngredients.includes(option) ? "selected" : ""
-                } ${option === "Scharf" ? "scharf" : "sehr-scharf"}`}
-                onClick={() => handleIngredientClick(option)}
-              >
-                <img src={`/assets/${option.toLowerCase()}.png`} alt={option} />
-                <p>{option}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    
-      <div className="sauces-grid">
-     
-        {sauceOptions.map((sauce, index) => (
-          <div
-            key={index}
-            className={`sauce-item ${
-              selectedSauces.includes(sauce.value) ? "selected" : ""
-            }`}
-            onClick={() => handleSauceClick(sauce.value)}
-          >
-            <img src={sauce.img} alt={sauce.label} />
-            <p>{sauce.label}</p>
-          </div>
-        ))}
-      </div>
-      
-      <button onClick={handleAddProduct} className="add-to-cart" style={{ marginTop: "0px" }}>
-        Warenkorb
-      </button>
-      {showBanner && (
-        <div className="banner">Artikel wurde zum Warenkorb hinzugefügt!</div>
-      )}
+
+        <button
+          onClick={handleAddProduct}
+          className="add-to-cart"
+          style={{ marginTop: "0px" }}
+        >
+          Warenkorb
+        </button>
+        {showBanner && (
+          <div className="banner">Artikel wurde zum Warenkorb hinzugefügt!</div>
+        )}
       </div>
     </MenuLayout>
   );
