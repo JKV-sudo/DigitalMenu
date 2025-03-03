@@ -75,7 +75,7 @@ export const burgerOptions: SubMenuItem[] = [
     ingredients: []
   },
   {
-    label: "Juice",
+    label: "Juicy",
     value: "jucySmash",
     img: "/assets/smashburger.webp",
     price: 7.90,

@@ -478,13 +478,15 @@
   width: 160px;
   height: 160px;
   font-size: xxx-large;
+ 
 }
 
 .carousel-button.next {
-  right: 0px; /* Näher an das Bild */
+  right: 50px; /* Näher an das Bild */
   width: 160px;
   height: 160px;
   font-size: xxx-large;
+  
 }
 /* ======= RESPONSIVENESS ======= */
 @media (max-width: 1024px) {

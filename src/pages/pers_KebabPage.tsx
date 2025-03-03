@@ -180,7 +180,9 @@ export default function pers_KebabPage() {
       >
         <button
           onClick={() => handleKebabChange("prev")}
+
           className="pers_kebab carousel-button prev"
+          style={{ top: "20%", left: "25vw", opacity: "0.7", height: "100px", width: "100px" }}
         >
           &lt;
         </button>
@@ -205,6 +207,7 @@ export default function pers_KebabPage() {
         <button
           onClick={() => handleKebabChange("next")}
           className="pers_kebab carousel-button next"
+          style={{ top: "20%", right: "25vw", opacity: "0.7", height: "100px", width: "100px" }}
         >
           &gt;
         </button>
@@ -258,6 +261,7 @@ export default function pers_KebabPage() {
         <div className="second-container">
      
           <div className="additional-options">
+          <p style= {{color: "rgb(191, 255, 0)", fontWeight: "bold", backgroundColor: "rgba(0, 0, 0, 0.44)", borderRadius:"30px"}}  > Aufpreis</p>
             {["Hot Cheddar", "Käse", "Pommes"].map((option, index) => (
               <div
                 key={index}
@@ -267,9 +271,11 @@ export default function pers_KebabPage() {
                 onClick={() => handleIngredientClick(option)}
               >
                 <img src={`/assets/${option.toLowerCase()}.png`} alt={option} />
-                <p>{option}</p>
+                <p>{option}  </p> 
               </div>
+              
             ))}
+            
           </div>
         </div>
       
@@ -332,7 +338,7 @@ export default function pers_KebabPage() {
         ))}
       </div>
       
-      <button onClick={handleAddProduct} className="add-to-cart">
+      <button onClick={handleAddProduct} className="add-to-cart" style={{ marginTop: "0px" }}>
         Warenkorb
       </button>
       {showBanner && (

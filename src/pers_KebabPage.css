@@ -243,7 +243,7 @@ body {
   gap: 20px;
   justify-content: center;
   margin: 0px auto;
-  max-width: 30vw;
+  
   background-color: rgba(0, 0, 0, 0);
   padding: 20px;
   border-radius: 15px;
@@ -363,9 +363,10 @@ body {
 .additional-option p {
   margin-top: 10px;
   font-size: 16px;
-  color: #ffffff00;
+  color: #ffffff;
   padding: 5px 5px;
   border-radius: 10px;
+  background-color: rgba(45, 45, 45, 0.953);
 }
 
 .ingredient-item:hover {
@@ -385,7 +386,7 @@ body {
 
 .ingredient-item.selected p,
 .additional-option.selected p {
-  display: block;
+  
   background: #313131c9;
   color: white;
 }
@@ -456,22 +457,22 @@ body {
 }
 
 .pers_Kebab.carousel-button {
-  width: 50px; /* Gleiche Breite für beide Buttons */
+  width: 50px ; /* Gleiche Breite für beide Buttons */
   height: 50px;
   border-radius: 50%;
   font-size: 1.2rem; /* Falls Text im Button enthalten ist */
+
 }
 
 
 .pers_Kebab.carousel-button.prev {
-  left: 55px; /* Position the previous button to the left */
+  left: 55px !important ; /* Position the previous button to the left */
   transform: scale(1.6);
 }
 
 .pers_Kebab.carousel-button.next {
   right: 55px; /* Position the next button to the right */
   transform: scale(1.6);
- 
 }
 
 .carousel-preview {
@@ -648,12 +649,14 @@ body {
 
 .additional-option p {
   margin: 10px 0 0;
-  color: rgba(255, 255, 255, 0);
+  color: rgb(255, 255, 255);
+  background-color: rgba(45, 45, 45, 0.953);
 }
 
 .additional-option.selected {
   border-color: #a6ff00;
   color: white;
+  
 }
 
 .additional-option.selected p {
@@ -671,7 +674,7 @@ body {
 .additional-option p {
   margin: 10px 0 0;
   color: white;
-  display: none;
+  
 }
 
 .additional-option:hover {
@@ -776,7 +779,7 @@ body {
 .sauce-item p {
   margin: 10px 0 0;
   color: white;
-  display: none;
+  background-color: rgba(45, 45, 45, 0.953);
 }
 
 .sauce-item:hover {
