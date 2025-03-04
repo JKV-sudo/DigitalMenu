@@ -847,18 +847,25 @@ body {
  
 
  .ingredients-grid{
-  min-width: 80vw;
+  min-width: 85vw;
   margin-left: -100px;
   margin-right: -100px;
+  min-height: 30vh;
  
 }
+  .sauce-title{
+    margin-top: 60px;
+  }
   .sauces-grid {
+    
   scale: 0.9;
   }
   .second-container,
   .third-container{
     justify-content: center;
     align-items: center;
+    min-height: 70vh;
+    
   }
   .additional-option{
     scale: 0.8;

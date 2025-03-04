@@ -358,7 +358,7 @@ export default function pers_KebabPage() {
             </div>
           </div>
         </div>
-        <p
+        <p className="sauce-title"
           style={{
             color: "rgba(255, 255, 255, 0.91)",
             backgroundColor: "rgba(0, 0, 0, 0.78)",
@@ -371,6 +371,7 @@ export default function pers_KebabPage() {
             marginRight: "auto",
             marginBottom: "-15px",
             border: "3px solid rgb(255, 255, 255)",
+            
           }}
         >
           Saucen
@@ -393,7 +394,7 @@ export default function pers_KebabPage() {
         <button
           onClick={handleAddProduct}
           className="add-to-cart"
-          style={{ marginTop: "0px" }}
+          style={{ marginTop: "0px", marginLeft: "auto", marginRight: "auto" }}
         >
           Warenkorb
         </button>
