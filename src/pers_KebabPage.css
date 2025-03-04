@@ -828,7 +828,7 @@ body {
   }
  
   .carousel_kebab {
-    margin-top: -80px !important;
+    margin-top: -100px !important;
     scale: 0.7;
   }
  .kebab-details{
@@ -884,7 +884,7 @@ body {
   }
   .add-to-cart {
     
-    margin-right: 20vw;
+    position: center;
     
   }
 
