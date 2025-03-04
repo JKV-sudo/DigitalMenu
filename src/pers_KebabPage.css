@@ -520,6 +520,7 @@ body {
 }
 
 .meat-slider {
+  display: none !important;
   display: flex;
   justify-content: center;
   margin-top: 15px; /* Reduce margin to save space */
@@ -847,26 +848,42 @@ body {
 
  .ingredients-grid{
   min-width: 80vw;
-  margin-left: -60px;
-  margin-right: -60px;
+  margin-left: -100px;
+  margin-right: -100px;
  
 }
   .sauces-grid {
   scale: 0.9;
   }
+  .second-container,
+  .third-container{
+    justify-content: center;
+    align-items: center;
+  }
   .additional-option{
     scale: 0.8;
     max-height: fit-content;
-    padding: 5px;
+    padding: 5px 5px 5px 5px;
     align-items: center;
     justify-content: center;
+    text-align: center;
+
   }
   .body-grid{
     scale: 0.6;
-    margin-top: 0px;
+    margin-top: -40px;
+    font-weight: 700;
+    overflow:visible;
+  }
+  .add-to-cart {
+    
+    margin-right: 20vw;
+    
+  }
+
+    
 }
 
 @media (max-width: 480px) {
 
-}
 }

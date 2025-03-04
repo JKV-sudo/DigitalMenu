@@ -276,7 +276,7 @@ export default function pers_KebabPage() {
                   backgroundColor: "rgba(0, 0, 0, 0.44)",
                   borderRadius: "30px",
                   border: "3px solid rgb(191, 255, 0)",
-                  marginTop: "20px",
+                  marginTop: "5px",
                 }}
               >
                 {" "}
@@ -294,7 +294,7 @@ export default function pers_KebabPage() {
                     src={`/assets/${option.toLowerCase()}.png`}
                     alt={option}
                   />
-                  <p>{option} </p>
+                  <p>{option} {selectedIngredients.includes(option) ? "✔️" : ""} </p>
                 </div>
               ))}
             </div>
@@ -334,7 +334,7 @@ export default function pers_KebabPage() {
                   backgroundColor: "rgba(0, 0, 0, 0.44)",
                   borderRadius: "30px",
                   border: "3px solid rgba(255, 0, 0, 0.91)",
-                  marginTop: "20px",
+                  marginTop: "10px",
                 }}
               >
                 {" "}
@@ -352,7 +352,7 @@ export default function pers_KebabPage() {
                     src={`/assets/${option.toLowerCase()}.png`}
                     alt={option}
                   />
-                  <p>{option}</p>
+                  <p>{option}  </p>
                 </div>
               ))}
             </div>
