@@ -688,7 +688,7 @@ body {
 }
 
 .additional-option:hover {
-  background-color: rgba(150, 253, 15, 0.692); /* Subtle background change */
+  background-color: rgba(90, 159, 0, 0.738); /* Subtle background change */
 }
 
 .additional-option.selected {
