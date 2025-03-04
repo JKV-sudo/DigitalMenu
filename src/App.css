@@ -111,6 +111,7 @@ h1 {
   word-wrap: break-word; /* Längere Wörter umbrechen */
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
+  
 }
 
 .backButton {
@@ -166,8 +167,9 @@ h1 {
   .mainbox {
     flex-direction: column; /* Items untereinander statt nebeneinander */
     align-items: center;
+    margin-top: 20vh;
   }
-
+  
   .item {
     width: 100%; /* Volle Breite */
     max-width: 300px;
@@ -180,9 +182,10 @@ h1 {
   }
   .app-container {
     padding: 0 20px;
+    margin-bottom: 60vh;
   }
   .firstboxtext {
-    margin-top: 20px;
+    margin-top: 10px;
   }
   .qr {
     scale: 0.4;
