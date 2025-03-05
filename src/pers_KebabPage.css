@@ -856,8 +856,11 @@ body {
   .sauce-title{
     margin-top: 80px;
   }
+  .sauce-item  {
+    width: 100px;
+    height: 90px;
+  }
   .sauces-grid {
-    
   scale: 0.9;
   }
   .second-container,
