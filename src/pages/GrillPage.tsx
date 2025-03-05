@@ -225,16 +225,11 @@ export default function GrillPage() {
                       </li>
                     ))}
                   </ul>
-                  <div style={{ height: "50px" }}></div>{" "}
-                  {/* Unsichtbarer Abstandshalter */}
-                 
                   <button onClick={handleAddProduct} className="add-to-cart">
                      Warenkorb
                   </button>
                 </>
-              ) : (
-                <button className="invisible-button">Invisible</button>
-              )}
+              ) : null}
             </div>
           </div>
         ))}

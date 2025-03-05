@@ -894,3 +894,19 @@ body {
 @media (max-width: 480px) {
 
 }
+.add-to-cart_pers {
+  margin-left: auto;
+  margin-right: auto;
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  background-color: #1ccc1c;
+  margin-top: 20px; /* Add margin to create space from other elements */
+  align-self: center; /* Center the button horizontally */
+}
+
+.add-to-cart_pers:hover {
+  background-color: #28a745;
+}

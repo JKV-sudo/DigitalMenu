@@ -393,7 +393,7 @@ export default function pers_KebabPage() {
 
         <button
           onClick={handleAddProduct}
-          className="add-to-cart"
+          className="add-to-cart_pers"
           style={{ marginTop: "0px", marginLeft: "auto", marginRight: "auto" }}
         >
           Warenkorb
