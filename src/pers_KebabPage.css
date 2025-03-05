@@ -882,23 +882,20 @@ body {
     font-weight: 700;
     overflow:visible;
   }
-  .add-to-cart {
+  .add-to-cart_pers {
     
     position: center;
-    
+    bottom: -20px !important;
   }
 
     
 }
 
-@media (max-width: 480px) {
-
-}
 .add-to-cart_pers {
   margin-left: auto;
   margin-right: auto;
   position: fixed;
-  bottom: 10px;
+  bottom: 130px;
   left: 50%;
   transform: translateX(-50%);
   display: block;
