@@ -57,6 +57,7 @@
 .menu-item-details {
   text-align: center;
   margin-top: 10px;
+  margin-bottom: 10px;
   flex-grow: 1; /* Allow details to grow and take available space */
   display: flex;
   flex-direction: column;
@@ -87,6 +88,7 @@
   margin: 10px 0 20px 0; /* Add bottom margin to create space for the button */
   height: auto; /* Adjust height to fit content */
   overflow-y: auto; /* Show scrollbar when content overflows */
+  margin-bottom: 10px;
 }
 
 .menu-item:hover p {
