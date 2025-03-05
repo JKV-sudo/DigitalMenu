@@ -298,14 +298,9 @@ body {
   border-radius: 10px;
 }
 
-.sauce-item:hover {
-  background-color: rgba(66, 199, 39, 0.568); /* Subtle background change */
-}
 
-.sauce-item.selected {
-  border: green solid 5px;
-  border-radius: 20px;
-}
+
+
 
 .sauce-item.selected p {
   display: block;
@@ -868,7 +863,21 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 70vh;
-    
+  }
+  .sauce-item:hover {
+    background-color: transparent;
+  }
+  .ingredient-item:hover {
+    background-color: transparent;
+  }
+  .additional-option:hover {
+    background-color: transparent;
+  }
+  .additional-option.scharf:hover {
+    background-color: transparent;
+  }
+  .additional-option.sehr-scharf:hover {
+    background-color: transparent;
   }
   .additional-option{
     scale: 0.8;
