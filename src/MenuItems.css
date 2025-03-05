@@ -293,6 +293,7 @@
 
 .menu-option {
   margin-top: 10px;
+  margin-bottom: 10px;
   text-align: center;
   color: white;
   align-self: center; /* Center the checkbox horizontally */
