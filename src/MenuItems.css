@@ -583,3 +583,6 @@
 .menu-content {
   margin-top: 65px;
 }
+.glutanimnation {
+  z-index: 10000;
+ }

@@ -171,7 +171,13 @@ export default function pers_KebabPage() {
   };
 
   return (
-    <MenuLayout backgroundImage="/assets/kebab-bgg.webp">
+    <MenuLayout backgroundImage="/assets/kebab_background.jpg">
+      <div className="video-background">
+        <video autoPlay loop muted>
+          <source src="/assets/test.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
       <div
         className="carousel_kebab"
         ref={carouselRef}
@@ -265,7 +271,7 @@ export default function pers_KebabPage() {
             Mit allem
           </label>
         </div>
-     
+
         <div className="content-container">
           <div className="second-container">
             <div className="additional-options">
@@ -294,7 +300,9 @@ export default function pers_KebabPage() {
                     src={`/assets/${option.toLowerCase()}.png`}
                     alt={option}
                   />
-                  <p>{option} {selectedIngredients.includes(option) ? "✔️" : ""} </p>
+                  <p>
+                    {option} {selectedIngredients.includes(option) ? "✔️" : ""}{" "}
+                  </p>
                 </div>
               ))}
             </div>
@@ -352,13 +360,14 @@ export default function pers_KebabPage() {
                     src={`/assets/${option.toLowerCase()}.png`}
                     alt={option}
                   />
-                  <p>{option}  </p>
+                  <p>{option} </p>
                 </div>
               ))}
             </div>
           </div>
         </div>
-        <p className="sauce-title"
+        <p
+          className="sauce-title"
           style={{
             color: "rgba(255, 255, 255, 0.91)",
             backgroundColor: "rgba(0, 0, 0, 0.78)",
@@ -371,7 +380,6 @@ export default function pers_KebabPage() {
             marginRight: "auto",
             marginBottom: "-15px",
             border: "3px solid rgb(255, 255, 255)",
-            
           }}
         >
           Saucen

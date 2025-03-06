@@ -69,7 +69,6 @@ body {
 }
 
 .kebab-photo {
-  
   background-color: rgba(0, 0, 0, 0.623);
   display: flex;
   justify-content: center;
@@ -77,12 +76,11 @@ body {
   border-radius: 15px;
   scale: 0.8;
   width: 50%; /* Adjust width to be narrower */
-   /* Center the box */
-   z-index: 1000;
+  /* Center the box */
+  z-index: 1000;
 }
 
 .kebab-photo img {
-  
   max-width: 100%;
   height: auto;
   border-radius: 15px;
@@ -139,16 +137,13 @@ body {
 }
 
 .kebab-details h3 {
-  
   font-size: 24px;
   width: 80px;
-  
 }
 
 .kebab-details p {
   margin: 5px 0 0;
   font-size: 20px;
-  
 }
 
 @keyframes fadeIn {
@@ -243,7 +238,7 @@ body {
   gap: 20px;
   justify-content: center;
   margin: 0px auto;
-  
+
   background-color: rgba(0, 0, 0, 0);
   padding: 20px;
   border-radius: 15px;
@@ -252,7 +247,6 @@ body {
   min-width: 20vw;
   width: 100%; /* Adjust width to take remaining space */
   height: 100%; /* Ensure both containers take full height */
-  
 }
 
 .sauces-grid {
@@ -298,10 +292,6 @@ body {
   border-radius: 10px;
 }
 
-
-
-
-
 .sauce-item.selected p {
   display: block;
   background: #313131c9;
@@ -344,7 +334,6 @@ body {
 }
 .additional-option {
   margin-bottom: 60px;
-    
 }
 
 .ingredient-item img,
@@ -383,7 +372,6 @@ body {
 
 .ingredient-item.selected p,
 .additional-option.selected p {
-  
   background: #313131c9;
   color: white;
 }
@@ -454,13 +442,11 @@ body {
 }
 
 .pers_Kebab.carousel-button {
-  width: 50px ; /* Gleiche Breite für beide Buttons */
+  width: 50px; /* Gleiche Breite für beide Buttons */
   height: 50px;
   border-radius: 50%;
   font-size: 1.2rem; /* Falls Text im Button enthalten ist */
-
 }
-
 
 .pers_Kebab.carousel-button.prev {
   left: 55px !important ; /* Position the previous button to the left */
@@ -491,7 +477,6 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
- 
 }
 
 .carousel_kebab-preview.move-in {
@@ -590,7 +575,7 @@ body {
   height: 25vh; /* Further reduce height */
   gap: 40px;
 }
-.ingredients-grid{
+.ingredients-grid {
   margin-left: 60px;
   margin-right: 60px;
 }
@@ -608,10 +593,10 @@ body {
   justify-content: center;
   height: 120%; /* Ensure all containers take full height */
 }
-.second-container{
+.second-container {
   border: #a6ff00a8 solid 5px;
 }
-.third-container{
+.third-container {
   border: red solid 5px;
 }
 
@@ -661,7 +646,6 @@ body {
 .additional-option.selected {
   border-color: #a6ff00;
   color: white;
-  
 }
 
 .additional-option.selected p {
@@ -679,7 +663,6 @@ body {
 .additional-option p {
   margin: 10px 0 0;
   color: white;
-  
 }
 
 .additional-option:hover {
@@ -696,8 +679,6 @@ body {
   background: #313131c9;
   color: white;
 }
-
-
 
 .additional-option.scharf.selected,
 .additional-option.sehr-scharf.selected {
@@ -755,7 +736,7 @@ body {
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   height: 12vh; /* Further reduce height */
-  border: rgb(206, 206, 206) solid 5px ;
+  border: rgb(206, 206, 206) solid 5px;
 }
 
 .sauce-item {
@@ -770,7 +751,6 @@ body {
   cursor: pointer;
   transition: all 0.2s ease;
   justify-content: center; /* Center image */
- 
 }
 
 .sauce-item img {
@@ -779,7 +759,6 @@ body {
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  
 }
 
 .sauce-item p {
@@ -802,11 +781,11 @@ body {
   background: #313131c9;
   color: white;
 }
-.hotness{
+.hotness {
   background-color: rgba(0, 0, 0, 0.7);
   color: red;
 }
-.body-grid{
+.body-grid {
   margin-top: 50px;
 }
 /* ====== RESPONSIVE DESIGN ====== */
@@ -821,45 +800,41 @@ body {
   .carousel-button {
     display: none;
   }
- 
+
   .carousel_kebab {
     margin-top: -100px !important;
     scale: 0.7;
   }
- .kebab-details{
-  margin-top: 30px !important;
-  margin-bottom: -50px;
- 
-}
+  .kebab-details {
+    margin-top: 30px !important;
+    margin-bottom: -50px;
+  }
   .pers_Kebab.carousel-button.next {
     display: none;
-
   }
 
   .pers_kebab carousel-button prev {
-    display: none ;
+    display: none;
   }
- 
 
- .ingredients-grid{
-  min-width: 90vw;
-  margin-left: -100px;
-  margin-right: -100px;
-  min-height: 35vh;
- 
-}
-  .sauce-title{
+  .ingredients-grid {
+    min-width: 90vw;
+    margin-left: -100px;
+    margin-right: -100px;
+    min-height: 35vh;
+  }
+  .sauce-title {
     margin-top: 80px;
   }
-  .sauce-item  {
+  .sauce-item {
     width: 100px;
     height: 90px;
   }
   .sauces-grid {
-  scale: 0.9;
+    scale: 0.9;
   }
   .second-container,
-  .third-container{
+  .third-container {
     justify-content: center;
     align-items: center;
     min-height: 70vh;
@@ -879,28 +854,24 @@ body {
   .additional-option.sehr-scharf:hover {
     background-color: transparent;
   }
-  .additional-option{
+  .additional-option {
     scale: 0.8;
     max-height: fit-content;
     padding: 5px 5px 5px 5px;
     align-items: center;
     justify-content: center;
     text-align: center;
-
   }
-  .body-grid{
+  .body-grid {
     scale: 0.6;
     margin-top: -40px;
     font-weight: 700;
-    overflow:visible;
+    overflow: visible;
   }
   .add-to-cart_pers {
-    
     position: center;
     bottom: -20px !important;
   }
-
-    
 }
 
 .add-to-cart_pers {
@@ -919,3 +890,22 @@ body {
 .add-to-cart_pers:hover {
   background-color: #28a745;
 }
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* Ensure the video is behind other content */
+}
+
+.video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.glutanimnation {
+  z-index: 10000;
+ }
