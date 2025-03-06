@@ -183,7 +183,7 @@ export default function pers_KebabPage() {
           className="pers_kebab carousel-button prev"
           style={{
             top: "60px",
-            left: "550px",
+            left: "40vw",
             opacity: "0.7",
             height: "100px",
             width: "100px",
