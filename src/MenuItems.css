@@ -581,8 +581,7 @@
   scale: 0.9;
 }
 .menu-content {
+  display: flex;
   margin-top: 65px;
+  z-index: 1000 !important;
 }
-.glutanimnation {
-  z-index: 10000;
- }

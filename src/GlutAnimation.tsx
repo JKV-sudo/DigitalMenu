@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import "./GlutAnimation.css";
 
 // Interface für AshParticle (optional, aber nützlich)
 interface AshParticleInterface {
@@ -112,7 +113,7 @@ const GlutAnimation: React.FC = () => {
 
       const rotationFactor = Math.cos(this.rotationZ);
       const red = 255 - Math.abs(rotationFactor) * 80;
-      const green = 1 + Math.abs(rotationFactor) * 80 ;
+      const green = 1 + Math.abs(rotationFactor) * 80;
       const blue = 1 + Math.abs(rotationFactor) * 30;
 
       ctx.beginPath();
@@ -179,7 +180,11 @@ const GlutAnimation: React.FC = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} />;
+  return (
+    <div className="glut-animation-container">
+      <canvas ref={canvasRef} />
+    </div>
+  );
 };
 
 export default GlutAnimation;

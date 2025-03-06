@@ -1,0 +1,9 @@
+.glut-animation-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000; /* Ensure the animation is above the video but below the menu items */
+  pointer-events: none; /* Allow clicks to pass through */
+}

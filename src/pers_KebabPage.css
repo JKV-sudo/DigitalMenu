@@ -56,7 +56,7 @@ body {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1000;
+  z-index: 10000000;
   background-color: rgba(255, 255, 255, 0);
   padding: 10px;
   border-radius: 50%;
@@ -787,6 +787,7 @@ body {
 }
 .body-grid {
   margin-top: 50px;
+  z-index: 10;
 }
 /* ====== RESPONSIVE DESIGN ====== */
 /* Medium screens (tablets) */
@@ -904,8 +905,8 @@ body {
 .video-background video {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  
 }
 .glutanimnation {
-  z-index: 10000;
+  z-index: 10;
  }

@@ -58,7 +58,16 @@ const LayoutContent: FC<MenuLayoutProps> = ({ children, backgroundImage }) => {
         />
       </Link>
 
-      <GlutAnimation />
+      <div className="video-background">
+        <video autoPlay loop muted playsInline>
+          <source src="/assets/test.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div className="glut-animation-container">
+        <GlutAnimation />
+      </div>
 
       <main className="menu-content">{children}</main>
     </div>
