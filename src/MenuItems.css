@@ -63,6 +63,7 @@
   flex-direction: column;
   justify-content: space-between; /* Ensure space between elements */
   align-items: center; /* Center elements horizontally */
+  
 }
 
 .menu-item-details h3 {
@@ -85,6 +86,7 @@
   list-style-type: none;
   width: 100%;
   padding: 5px 10px;
+ 
   margin: 10px 0 20px 0; /* Add bottom margin to create space for the button */
   height: auto; /* Adjust height to fit content */
   overflow-y: auto; /* Show scrollbar when content overflows */
@@ -126,6 +128,7 @@
   flex-wrap: wrap; /* Allow items to wrap to the next line */
   justify-content: center; /* Center items horizontally */
   list-style-type: none;
+  
   width: 250px;
   padding: 5px 0px;
   margin: 10px 0 20px 0; /* Add bottom margin to create space for the button */
