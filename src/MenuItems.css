@@ -419,7 +419,7 @@
 }
 
 .grill-menu .carousel-button.prev {
-  left: 35px; /* Position the previous button to the left */
+  left: 30px; /* Position the previous button to the left */
   height: 170px; /* Adjust height as needed */
   margin-top: 10px;
   border-radius: 15px 0 0 15px; /* Adjust border radius */
@@ -432,7 +432,7 @@
 }
 
 .grill-menu .carousel-button.next {
-  right: 35px; /* Position the next button to the right */
+  right: 30px; /* Position the next button to the right */
   height: 170px;
   margin-top: 10px;
   border-radius: 0px 15px 15px 0px; /* Adjust border radius */
