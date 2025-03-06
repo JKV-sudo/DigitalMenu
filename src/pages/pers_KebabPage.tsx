@@ -172,7 +172,6 @@ export default function pers_KebabPage() {
 
   return (
     <MenuLayout backgroundImage="/assets/kebab_background.jpg">
-   
       <div
         className="carousel_kebab"
         ref={carouselRef}
@@ -183,8 +182,8 @@ export default function pers_KebabPage() {
           onClick={() => handleKebabChange("prev")}
           className="pers_kebab carousel-button prev"
           style={{
-            top: "20%",
-            left: "25vw",
+            top: "60px",
+            left: "550px",
             opacity: "0.7",
             height: "100px",
             width: "100px",
@@ -214,8 +213,8 @@ export default function pers_KebabPage() {
           onClick={() => handleKebabChange("next")}
           className="pers_kebab carousel-button next"
           style={{
-            top: "20%",
-            right: "25vw",
+            top: "60px",
+            left: "550px",
             opacity: "0.7",
             height: "100px",
             width: "100px",
