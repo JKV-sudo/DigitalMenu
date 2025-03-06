@@ -171,7 +171,7 @@ export default function pers_KebabPage() {
   };
 
   return (
-    <MenuLayout backgroundImage="/assets/kebab-bg.webp">
+    <MenuLayout backgroundImage="/assets/kebab-bgg.webp">
       <div
         className="carousel_kebab"
         ref={carouselRef}
