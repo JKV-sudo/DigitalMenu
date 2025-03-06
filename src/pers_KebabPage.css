@@ -329,7 +329,7 @@ body {
   height: 80px; /* Further reduce height */
   display: flex; /* Center image */
   align-items: center; /* Center image */
-  justify-content: space-between; /* Center image */
+  justify-content: center; /* Center image */y; /* Center image */
   border: 5px solid transparent; /* Maintain size when selected */
 }
 .additional-option {
@@ -572,9 +572,9 @@ body {
 
 .content-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-top: -20px;
-  height: 25vh; /* Further reduce height */
+  height: 20vh; /* Further reduce height */
   gap: 40px;
 }
 .ingredients-grid {
@@ -593,7 +593,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 120%; /* Ensure all containers take full height */
+  height: 100%; /* Ensure all containers take full height */
 }
 .second-container {
   border: #a6ff00a8 solid 5px;
@@ -840,7 +840,6 @@ body {
   .third-container {
     justify-content: center;
     align-items: center;
-    min-height: 70vh;
   }
   .sauce-item:hover {
     background-color: transparent;
