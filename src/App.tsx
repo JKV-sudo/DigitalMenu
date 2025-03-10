@@ -19,6 +19,7 @@ import CartPage from "./pages/CartPage";
 import JKV from "./jkv";
 import PersKebabPage from "./pages/pers_KebabPage";
 import Footer from "./pages/Footer";
+import Rechtliches from "./pages/Rechtliches";
 // 🔥 Firebase Imports
 import { auth } from "./firebase";
 import { signInAnonymously, onAuthStateChanged, User } from "firebase/auth";
@@ -32,7 +33,6 @@ interface MenuOption {
 
 // 🔥 Hauptmenü-Optionen:
 const mainMenuOptions: MenuOption[] = [
-  
   {
     label: "Smash-Burger",
     value: "burger",
@@ -49,9 +49,8 @@ const mainMenuOptions: MenuOption[] = [
     label: "Desserts & Beilagen",
     value: "grill",
     className: "grill",
-    img: "/assets/grill.jpg" ,
+    img: "/assets/grill.jpg",
   },
- 
 ];
 
 // 🔥 Firebase Auth-Handling (Anonyme Anmeldung)
@@ -143,8 +142,8 @@ function MainMenu() {
         </Link>
       </header>
       <div>
-      <Footer />
-    </div>
+        <Footer />
+      </div>
       <Link
         to="/"
         className="logoHome"
@@ -153,8 +152,6 @@ function MainMenu() {
       >
         <img src="/assets/Logo.png" alt="Zurück zur Startseite" />
       </Link>
-
- 
 
       <div className="body-container">
         <main className="content">
@@ -169,7 +166,7 @@ function MainMenu() {
           />
         </div>
       </div>
-     
+
       <Link
         to="/"
         className="logoHome"
@@ -179,7 +176,6 @@ function MainMenu() {
         <img src="/assets/Logo2.png" alt="Zurück zur Startseite" />
       </Link>
     </div>
-   
   );
 }
 
@@ -196,8 +192,9 @@ export default function App() {
         <Route path="*" element={<MainMenu />} />
         <Route path="/pers_KebabPage" element={<PersKebabPage />} />
         <Route path="/admin/orders" element={<AdminOrders />} />
-        
+        <Route path="/rechtliches" element={<Rechtliches />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

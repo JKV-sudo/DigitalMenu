@@ -8,9 +8,7 @@ export default function Footer() {
       <div className="footer-container">
         <p>© {new Date().getFullYear()} Master Döner – Alle Rechte vorbehalten</p>
         <nav>
-          <Link to="/impressum">Impressum </Link>
-          <Link to="/datenschutz">Datenschutz </Link>
-          <Link to="/agb">AGB </Link>
+          <Link to="/rechtliches">Impressum & Datenschutzerklärung </Link>
           <Link to="/vision"> <span>Split/Vision</span> </Link>
         </nav>
       </div>
