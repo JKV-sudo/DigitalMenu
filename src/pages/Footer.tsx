@@ -9,7 +9,7 @@ export default function Footer() {
         <p>© {new Date().getFullYear()} Master Döner – Alle Rechte vorbehalten</p>
         <nav>
           <Link to="/rechtliches">Impressum & Datenschutzerklärung </Link>
-          <Link to="/vision"> <span>Split/Vision</span> </Link>
+          <Link to="/vision"> <span className="vision">Split/Vision</span> </Link>
         </nav>
       </div>
     </footer>
