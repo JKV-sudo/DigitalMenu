@@ -142,7 +142,19 @@ function MainMenu() {
           />
         </Link>
       </header>
-
+      <div>
+      <footer className="footer">
+        <div className="footer-content"> 
+          <p>© 2025 Master Döner. Alle Rechte vorbehalten.</p>
+          <p>Powered by Split Vision</p>
+          <p>Impressum</p>
+          <p>Datenschutzerklarung</p>
+          <p>AGB</p>
+          
+        </div>
+        
+        </footer>
+    </div>
       <Link
         to="/"
         className="logoHome"
@@ -152,16 +164,7 @@ function MainMenu() {
         <img src="/assets/Logo.png" alt="Zurück zur Startseite" />
       </Link>
 
-      <div className="qr">
-        <Link to="/jkv">
-          <img
-            src="/assets/Logo_1_JKV.png"
-            width={150}
-            height={100}
-            alt="JKV SoftwareSolutions"
-          />
-        </Link>
-      </div>
+ 
 
       <div className="body-container">
         <main className="content">
@@ -176,7 +179,7 @@ function MainMenu() {
           />
         </div>
       </div>
-
+     
       <Link
         to="/"
         className="logoHome"
@@ -186,6 +189,7 @@ function MainMenu() {
         <img src="/assets/Logo2.png" alt="Zurück zur Startseite" />
       </Link>
     </div>
+   
   );
 }
 
