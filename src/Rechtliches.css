@@ -1,0 +1,57 @@
+body {
+       overflow: scroll;
+    }
+.rechtliches {
+    background-color: black;
+    opacity: 0.9;
+    overflow: auto;
+    padding: 20px;
+    color: white;
+    font-family: Arial, sans-serif;
+    
+  }
+  
+  .rechtliches .logoHome {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .rechtliches .logo {
+    max-width: 120px;
+    height: auto;
+  }
+  
+  .rechtliches h1, .rechtliches h2, .rechtliches h3 {
+    color: orange;
+  }
+  
+  .rechtliches p {
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  
+  .rechtliches a {
+    color: #ff9900;
+    text-decoration: none;
+  }
+  
+  .rechtliches a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Mobile-Optimierung */
+  @media (max-width: 768px) {
+    .rechtliches {
+      padding: 10px;
+    }
+  
+    .rechtliches h1, .rechtliches h2 {
+      font-size: 18px;
+    }
+  
+    .rechtliches p {
+      font-size: 14px;
+    }
+  }
+  
