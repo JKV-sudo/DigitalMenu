@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { db, auth } from "../firebase";
-import { collection, getDocs, doc, getDoc, updateDoc, deleteDoc } from "firebase/firestore";
+import { collection, onSnapshot,getDoc, doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import "../AdminPanel.css";
 
@@ -19,7 +19,7 @@ interface Order {
 export default function AdminOrders() {
   const [orders, setOrders] = useState<Order[]>([]);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   const LOCAL_ADMIN_UID = "P2dOECIAkVMaq3necemEfmaPUdH3"; // 🔥 Lokale Admin-UID als Fallback
@@ -35,7 +35,6 @@ export default function AdminOrders() {
 
         console.log("🔍 Eingeloggte UID:", user.uid);
 
-        // 🔥 Prüfe zuerst Firestore, ob der User Admin ist
         try {
           const adminRef = doc(db, "admins", user.uid);
           const adminSnap = await getDoc(adminRef);
@@ -71,33 +70,28 @@ export default function AdminOrders() {
   useEffect(() => {
     if (!isAdmin) return;
 
-    const fetchOrders = async () => {
-      setLoading(true);
-      const ordersCollection = collection(db, "orders");
-      const orderSnapshot = await getDocs(ordersCollection);
-      const orderList = orderSnapshot.docs.map(doc => ({
+    // 📡 Echtzeit-Listener für Bestellungen (onSnapshot)
+    const unsubscribe = onSnapshot(collection(db, "orders"), (snapshot) => {
+      const newOrders = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       })) as Order[];
-      setOrders(orderList);
+      setOrders(newOrders);
       setLoading(false);
-    };
+      console.log("🔄 Live-Update: Bestellungen aktualisiert!");
+    });
 
-    fetchOrders();
+    return () => unsubscribe(); // Cleanup, um Speicherprobleme zu vermeiden
   }, [isAdmin]);
 
   const updateStatus = async (orderId: string, newStatus: string) => {
     if (!window.confirm(`Möchtest du diesen Auftrag als "${newStatus}" markieren?`)) return;
     await updateDoc(doc(db, "orders", orderId), { status: newStatus });
-    setOrders(prevOrders =>
-      prevOrders.map(order => (order.id === orderId ? { ...order, status: newStatus } : order))
-    );
   };
 
   const deleteOrder = async (orderId: string) => {
     if (!window.confirm("❌ Möchtest du diese Bestellung wirklich löschen?")) return;
     await deleteDoc(doc(db, "orders", orderId));
-    setOrders(prevOrders => prevOrders.filter(order => order.id !== orderId));
   };
 
   if (loading) return <p>⏳ Adminrechte werden überprüft...</p>;
@@ -105,7 +99,7 @@ export default function AdminOrders() {
 
   return (
     <div className="admin-container">
-      <h1>✅ Admin Panel – Bestellungen</h1>
+      <h1>✅ Admin Panel – Live Bestellungen</h1>
       {orders.length === 0 ? (
         <p>Keine Bestellungen gefunden.</p>
       ) : (
