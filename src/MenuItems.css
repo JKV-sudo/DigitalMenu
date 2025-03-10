@@ -500,12 +500,13 @@
     padding: 10px;
   }
   .burger-menu {
-    zoom: 0.6;
+    zoom: 0.5;
   }
   .grill-menu {
     gap: 0px;
     margin: auto;
     margin-top: -60px;
+    zoom: 0.7;
   }
   .menu-item {
     max-width: 250px;
