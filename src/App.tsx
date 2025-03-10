@@ -18,7 +18,7 @@ import BurgerPage from "./pages/BurgerPage";
 import CartPage from "./pages/CartPage";
 import JKV from "./jkv";
 import PersKebabPage from "./pages/pers_KebabPage";
-
+import Footer from "./pages/Footer";
 // 🔥 Firebase Imports
 import { auth } from "./firebase";
 import { signInAnonymously, onAuthStateChanged, User } from "firebase/auth";
@@ -143,17 +143,7 @@ function MainMenu() {
         </Link>
       </header>
       <div>
-      <footer className="footer">
-        <div className="footer-content"> 
-          <p>© 2025 Master Döner. Alle Rechte vorbehalten.</p>
-          <p>Powered by Split Vision</p>
-          <p>Impressum</p>
-          <p>Datenschutzerklarung</p>
-          <p>AGB</p>
-          
-        </div>
-        
-        </footer>
+      <Footer />
     </div>
       <Link
         to="/"
